@@ -1,0 +1,287 @@
+<!-- <div class="topnav" id="myTopnav">
+  <label>
+  <img class ="ulogo" src="../assets/img/logo Curve.png" >
+</label>
+
+  <a href="#about">About</a>
+
+  
+  
+  <a (click)="rouerter('/supplierhome','supplierhome','home')" routerLinkActive="active" style="cursor: pointer">Home</a>
+  <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+</div>
+ -->
+ <div class="topnav" id="myTopnav">
+  <label>
+  <img class ="ulogo" src="../assets/img/logo Curve.png" >
+</label>
+
+
+ 
+<!--  
+<div  *ngIf="!this.User_id" class="dropdown">
+  <button class="dropbtn" (click)="rouerter('/login','uniforms','customer')"><i class="fa fa-sign-in"></i> Login</button>
+  </div>
+  <div  *ngIf="this.User_id" class="dropdown">
+    <button class="dropbtn" (click)="LogOut()"><i class="fa fa-sign-out"></i> LogOut</button>
+    </div> -->
+ 
+   
+  
+  <div class="dropdown">
+    <button class="dropbtn"><i class="fa fa-info-circle" aria-hidden="true"></i>About Us 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <button class="drop" (click)="rouerter('/contact','uniforms','customer')" style="width: 100%;border: none;background: none;" routerLinkActive="active"> <i class="fa fa-fw fa-envelope" style="padding-right: 30px;"></i>Contact Us</button>
+      <button class="drop"  (click)="rouerter('/terms','uniforms','supplier')" style="width: 100%;border: none;background: none;"routerLinkActive="active" > <i class="fa fa-gavel" style="padding-right: 10px;"></i>Terms And Conditions</button>
+      <button class="drop"  (click)="rouerter('/privacy','uniforms','supplier')" style="width: 100%;border: none;background: none;"routerLinkActive="active" >  <i class="fa fa-user-secret" style="padding-right: 10px;"></i>Privacy And Policy</button>
+    </div>
+  </div> 
+  
+
+
+  <div   class="dropdown">
+    <button class="dropbtn" (click)="rouerter('/home','uniforms','customer')"><i class="fa fa-fw fa-home"></i> Home</button>
+    </div>
+  
+    
+
+
+
+<input type="text" value="Conform Your Uniform" hidden>
+  
+  <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+ 
+  <input type="text" value="Conform Your Uniform" hidden>
+</div>
+<input type="text" value="Conform Your Uniform" hidden>
+<input type="text" value="Conform Your Uniform" hidden>
+
+
+
+
+
+<ul class="breadcrumb">
+  <li><a (click)="rouerter('/home','supplierhome','home')" routerLinkActive="active" style="cursor: pointer">Home</a></li>
+  <li ><a  routerLinkActive="active">Labours and Technicians  List </a>
+   
+  </li>
+
+ 
+</ul>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+     <h2 class="recentheading" ><i  class="fa fa-list-alt"></i>LABOURS & TECHNICIANS  &nbsp;({{this.ProdList?.length}})</h2>
+   </div>
+   <div class="col-md-6">
+    <div class="form-group has-search" style="float: right;padding-bottom: 5px;" >
+      <span class="fa fa-search form-control-feedback"></span>
+      <input style="border-radius: 20px;"   [(ngModel)]="username" class="form-control" id="myInput" type="text" placeholder="Type your User Id" >
+    </div><br><br>
+    
+  
+    
+     
+   </div>
+   <div class="col-md-12" style="    margin-top: -18px;
+   margin-bottom: 10px;">
+   <button type="button" class="btn btn-success"  (click) = "show()"  style="float: right;width: 19% !important;"  >Change Labour Status</button>
+  </div>
+ </div>
+ <div class="bordersed" style="border-bottom: 1px solid lightgrey;">
+</div>
+<div class="container" style="padding-top: 21px;">
+  <div class="row">
+    
+    <div class="col-md-6"style="padding-top: 20px !important;" >
+      <div class="select" style="float: left;">
+        <select name="slct" id="slct" (change)="Onchange($event.target.value)">
+          <option  disabled>Sort By </option>
+          <option value="all">All</option>
+          <option   selected value="active">Active Labours</option>
+       
+        </select>
+      
+      </div>
+           
+      </div>
+
+  <div class="col-md-6" style="padding-top: 20px !important;">
+    <div class="form-group has-search" style="float: right;">
+      <span class="fa fa-search form-control-feedback"></span>
+      <input style="border-radius: 20px;"  [(ngModel)]="searchword" (input)="searchThis()"  class="form-control" id="myInput" type="text" placeholder="Search by Work Type" >
+    </div>
+  
+    <br>
+    <br>
+  </div>
+</div>
+
+
+  
+
+
+
+
+
+</div>
+  <!-- <div class="row">
+    <div class="col-md-8">
+      <div class="row">
+        <div class="col-md-4" style="padding-left: 146px;
+        padding-top: 11px;">
+             <span><i class="fa fa-search"></i>Search By:</span> 
+        </div>
+        <div class="col-md-4">
+          <input style="border-radius: 20px;"  [(ngModel)]="searchword" (input)="searchThis()"  class="form-control" id="myInput" type="text" placeholder="Search by...." >
+        </div>
+      </div>
+      
+     
+     
+   
+
+    </div>
+    <div class="col-md-4 mb-4">
+     <span><i class="fa fa-filter"></i>Sort By:</span> 
+     <select   (change)="Onchange($event.target.value)">
+      <option value="all">All</option>
+       <option value="active">Active Labours</option>
+      
+      
+
+     </select>
+
+    
+
+   
+    </div>
+  </div> -->
+  <div class="container" *ngIf="this.ProdList.length==0"  class="mt-5">
+<h3 style="text-align: center;">No items Found</h3>
+  </div>
+<!-- 
+  <div class="card mb-4 mt-5" *ngFor="let item of this.ProdList;let i index">
+  
+    <div class="card-body">
+      <h2 class="card-title">{{item['work_type']}}</h2>
+      <p class="card-text"><i class="fa fa-user"></i>{{item['cutsomer_name']}}&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-map-marker"></i>{{item['place']}} , {{item['district']}} , {{item['state']}}</p>
+      <p class="card-text"><a target="_blank" [href]="'https://mail.google.com/mail/?view=cm&fs=1&tf=1&to='+item['email']+'&body=Hello from Uniconform '"><i class="fa fa-envelope"></i>{{item['email']}}</a>&nbsp;&nbsp;&nbsp;&nbsp; <a target="_blank" [href]="'tel:'+item['phone']"><i class="fa fa-phone"></i>{{item['phone']}}</a></p>
+      <p class="card-text"><i class="fa fa-male"></i>{{item['gender']}}</p>
+      
+    </div>
+    <div class="card-footer text-muted text-center">
+      
+    </div>
+  </div> -->
+
+</div>
+
+<div class="container">
+  <div class="b1">
+     
+      <br>
+      <br>
+      
+  </div>
+ 
+
+  <br> 
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th> Name</th>
+ 
+        <th>gender</th>
+        <th>Place</th>
+        <th>Phone1</th>
+        <th>Phone2</th>
+        <th>Email</th>
+        <th>Work</th>
+        <th>Contact</th>
+        <th>Email</th>
+        <th>Status</th>
+       
+       
+      </tr>
+    </thead>
+    <tbody id="myTable">
+      <tr   *ngFor="let item of this.ProdList;let i index">
+      <td>{{item['lid']}}</td>
+        <td>{{item['cutsomer_name']}}</td>
+        <td>{{item['gender']}}</td>
+        <td>{{item['place']}}</td>
+        <td>{{item['phone']}}</td>
+        <td>{{item['alternate_number']}}</td>
+        <td>{{item['email']}}</td>
+        <td>{{item['work_type']}}</td>
+      
+       
+      
+        <td> <a target="_blank" [href]="'tel:'+item['phone']"><i class="fa fa-phone" aria-hidden="true" ></i> Contact</a> </td>
+        <td> <a target="_blank" [href]="'https://mail.google.com/mail/?view=cm&fs=1&tf=1&to='+item['email']+'&body=Hello from Uniconform '"><i class="fa fa-envelope" aria-hidden="true" ></i> Email</a> </td>
+        <td>{{item['status']}}</td>
+      
+        
+
+      
+      </tr>
+  
+   
+    </tbody>
+  </table>
+</div>
+<div [style.display]="showModal ? 'block' : 'none'" class="modal" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">Change Labour Status</h4>
+      </div>
+      <div class="modal-body">
+        <form role="form" data-toggle="validator" [formGroup]="profileForm">
+        <div class="form-group" *ngIf=" this.Status=='Active'">
+          <label for="exampleFormControlSelect1"> I  Dont Need a Job &nbsp; &nbsp;&nbsp;</label>
+          <label class="switch" style="padding-right: 50px;">
+              <input type="checkbox" (change)="canBeEditable1($event.target.checked)" formControlName="status">
+              <span class="slider round"></span>
+            </label>
+        </div>
+        <div class="form-group" *ngIf=" this.Status=='DeActive'">
+          <label for="exampleFormControlSelect1"> I Need a Job &nbsp; &nbsp;&nbsp;</label>
+          <label class="switch" style="padding-right: 50px;">
+              <input type="checkbox" (change)="canBeEditable2($event.target.checked)" formControlName="status">
+              <span class="slider round"></span>
+            </label>
+        </div>
+      </form>
+        <!-- <img src="{{this.Image}}" id="imagepreview" style="width: 425px; height: 425px;" > -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click) = "CustomerSave()">submit</button>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  
+
+<div *ngIf="this.Loader" class="loading">Loading&#8230;</div>
+
+
+<footer class="page-footer font-small blue">
+  
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3" >© 2020 Copyright:All Right Reserved &nbsp;&nbsp;&nbsp;
+    <a style="padding-right: 5px; cursor: pointer;"(click)="rouerter('/terms','uniforms','supplier')" >Terms of Use - </a>
+    <a style="cursor: pointer;"(click)="rouerter('/privacy','uniforms','supplier')" >Privacy Policy - </a>
+    <a style="cursor: pointer;"(click)="rouerter('/contact','uniforms','supplier')" >Link to Us</a>
+  </div>
+
+ 
+  <!-- Copyright -->
+
+</footer>

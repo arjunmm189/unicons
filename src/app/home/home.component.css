@@ -1,0 +1,1160 @@
+@import url(https://fonts.googleapis.com/css?family=PT+Sans);
+.dropdown-content .drop:hover {
+  cursor: pointer;
+  color: #007e56;
+  }
+/* .ulogo{
+  float: left; 
+  width: 168px;
+  height: 45px;
+  margin-left: 35px;
+  padding-top: 5px;
+}
+.topnav {
+  box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+  position: fixed;
+   width: 100%;
+   z-index:1; 
+  top: 0px;
+   
+    background-color: #ffffff;
+  } */
+
+  .s1{
+    width: 100% !important;
+    height: 32rem !important;
+  }
+  
+  .col-md-6 button:hover{
+    text-decoration: underline;
+   
+    color: #007e56;
+  }
+.card-body a:hover{
+  text-decoration: underline;
+}
+.footer-copyright a:hover{
+  text-decoration: underline;
+}
+  .topnav {
+    box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+    position: fixed;
+     width: 100%;
+     z-index:1; 
+    top: 0px;
+     
+      background-color: #ffffff;
+    } 
+  .ulogo{
+    float: left; 
+    width: 307px;
+    height: 75px;
+    margin-left: 35px;
+    padding-top: 10px;
+  }
+  .topnav a {
+    float: right;
+    display: block;
+    color:black;
+    text-align: center;
+    padding: 20px 16px;
+    text-decoration: none;
+    font-size: 20px;
+   
+    }
+    
+    .active {
+    
+    color: #007e56;
+    }
+    
+    .topnav .icon {
+    display: none;
+    }
+    
+    .dropdown {
+    float: right;
+    position: relative;
+    z-index: 2;
+    }
+    
+    .dropdown .dropbtn {
+      text-transform: uppercase;
+      font-size: 16px;
+   
+    border: none;
+    outline: none;
+    color: black;
+    padding: 20px 16px;
+    background-color: #ffffff;
+    font-family: inherit;
+    margin: 0;
+    }
+    .dropdown-content .drop {
+     
+      font-size: 15px;
+  
+    }
+    .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    min-width: 260px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: -1;
+    }
+    
+    .dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    }
+    .dropdown-content button {
+      text-transform: uppercase;
+      font-size: 16px;
+      float: none;
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      text-align: left;
+      }
+    .dropdown-content .drop {
+      float: none;
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      text-align: left;
+      }
+    .topnav a:hover, .dropdown:hover .dropbtn {
+    cursor: pointer;
+    color:#007e56;
+    }
+    
+    .dropdown-content a:hover {
+    cursor: pointer;
+    color: #007e56;
+    }
+    .dropdown:hover .dropdown-content {
+    display: block;
+    z-index: auto;
+    }
+  .card a{
+    color: #007e56;
+  }
+  .footer-copyright a{
+    color: #007e56;
+  }
+  
+  
+  .card{
+    border-radius: 4px;
+    background: #fff;
+    font-weight: 600;
+    margin: 14px;
+    /* align-items: center; */
+    text-align: center;
+    box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
+      transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+ margin-left: 20px;
+  cursor: pointer;
+  margin-bottom: 16px;
+  
+}
+
+.card:hover{
+     transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+}
+.card-body{
+  font-size: 15px;
+}
+.regular-div{
+  /* margin-top: 20%; */
+  /* background-image: url(https://www.instamojo.com/wp-content/uploads/2020/04/banne_bg.svg)!important; */
+}
+
+.card1{
+  background: #fff;
+    box-shadow: 0 1px 2px #a29f9f;
+  border-radius: 4px;
+  background: #fff;
+  font-weight: 600;
+  margin: 14px;
+  /* align-items: center; */
+  text-align: center;
+  /* box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05); */
+    transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+margin-left: 20px;
+cursor: pointer;
+margin-bottom: 16px;
+
+}
+
+.card1:hover{
+   transform: scale(1.01);
+box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+}
+.name .companyname .companyaddress .phone{
+font-size: 14px;
+}
+.price{
+  font-size: 25px;
+}
+.card-body1 .btn :hover{
+  opacity: .5;
+  color: black;
+}
+.imgs{
+  width: 20rem;
+height: 19rem;
+padding: 10px;
+}
+.imges{
+  width: 15rem;
+  height: 14rem;
+padding: 10px;
+}
+.companyaddress {
+  font-weight: 100;
+}
+.phone{
+  font-weight: 100;
+}
+.companyname .companyaddress .phone .price{
+  font-weight: 100;
+}
+.card1{
+  width: 20rem;height: 32rem;
+}
+.prodnme:hover{
+  
+  text-decoration: none;
+}
+.prodnme{
+  color: green;
+}
+.companyname .companyaddress .phone .price{
+  display: inline-block;
+  width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: green;
+}
+
+
+
+
+/* Loder strts here */
+/* Absolute Center Spinner */
+.loading {
+  position: fixed;
+  z-index: 999;
+  height: 2em;
+  width: 2em;
+  overflow: show;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+/* Transparent Overlay */
+.loading:before {
+  content: '';
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+    background: radial-gradient(rgba(20, 20, 20,.8), rgba(0, 0, 0, .8));
+
+  background: -webkit-radial-gradient(rgba(20, 20, 20,.8), rgba(0, 0, 0,.8));
+}
+
+/* :not(:required) hides these rules from IE9 and below */
+.loading:not(:required) {
+  /* hide "loading..." text */
+  font: 0/0 a;
+  color: #007e56;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+
+.loading:not(:required):after {
+  content: '';
+  display: block;
+  font-size: 10px;
+  width: 1em;
+  height: 1em;
+  
+  margin-top: -0.5em;
+  -webkit-animation: spinner 150ms infinite linear;
+  -moz-animation: spinner 150ms infinite linear;
+  -ms-animation: spinner 150ms infinite linear;
+  -o-animation: spinner 150ms infinite linear;
+  animation: spinner 150ms infinite linear;
+  border-radius: 0.5em;
+  -webkit-box-shadow: rgba(255,255,255, 0.75) 1.5em 0 0 0, rgba(255,255,255, 0.75) 1.1em 1.1em 0 0, rgba(255,255,255, 0.75) 0 1.5em 0 0, rgba(255,255,255, 0.75) -1.1em 1.1em 0 0, rgba(255,255,255, 0.75) -1.5em 0 0 0, rgba(255,255,255, 0.75) -1.1em -1.1em 0 0, rgba(255,255,255, 0.75) 0 -1.5em 0 0, rgba(255,255,255, 0.75) 1.1em -1.1em 0 0;
+box-shadow: rgba(255,255,255, 0.75) 1.5em 0 0 0, rgba(255,255,255, 0.75) 1.1em 1.1em 0 0, rgba(255,255,255, 0.75) 0 1.5em 0 0, rgba(255,255,255, 0.75) -1.1em 1.1em 0 0, rgba(255,255,255, 0.75) -1.5em 0 0 0, rgba(255,255,255, 0.75) -1.1em -1.1em 0 0, rgba(255,255,255, 0.75) 0 -1.5em 0 0, rgba(255,255,255, 0.75) 1.1em -1.1em 0 0;
+}
+
+/* Animation */
+
+@-webkit-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-moz-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-o-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+/* Loder ends here */
+
+
+
+
+
+
+/******* media queries ******/
+
+@media screen and (max-width: 1024px) {
+  .ulogo{
+    float: left; 
+    width: 131px;
+    height: 45px;
+    margin-left: 15px;
+    padding-top: 5px;
+  }
+  .s1{
+      width: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .hero-inner{
+    margin-top: 0px;
+  }
+  .imgs{
+    width: 20rem;
+  height: 19rem;
+  padding: 10px;
+  }
+  .imges{
+    width: 9rem;
+  height: 7rem;
+  padding: 10px;
+  }
+  
+  .col-md-6 .viewll{
+    padding-right: 0px !important;
+     
+       }
+       .col-md-6 .head{
+         padding-left: 0px !important;
+          font-size: 13px !important;
+         
+            }
+            .col-md-6 .btn{
+            
+               font-size: 13px !important;
+               margin-top: -40px;
+               margin-right: -24px;
+              
+                 }
+  .ulogo{
+    float: left; 
+    width: 220px;
+    height: 46px;
+    margin-left: 15px;
+    padding-top: 8px;
+  }
+  
+   
+    .s1{
+        width: 100% !important;
+        height: 10rem !important;
+    }
+    .s2{
+      width: 100% !important;
+      height: 10rem !important;
+  }
+  .s3{
+    width: 100% !important;
+    height: 10rem !important;
+}
+  .topnav a:not(:first-child), .dropdown .dropbtn {
+    display: none;
+  
+    color: black;
+  }
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+    
+  .topnav.responsive {
+    /* position: relative; */z-index: 27;
+  }
+  
+  .topnav.responsive .icon {
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  .topnav.responsive .dropdown {float: none;}
+  .topnav.responsive .dropdown-content
+   {
+     position: relative;
+    }
+  .topnav.responsive .dropdown .dropbtn {
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+  .col{
+      width: 100% !important;
+  }
+
+}
+
+@media only screen and (max-width: 600px) {
+  .text-center{ 
+  
+   font-size: 11px;
+  }
+.price{
+  font-size: 19px !important;
+}
+
+  .s1{
+    width: 100% !important;
+    height: 10rem !important;
+  }
+  .s2{
+    width: 100% !important;
+    height: 10rem !important;
+  }
+  .s3{
+    width: 100% !important;
+    height: 10rem !important;
+  }
+  .container{
+    align-items: center;
+    width: 100%;
+     padding-right: 0px; 
+    padding-left: 18px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .row{
+    width: 100%;
+    padding-left: 21px;
+  }
+  .card{
+    width: 47% !important;
+    margin-right: 0px;
+    margin-left: 9px;
+    height: 47% !important;
+    
+  }
+  .card-body{
+    font-size: 13px;
+  }
+  .card-body {
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 0.25rem;
+}
+}
+@media only screen and (min-width:300px) and (max-width: 330px) {
+  .imges{
+    width: 8rem;
+  height: 5rem;
+  padding: 10px;
+  }
+  
+  .container{
+    align-items: center;
+  }
+  .row{
+    width: 100%;
+    padding-left: 21px;
+  }
+  .card{
+    width: 45% !important;
+    margin-right: 0px;
+    margin-left: 12px;
+  }
+  .card-body{
+    font-size: 11px;
+  }
+  .card-body {
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 0.25rem;
+}
+
+}
+@media only screen and (min-width:200px) and (max-width: 300px) {
+  .ulogo{
+    float: left; 
+    width: 181px;
+    height: 46px;
+    margin-left: 15px;
+    padding-top: 8px;
+  }
+  
+  .imges{
+    width: 7rem;
+  height: 5rem;
+  padding: 10px;
+  }
+  .container{
+    align-items: center;
+  }
+  .row{
+    width: 100%;
+    padding-left: 21px;
+  }
+  .card{
+    width: 48% !important;
+    margin-right: 0px;
+    margin-left: 4px;
+  }
+  .card-body{
+    font-size: 10px;
+  }
+  .card-body {
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 0.25rem;
+}
+}
+
+
+@media only screen and (min-width: 600px) {
+
+}
+
+
+@media only screen and (min-width:600px) and (max-width: 767px) {
+ 
+  .container{
+    align-items: center;
+  }
+  .row{
+    width: 100%;
+    padding-left: 21px;
+  }
+  .card{
+    width: 46% !important;
+    margin-right: 0px;
+    margin-left: 25px;
+    height: 50% !important;
+  }
+  .card-body{
+    font-size: 28px;
+  
+  }
+  .card-body {
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 0.25rem;
+}
+}
+
+@media only screen and (min-width:767px) and (max-width: 780px) {
+  .topnav{
+    padding-right: 0px !important;
+  }
+  .imges{
+    width: 20rem;
+  height: 15rem;
+  padding: 10px;
+  }       
+  .container{
+    align-items: center;
+  }
+  .row{
+    width: 100%;
+    padding-left: 21px;
+  }
+  .card{
+    width: 46% !important;
+    margin-right: 0px;
+    margin-left: 25px;
+    height: 50% !important;
+  }
+  .card-body{
+    font-size: 22px;
+  
+  }
+  .card-body {
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 0.25rem;
+}
+}
+
+@media only screen and (min-width:540px) and (max-width: 550px) {
+  .topnav{
+    padding-right: 0px !important;
+  }
+  .imges{
+    width: 15rem;
+  height: 13rem;
+  padding: 10px;
+  }       
+  .container{
+    align-items: center;
+  }
+  .row{
+    width: 100%;
+    padding-left: 21px;
+  }
+  .card{
+    width: 48% !important;
+    margin-right: 0px;
+    margin-left: 4px;
+  }
+  .card-body{
+    font-size: 16px;
+  }
+  .card-body {
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 0.25rem;
+}
+}
+
+@media only screen and (min-width:781px) and (max-width: 1024px) {
+  .ulogo{
+    float: left; 
+    width: 220px;
+    height: 46px;
+    margin-left: 15px;
+    padding-top: 8px;
+  }
+  
+  .topnav{
+    padding-right: 0px !important;
+  }
+  .imges{
+    width: 26rem;
+  height: 15rem;
+  padding: 10px;
+  }       
+  .container{
+    align-items: center;
+  }
+  .row{
+    width: 100%;
+    padding-left: 0px;
+  }
+  .card{
+    width: 46% !important;
+    margin-right: 0px;
+    margin-left: 25px;
+    height: 50% !important;
+  }
+  .card-body{
+    font-size: 22px;
+  
+  }
+  .card-body {
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 0.25rem;
+}
+}
+
+.dropdown .usericon {
+  background: url(https://d3cif2hu95s88v.cloudfront.net/live-site-2016/live-new/images/user.png) no-repeat;
+  height: 36px;
+  width: 32px;
+  background-size: 30px;
+  background-position-y: 28px;
+  font-size: 13px;
+  font-weight: 500;  
+  border: none;
+  outline: none;
+  color: black;
+  /* padding: 10px 16px; */
+  padding-top: 40px;
+  
+  background-color: #ffffff;
+  font-family: inherit;
+  margin: 0;
+}
+
+/* 
+@media only screen and (min-width: 992px) {
+
+}
+
+
+@media only screen and (min-width: 1200px) {
+
+} */
+
+
+.navbar {
+  width: 100%;
+  background-color: #555;
+  overflow: auto;
+}
+
+.navbar a {
+  float: left;
+  padding: 12px;
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.navbar a:hover {
+  background-color: #000;
+}
+
+.active {
+  background-color: #4CAF50;
+}
+
+@media screen and (max-width: 500px) {
+  .navbar a {
+    float: none;
+    display: block;
+  }
+}
+.dropdown i{
+  /* font-size: 21px; */
+    padding-right: 10px;
+}
+i{
+  /* font-size: 21px; */
+    padding-right: 10px;
+}
+
+#mySidenav a {
+  position: absolute;
+  left: -80px;
+  transition: 0.3s;
+  padding: 15px;
+  width: 100px;
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+  border-radius: 0 5px 5px 0;
+}
+
+#mySidenav a:hover {
+  left: 0;
+}
+
+#about {
+  top: 20px;
+  background-color: #4CAF50;
+}
+
+#blog {
+  top: 80px;
+  background-color: #2196F3;
+}
+
+#projects {
+  top: 140px;
+  background-color: #f44336;
+}
+
+#contact {
+  top: 200px;
+  background-color: #555
+}
+
+
+
+
+.switch-version {
+  z-index: 1000;
+}
+
+.switch-version {
+  position: fixed;
+  top: 500px;
+  right: 0;
+  width: 40px;
+  background: #fff;
+  border-radius: 4px 0 0 4px;
+  -webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+}
+
+
+.switch-version a {
+  color: #007bff;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+}
+.switch-version a:first-child>.switch-to {
+  border-top-left-radius: 4px;
+}
+.switch-to.mdb-standard {
+  background-position: 0 -160px;
+}
+.switch-to {
+  background-image: url(https://mdbootstrap.com/img/logo/mdb-switch.png);
+}
+.switch-to {
+  display: block;
+  width: 40px;
+  height: 40px;
+  background-image: url(https://mdbootstrap.com/img/logo/mdb-angular.png);
+  background-repeat: no-repeat;
+}
+
+@media screen and (max-width: 768px) {
+    .footer-copyright{
+    font-size: 8px;
+    padding-left: 0px !important;
+  }
+  .footer-copyright a{
+    font-size: 8px;
+    padding-left: 3px !important;
+    
+  }
+  ul.breadcrumb li {
+    display: inline;
+    font-size: 12px !important;
+  }
+  .topnav{
+    padding-right: 0px !important;
+  }
+}
+
+
+.dropbtn {
+  border-color: #8e44ad;
+  border-radius: 0;
+  color: #8e44ad;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  -webkit-transition: color 150ms ease-in-out;
+  transition: color 150ms ease-in-out;
+}
+.dropbtn:after {
+  content: '';
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 0;
+  height: 100%;
+  background: #ffd402;
+  z-index: -1;
+  -webkit-transition: width 150ms ease-in-out;
+  transition: width 150ms ease-in-out;
+}
+.dropbtn:hover {
+  color: #fff;
+}
+.dropbtn:hover:after {
+  width: 110%;
+}
+
+
+
+.drop{
+  border-color: #8e44ad;
+  border-radius: 0;
+  color: #8e44ad;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  -webkit-transition: color 150ms ease-in-out;
+  transition: color 150ms ease-in-out;
+}
+.drop:after {
+  content: '';
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 0;
+  height: 100%;
+  background: #ffd402;
+  z-index: -1;
+  -webkit-transition: width 150ms ease-in-out;
+  transition: width 150ms ease-in-out;
+}
+.drop:hover {
+  color: #fff;
+}
+.drop:hover:after {
+  width: 110%;
+}
+
+
+@media only screen and (min-width:200px) and (max-width: 300px) {
+ 
+  .s1{
+    width: 100% !important;
+    height: 10rem !important;
+  }
+  .s2{
+    width: 100% !important;
+    height: 10rem !important;
+  }
+  .s3{
+    width: 100% !important;
+    height: 10rem !important;
+  }
+}
+@media only screen and (min-width:768px) and (max-width: 1024px) {
+  
+ 
+ 
+  .s1{
+    width: 100% !important;
+    height: 20rem !important;
+  }
+  .s2{
+    width: 100% !important;
+    height: 20rem !important;
+  }
+  .s3{
+    width: 100% !important;
+    height: 20rem !important;
+  }
+}
+@media only screen and (min-width:400px) and (max-width: 500px) {
+  
+.s1{
+  width: 100% !important;
+  height: 10rem !important;
+}
+.s2{
+  width: 100% !important;
+  height: 10rem !important;
+}
+.s3{
+  width: 100% !important;
+  height: 10rem !important;
+}
+}
+@media only screen and (min-width:500px) and (max-width: 550px) {
+  
+.s1{
+  width: 100% !important;
+  height: 10rem !important;
+}
+.s2{
+  width: 100% !important;
+  height: 10rem !important;
+}
+.s3{
+  width: 100% !important;
+  height: 10rem !important;
+}
+}
+@media only screen and (min-width:300px) and (max-width: 350px) {
+ 
+  .s1{
+    width: 100% !important;
+    height: 10rem !important;
+  }
+  .s2{
+    width: 100% !important;
+    height: 10rem !important;
+  }
+  .s3{
+    width: 100% !important;
+    height: 10rem !important;
+  }
+}
+
+@media only screen  and (min-width:600px) and (max-width: 766px) {
+  .container {
+    width: 100%;
+    /* padding-right: 0px !important; */
+    padding-left: 5px !important;
+   
+  }
+  .col-md-6 .btn{
+    padding-right: 10px !important;
+  }
+  .inner .btn{
+    width: 114px !important;
+  height: 37px !important;
+    padding-left: 5px !important;
+    font-size: 13px !important;
+  }
+
+  .inner{
+    padding-top: 5px !important;
+    padding-bottom: 15px !important; 
+  }
+  .price {
+    font-size: 15px;
+}
+  .imgs{
+    width: 9rem !important;
+  height: 9rem !important;
+  padding: 10px;
+  }
+  .card1{
+    width: 47% !important;
+    margin-right: 0px;
+    margin-left: 9px;
+    height: 47% !important;
+    
+  }
+  .card{
+    width: 47% !important;
+    margin-right: 0px;
+    margin-left: 9px;
+    height: 47% !important;
+    
+  }
+  .head{
+    font-size: 12px !important;
+    padding-left: 0px !important;
+  }
+  .btn{
+    padding-top: 10px !important;
+    margin-top: -20px !important;
+    height: 40px !important;
+  }
+  .mt-4{
+    margin-top:0px  !important;
+  }
+  .container-fluid{
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+.imges{
+  width: 9rem !important;
+height: 10rem !important;
+padding: 10px;
+}
+  .s1{
+    width: 100% !important;
+    height: 14rem !important;
+  }
+  .s2{
+    width: 100% !important;
+    height: 10rem !important;
+  }
+  .s3{
+    width: 100% !important;
+    height: 10rem !important;
+  }
+  .container{
+    align-items: center;
+  }
+  .row{
+    width: 100%;
+    padding-left: 21px;
+  }
+  .card{
+    width: 47% !important;
+    margin-right: 0px;
+    margin-left: 9px;
+    height: 47% !important;
+    
+  }
+  .card-body{
+    font-size: 13px;
+  }
+  .card-body {
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 0.25rem;
+}
+ 
+}

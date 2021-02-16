@@ -1,0 +1,286 @@
+<!-- <div class="topnav" id="myTopnav">
+  <label>
+  <img class ="ulogo" src="../assets/img/logo Curve.png" >
+</label>
+
+  
+<a (click)="rouerter('/contact','supplierhome','home')" routerLinkActive="active"><i class="fa fa-fw fa-envelope"></i> Contact Us</a>
+  
+
+  
+<a (click)="rouerter('/home','supplierhome','home')"class="active" ><i class="fa fa-fw fa-home"></i>Home</a>
+  <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+</div>
+ -->
+ <div class="topnav" id="myTopnav">
+  <label>
+  <img class ="ulogo" src="../assets/img/logo Curve.png" >
+</label>
+
+
+ 
+<!--  
+<div  *ngIf="!this.User_id" class="dropdown">
+  <button class="dropbtn" (click)="rouerter('/login','uniforms','customer')"><i class="fa fa-sign-in"></i> Login</button>
+  </div>
+  <div  *ngIf="this.User_id" class="dropdown">
+    <button class="dropbtn" (click)="LogOut()"><i class="fa fa-sign-out"></i> LogOut</button>
+    </div> -->
+ 
+   
+  
+  <div class="dropdown">
+    <button class="dropbtn"><i class="fa fa-info-circle" aria-hidden="true"></i>About Us 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <button class="drop" (click)="rouerter('/contact','uniforms','customer')" style="width: 100%;border: none;background: none;" routerLinkActive="active"> <i class="fa fa-fw fa-envelope" style="padding-right: 30px;"></i>Contact Us</button>
+      <button class="drop"  (click)="rouerter('/terms','uniforms','supplier')" style="width: 100%;border: none;background: none;"routerLinkActive="active" > <i class="fa fa-gavel" style="padding-right: 10px;"></i>Terms And Conditions</button>
+      <button class="drop"  (click)="rouerter('/privacy','uniforms','supplier')" style="width: 100%;border: none;background: none;"routerLinkActive="active" >  <i class="fa fa-user-secret" style="padding-right: 10px;"></i>Privacy And Policy</button>
+    </div>
+  </div> 
+  
+
+
+  <div   class="dropdown">
+    <button class="dropbtn" (click)="rouerter('/home','uniforms','customer')"><i class="fa fa-fw fa-home"></i> Home</button>
+    </div>
+  
+    
+
+
+
+<input type="text" value="Conform Your Uniform" hidden>
+  
+  <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+ 
+  <input type="text" value="Conform Your Uniform" hidden>
+</div>
+<input type="text" value="Conform Your Uniform" hidden>
+<input type="text" value="Conform Your Uniform" hidden>
+
+ 
+<div class="jumbotron">
+    
+
+<ul class="breadcrumb">
+  <li><a (click)="rouerter('/home','supplierhome','home')" routerLinkActive="active" style="cursor: pointer">Home</a></li>
+  <li><a  routerLinkActive="active">Labours and Technicians </a></li>
+</ul>
+
+<div class="container mt-5">
+    <div class="card">
+
+        <h3 class="card-header text-center"> Labours and Technicians</h3>
+        <div class="card-body">
+            <form role="form" data-toggle="validator" [formGroup]="profileForm">
+                  <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" class="form-control" data-error="You must have a Name." id="inputName" placeholder="Name" formControlName="customer_name" [ngClass]="{ 'is-invalid': submitted && fval.customer_name.errors }">
+                    <div *ngIf="submitted && fval.customer_name.errors" class="invalid-feedback">
+                      <div *ngIf="fval.customer_name.errors.required">
+                       Name is required 
+                      </div>
+                       
+                      </div>
+                    <!-- Error -->
+                    <div class="help-block with-errors"></div>
+                </div>
+                <div class="form-group">
+                    <label>Gender</label>
+                    <br>
+                    <div class="form-check form-check-inline">
+                        <input  formControlName="gender"
+                          class="form-check-input"
+                          type="radio"
+                          name="gender"
+                          id="inlineRadio1"
+                          value="Male"
+                        />
+                        <label class="form-check-label" for="inlineRadio1">Male</label>
+                      </div>
+                      
+                      <div class="form-check form-check-inline">
+                        <input  formControlName="gender"
+                          class="form-check-input"
+                          type="radio"
+                          name="gender"
+                          id="inlineRadio2"
+                          value="Female"
+                        />
+                        <label class="form-check-label" for="inlineRadio2">Female</label>
+                      </div>
+                    <div class="help-block with-errors"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Place</label>
+                    <input type="text" class="form-control" data-error="You must have a Place" id="inputPlace" placeholder="Place" formControlName="place" [ngClass]="{ 'is-invalid': submitted && fval.place.errors}">
+                    <div *ngIf="submitted && fval.place.errors"class="invalid-feedback">
+                      <div ngClass="fval.place.errors.required">
+                        Place is required.
+                        </div>
+                     
+                        </div>
+                    <!-- Error -->
+                    <div class="help-block with-errors"></div>
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1"> State</label>
+                    <input type="text" class="form-control" data-error="You must have a Place" id="inputPlace" placeholder="State" formControlName="state" [ngClass]="{ 'is-invalid': submitted && fval.state.errors}">
+                    <div *ngIf="submitted && fval.state.errors"class="invalid-feedback">
+                      <div ngClass="fval.state.errors.required">
+                        State is required.
+                        </div>
+                     
+                        </div>
+                  
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleFormControlSelect1"> District</label>
+                    <input type="text" class="form-control" data-error="You must have a Place" id="inputPlace" placeholder="District" formControlName="district" [ngClass]="{ 'is-invalid': submitted && fval.district.errors}">
+                    <div *ngIf="submitted && fval.district.errors"class="invalid-feedback">
+                      <div ngClass="fval.district.errors.required">
+                        District is required.
+                        </div>
+                     
+                        </div>
+                  </div>
+
+
+                <div class="form-group">
+                    <label>Pincode</label>
+                    <input type="number" class="form-control" data-error="You must have a Pincode." id="inputPincode" placeholder="Pincode" formControlName="pincode"  maxlength="6" [ngClass]="{ 'is-invalid': submitted && fval.pincode.invalid }" >
+                    <div *ngIf="submitted && fval.pincode.errors"class="invalid-feedback">
+                      <div *ngIf="fval.pincode.errors.required">
+                        Pincode is required.
+                        </div>
+                        <div *ngIf="fval.pincode.errors.pattern">Please provide a Valid Pincode</div>
+                        </div>
+                   
+                   
+                    <!-- Error -->
+                    <div class="help-block with-errors"></div>
+                </div>
+                <div class="form-group">
+                    <label>Phone Number 1</label>
+                    <input type="number" class="form-control" data-error="You must have a Phone Number." id="inputPhoneNumber" placeholder="Mobile Number" formControlName="phone_number" maxlength="10" [ngClass]="{ 'is-invalid': submitted && fval.phone_number.errors}">
+                   
+                    <div *ngIf="submitted && fval.phone_number.errors" class="invalid-feedback">
+                      <div *ngIf="fval.phone_number.errors.required">Phone is required  and must be at least 10 numbers</div>
+                      <!-- <div *ngIf="fval.phone_number.errors.pattern">Please Enter a valid Phone Number</div> -->
+                      </div>
+                      
+                   
+                    <div class="help-block with-errors"></div>
+                </div>
+
+                <div class="form-group">
+                    <label>Phone Number 2</label>
+                    <input type="number" class="form-control" data-error="You must have a Alternative Phone Number." id="inputAlternativePhoneNumber" placeholder="Phone Number" formControlName="alternate_number" manlength="10" [ngClass]="{ 'is-invalid': submitted && fval.alternate_number.errors}">
+                   
+                    <div *ngIf="submitted && fval.alternate_number.errors" class="invalid-feedback">
+                      <div *ngIf="fval.alternate_number.errors.required">Phone is required  and must be at least 10 numbers</div>
+                      </div>
+                      <div *ngIf="submitted && fval.alternate_number.errors"  class="invalid-feedback">
+                        <div *ngIf="fval.alternate_number.errors.pattern">Please Enter a valid Phone Number</div>
+                       
+                    </div> 
+                    <div class="help-block with-errors"></div>
+                </div>
+                <div class="form-group">
+                  <label>Email</label>
+                  <input type="email" class="form-control" id="inputEmail" placeholder="Email" formControlName="email"  [ngClass]="{ 'is-invalid': submitted && fval.email.errors}">
+             
+                <div  *ngIf="fval.email.errors" class="invalid-feedback">
+                <div *ngIf="fval.email.errors.emailDomain">Email must be on the gmail.com domain</div> 
+            </div>
+            <div *ngIf="submitted && fval.email.errors"  class="invalid-feedback">
+                <div *ngIf="fval.email.errors.pattern">Please provide a valid Email</div>
+               
+            </div> 
+                  <!-- Error -->
+                  <div class="help-block with-errors"></div>
+              </div>
+                <div class="form-group">
+                  <label>Password</label>
+                  <input type="password" class="form-control" data-error="You must have a Alternative Phone Number." id="inputName" placeholder="Password" formControlName="password" minlength="6" [ngClass]="{ 'is-invalid': submitted && fval.password.errors}">
+                  <div *ngIf="submitted && fval.password.errors"class="invalid-feedback">
+                    <div ngClass="fval.password.errors.required">
+                      Password is required.
+                      </div>
+                      <div *ngIf="fval.password.errors.minlength">Password must be at least 6 characters</div>
+                      </div>
+                 
+                  <div class="help-block with-errors"></div>
+              </div>
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Job Category</label>
+                    <select class="form-control" id="exampleFormControlSelect3" formControlName="work_type"  [ngClass]="{ 'is-invalid': submitted && fval.work_type.errors }">
+                      <option selected disabled>Select Your Job Category</option>
+                      <option>Labour</option>
+                      <!-- <option>Labour</option> -->
+                      <option>Tailor</option>
+                      <option>Cutting Master</option>
+                      <option>Helper</option>
+                      <option>Ironing Master</option>
+                      <option>Embroidery</option>
+                      <option>Button Maker</option>
+                      <option>Machine Machanic</option>
+                    </select>
+                    <div *ngIf="submitted && fval.work_type.errors"class="invalid-feedback">
+                      <div ngClass="fval.work_type.errors.required">
+                        Labours is required.
+                        </div>
+                     
+                        </div>
+                  </div>
+                  <!-- <div class="form-group">
+                    <label for="exampleFormControlSelect1">Status</label>
+                    <select class="form-control" id="exampleFormControlSelect3" formControlName="status"  [ngClass]="{ 'is-invalid': submitted && fval.status.errors }">
+                      <option selected disabled>Select Your Status</option>
+                      <option>Active</option>
+                      <option>Deactive</option>
+                    </select>
+                    <div *ngIf="submitted && fval.status.errors"class="invalid-feedback">
+                      <div ngClass="fval.status.errors.required">
+                        Status is required.
+                        </div>
+                     
+                        </div>
+                  </div> -->
+                  <div class="form-group " style="margin-left: 30px;">
+                    <input type="checkbox" class="checkbox" id="defaultUncheckedconditon"formControlName="terms" [ngClass]="{ 'is-invalid': submitted && fval.terms.errors }" /> 
+                 <span>&nbsp;&nbsp;I agree<a style="padding-left: 10px; color: #2f9bd8 !important;  cursor: pointer;" (click)="rouerter('/terms','supplierhome','home')">terms and conditions</a></span> 
+                     <div *ngIf="submitted && fval.terms.errors" class="invalid-feedback">
+                         
+                      <div *ngIf="fval.terms.errors.required">
+                        Please agree terms and conditions
+                      </div>
+                       
+                      </div>
+                    </div>
+                <div class="form-group" style="padding-top: 20px;">
+                  <div class="text-center">
+                    <button type="submit" (click)="CustomerSave()" class="btn btn-primary">Submit</button>
+                  </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div *ngIf="this.Loader" class="loading">Loading&#8230;</div>
+
+<footer class="page-footer font-small blue">
+  
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3" >© 2020 Copyright:All Right Reserved &nbsp;&nbsp;&nbsp;
+    <a style="padding-right: 5px; cursor: pointer;"(click)="rouerter('/terms','uniforms','supplier')" >Terms of Use - </a>
+    <a style="cursor: pointer;"(click)="rouerter('/privacy','uniforms','supplier')" >Privacy Policy - </a>
+    <a style="cursor: pointer;"(click)="rouerter('/contact','uniforms','supplier')" >Link to Us</a>
+  </div>
+
+ 
+  <!-- Copyright -->
+
+</footer>

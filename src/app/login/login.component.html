@@ -1,0 +1,77 @@
+
+<div class="jumbotron">
+<div >
+    <div class="container">
+    <form  role="form" class="modal-content animate" style=" border-radius: 25px;padding: 20px;"  [formGroup]="profileForm">
+    <div class="imgcontainer">
+    <h3>Login Form</h3>
+    
+    </div>
+    
+    <div *ngIf="this.Message" class="alert">
+        <span class="closebtn" (click)="Close()">&times;</span> 
+        <strong>Sorry!</strong> {{Message}}.
+      </div>
+      <div *ngIf="this.Message1" class="alert1">
+        <span class="closebtn" (click)="Close1()">&times;</span> 
+        <strong>Hi {{this.Userid}}!</strong> {{this.Message1}}.
+      </div>
+
+    
+    
+    <div class="container">
+    <label for="uname"><b>User Id</b></label>
+    <input type="text" placeholder="Enter Username" name="uname" formControlName="user_id">
+    
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" formControlName="password">
+    
+    <button type="submit" (click)="Authenticate()">Login</button>
+    <label>
+    <input type="checkbox" name="remember"> Remember me
+    </label>
+    </div>
+    
+    <div class="container" style="background-color:#f1f1f1">
+        <div *ngIf="this.Loader" class="loading">Loading&#8230;</div>
+        <label >New User ? &nbsp; &nbsp;</label>
+    <button type="button" class="cancelbtn" (click)="rouerter('/signuplink','uniforms','supplier')">Sign Up</button>
+    
+    </div>
+    </form>
+    
+   
+    </div>
+</div>
+<div *ngIf="this.Loader" class="loading">Loading&#8230;</div>
+</div>
+<!-- <body style=" background-color: #007e56;height: 100%;">
+    <div class="container">
+        <form class="modal-content animate"  style="border-radius: 25px;padding: 20px;" formGroup="profileForm">
+            <div class="imgcontainer">
+             <h3>Login Form</h3>
+            
+            </div>
+        
+            <div class="container">
+              <label for="uname"><b>Username</b></label>
+              <input type="text" placeholder="Enter Username" formControlName="user_id" required>
+        
+              <label for="psw"><b>Password</b></label>
+              <input type="password" placeholder="Enter Password" formControlName="password" required>
+                
+              <button type="submit" (click)="Authenticate()">Login</button>
+              <label>
+                <input type="checkbox"  name="remember"> Remember me
+              </label>
+            </div>
+        
+            <div class="container" style="background-color:#f1f1f1">
+              <button type="button"  class="cancelbtn">Sign In</button>
+              <span class="psw" >Forgot <a href="#" style="color: #007e56;">password?</a></span>
+            </div>
+          </form>
+      
+        
+      </div>
+    </body> -->

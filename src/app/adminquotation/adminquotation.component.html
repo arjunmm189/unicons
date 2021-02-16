@@ -1,0 +1,510 @@
+<div class="topnav" id="myTopnav">
+    <label>
+    <img class ="ulogo" src="../assets/img/logo Curve.png" >
+    </label>
+    <button class="drop" href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</button>
+</div>
+  
+  
+  <div id="mySidenav" class="sidenav" style="margin-top: 90px;">
+    <button  href="javascript:void(0)" class="closebtn" style="border: none;float: right;padding-top: 5px;padding-right: 5px;padding-bottom: 5px;" onclick="closeNav()">&times;</button>
+    <button class="drop" (click)="rourter('/adminhome','adminhome','home')" style ="cursor: pointer; width: 100%;">Home</button>
+    <button class="drop" (click)="rourter('/supplier_list','adminhome','home')" style ="cursor: pointer; width: 100%;">Supplier List</button>
+    <button class="drop"  (click)="rourter('/buyers_list','adminhome','home')" style ="cursor: pointer; width: 100%;">Buyers List</button>
+    <button class="drop" (click)="rourter('/supplier_details','adminhome','home')" style ="cursor: pointer; width: 100%;">Supplier Details</button>
+    <button class="drop"  (click)="rourter('/order_details','adminhome','home')" style ="cursor: pointer;width: 100%;color: white;">Customer Orders</button>
+    <button class="drop"  (click)="rourter('/quotations','adminhome','home')" style ="cursor: pointer; width: 100%;"> Quotations</button>
+    <button class="drop"  (click)="rourter('/banner','adminhome','home')" style ="cursor: pointer; width: 100%;"> Banner list</button>
+    <button class="drop"  (click)="rourter('/adminlabourlist','adminhome','home')" style ="cursor: pointer; width: 100%;"> Labour list</button>
+    <button class="drop" (click)="rourter('/adminmachinelist','adminhome','home')" style ="cursor: pointer; width: 100%;">  Machine Supplier Details</button>
+    <button class="drop" (click)="rourter('/adminproduct','adminhome','home')">  Machine And Spare List</button>
+    <button class="drop"  (click)="rourter('/adminaccs','adminhome','home')"> ReadyMade And Accessories List</button>
+  </div>
+  
+  <h2></h2>
+  <p></p>
+  <div class="ico">
+    <span class="icon" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span>
+    </div>
+    
+    <!-- <ul class="breadcrumb" style="padding-top: 120px;">
+      <li><a (click)="rourter('/adminhome','adminhome','home')" routerLinkActive="active" style="cursor: pointer">Home</a></li>
+      <li><a  routerLinkActive="active">Quotation Details</a></li>
+    </ul>  -->
+  
+<div class="container mt-3" style="padding-top: 120px;">
+    <div class="card" *ngIf="this.type=='Fabrics'">
+
+        <h3 class="card-header text-center">Fabric Order Details </h3>
+        <div class="card-body">
+            <form role="form" data-toggle="validator" >
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>User Id</label>
+                    </div>
+                    <div class="col-md-6">
+                        <p>{{this.ProdcutList[0]?.user_id}}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Order Id</label>
+                    </div>
+                    <div class="col-md-6">
+                        <p>{{this.ProdcutList[0]?.order_id}}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Category</label>
+                    </div>
+                    <div class="col-md-6">
+                        <p  *ngIf="this.ProdcutList[0].category_type=='US'"class="card-text">  School/Collage Uniforms</p>
+                        <p  *ngIf="this.ProdcutList[0].category_type=='UH'"class="card-text">  Hospital Uniforms</p>
+                        <p  *ngIf="this.ProdcutList[0].category_type=='UC'"class="card-text">  Catering Uniforms</p>
+                        <p  *ngIf="this.ProdcutList[0].category_type=='UI'"class="card-text"> Industrial  Uniforms</p>
+                        <p  *ngIf="this.ProdcutList[0].category_type=='UR'"class="card-text">  Corporate Uniforms</p>
+ 
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Expected Date of Delivery</label>
+                    </div>
+                    <div class="col-md-6">
+                        <p>{{this.ProdcutList[0].delivery_date}}</p>
+                    </div>
+                </div>
+                <div class="row" style="border-style: none;">
+                    <div class="col-md-6" >
+                        <label>Reference Image</label>
+                    </div>
+                    <div class="col-md-6">
+                        <label>Message</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6" style="padding-top: 10px;display: block;padding-bottom: 10px;
+                    margin-left: auto;
+                    margin-right: auto;
+                    width: 50%;border-bottom: none;">
+                    <img src="{{'http://api.uniconform.in'+''+this.ProdcutList[0].photo}}"  width="200" height="200">
+                    </div>
+                     <div class="col-md-6">
+                        <p>{{this.ProdcutList[0].message}}
+                        </p>
+                    </div>
+                </div>
+                 <h3 style="color: indianred; padding-top: 20px;"> Product Details</h3>
+                 <table class="table table-bordered table-striped">
+                    <thead>
+                      <tr>
+                        <th>Item</th>
+                        <th>Quantity</th>
+                        <th>Brand Name</th>
+                        <th>Catlogue Number</th>
+                        <th>Shade Number</th>
+                        <th>Design Number</th>
+                      </tr>
+                    </thead>
+                    <tbody id="myTable">
+                      <tr *ngFor="let item of ProdcutDetailList">
+                         
+                        <td>{{item['name']}}</td>
+                        <td>{{item['size']}}</td>
+                        <td>{{item['brand_name']}} </td>
+                        <td>{{item['catalogue_number']}}</td>
+                        <td>{{item['shade_number']}}</td>
+                        <td>{{item['design_number']}} </td>
+                      </tr>
+                  
+                 
+                    
+                    </tbody>
+                  </table> 
+                   
+            </form>
+
+            
+        </div>
+    </div>
+    <br>
+
+    <div class="card" *ngIf="this.type=='Stitching'">
+
+        <h3 class="card-header text-center">Stitching Order Details </h3>
+        <div class="card-body">
+           
+            <form role="form" data-toggle="validator" >
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>User Id</label>
+                    </div>
+                    <div class="col-md-6">
+                        <p>{{this.ProdcutList[0].user_id}}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Order Id</label>
+                    </div>
+                    <div class="col-md-6">
+                        <p>{{this.ProdcutList[0].order_id}}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Category</label>
+                    </div>
+                    <div class="col-md-6">
+                      
+                            <p  *ngIf="this.ProdcutList[0].category_type=='US'"class="card-text">  School/Collage Uniforms</p>
+                            <p  *ngIf="this.ProdcutList[0].category_type=='UH'"class="card-text">  Hospital Uniforms</p>
+                            <p  *ngIf="this.ProdcutList[0].category_type=='UC'"class="card-text">  Catering Uniforms</p>
+                            <p  *ngIf="this.ProdcutList[0].category_type=='UI'"class="card-text"> Industrial  Uniforms</p>
+                            <p  *ngIf="this.ProdcutList[0].category_type=='UR'"class="card-text">  Corporate Uniforms</p>
+     
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Number Of Persons Needed(uniform needed)</label>
+                    </div>
+                    <div class="col-md-6">
+                        <p>{{this.ProdcutList[0].total_count}}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Expected Date of Delivery</label>
+                    </div>
+                    <div class="col-md-6">
+                        <p>{{this.ProdcutList[0].delivery_date}}</p>
+                    </div>
+                </div>
+                <div class="row" style="border-style: none;">
+                    <div class="col-md-6" >
+                        <label> We Prefer Individually Measured Stitching</label>
+                    </div>
+                    <div class="col-md-6">
+                        <label>{{this.ProdcutList[0].is_invidulaystiched}}</label>
+                    </div>
+                </div>
+                <div class="row" style="border-style: none;">
+                    <div class="col-md-6" >
+                        <label>Reference Image</label>
+                    </div>
+                    <div class="col-md-6">
+                        <label>Message</label>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-6" style="padding-top: 10px;display: block;padding-bottom: 10px;
+                    margin-left: auto;
+                    margin-right: auto;
+                    width: 50%;border-bottom: none;">
+                    <img src="{{'http://api.uniconform.in'+''+this.ProdcutList[0].photo}}"  width="200" height="200">
+                    </div> <div class="col-md-6">
+                        <p>{{this.ProdcutList[0].message}}
+                        
+                        </p>
+                    </div>
+                </div>
+                 <h3 style="color: indianred; padding-top: 20px;"> Product Details</h3>
+                 <table class="table table-bordered table-striped">
+                    <thead>
+                      <tr>
+                        <th>Item</th>
+                        <th>Quantity in pieces</th>
+                       
+                      </tr>
+                    </thead>
+                    <tbody id="myTable">
+                      <tr  *ngFor="let item of ProdcutDetailList" >
+                        <td>{{item['name']}}</td>
+                        <td>{{item['size']}}</td>
+                       
+                      </tr>
+                  
+                 
+                    
+                    </tbody>
+                  </table> 
+                   
+            </form>
+
+            
+        </div>
+    </div>
+    <br>
+    <div class="card" *ngIf="this.type=='Fabric and Stitching'">
+        <h3 class="card-header text-center">Fabric & Stitching Order Details </h3>
+        <div class="card-body">
+          
+            <form role="form" data-toggle="validator" >
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>User Id</label>
+                    </div>
+                    <div class="col-md-6">
+                        <p>{{this.ProdcutList[0].user_id}}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Order Id</label>
+                    </div>
+                    <div class="col-md-6">
+                        <p>{{this.ProdcutList[0].order_id}}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Category</label>
+                    </div>
+                    <div class="col-md-6">
+                        <p  *ngIf="this.ProdcutList[0].category_type=='US'"class="card-text">  School/Collage Uniforms</p>
+                        <p  *ngIf="this.ProdcutList[0].category_type=='UH'"class="card-text">  Hospital Uniforms</p>
+                        <p  *ngIf="this.ProdcutList[0].category_type=='UC'"class="card-text">  Catering Uniforms</p>
+                        <p  *ngIf="this.ProdcutList[0].category_type=='UI'"class="card-text"> Industrial  Uniforms</p>
+                        <p  *ngIf="this.ProdcutList[0].category_type=='UR'"class="card-text">  Corporate Uniforms</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Number Of Persons Needed(uniform needed)</label>
+                    </div>
+                    <div class="col-md-6">
+                        <p>{{this.ProdcutList[0].total_count}}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Expected Date of Delivery</label>
+                    </div>
+                    <div class="col-md-6">
+                        <p>{{this.ProdcutList[0].delivery_date}}</p>
+                    </div>
+                </div>
+                <div class="row" style="border-style: none;">
+                    <div class="col-md-6" >
+                        <label> We Prefer Individually Measured Stitching</label>
+                    </div>
+                    <div class="col-md-6">
+                        <label>{{this.ProdcutList[0].is_invidulaystiched}}</label>
+                    </div>
+                </div>
+                <div class="row" style="border-style: none;">
+                    <div class="col-md-6" >
+                        <label>Reference Image</label>
+                    </div>
+                    <div class="col-md-6">
+                        <label>Message</label>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-6" style="padding-top: 10px;display: block;padding-bottom: 10px;
+                    margin-left: auto;
+                    margin-right: auto;
+                    width: 50%;border-bottom: none;">
+                    <img src="{{'http://api.uniconform.in'+''+this.ProdcutList[0].photo}}"   width="200" height="200">
+                    </div> <div class="col-md-6">
+                        <p>{{this.ProdcutList[0].message}}
+                        </p>
+                    </div>
+                </div>
+                 <h3 style="color: indianred; padding-top: 20px;"> Product Details</h3>
+                 <table class="table table-bordered table-striped">
+                    <thead>
+                      <tr>
+                        <th>Item</th>
+                        <th>Quantity in pieces</th>
+                       
+                      </tr>
+                    </thead>
+                    <tbody id="myTable">
+                        <tr  *ngFor="let item of ProdcutDetailList" >
+                            <td>{{item['name']}}</td>
+                            <td>{{item['size']}}</td>
+                           
+                          </tr>
+                      
+                  
+                 
+                    
+                    </tbody>
+                  </table> 
+                   
+            </form>
+
+            
+        </div>
+    </div>
+    <br>
+    <div class="card" *ngIf="this.type=='Order Based Form'">
+        <h3 class="card-header text-center">Ready Mades Order Details </h3>
+        <div class="card-body">
+            <form role="form" data-toggle="validator" >
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>User Id</label>
+                    </div>
+                    <div class="col-md-6">
+                        <p>{{this.ProdcutList[0].user_id}}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Order Id</label>
+                    </div>
+                    <div class="col-md-6">
+                        <p>{{this.ProdcutList[0].order_id}}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Category</label>
+                    </div>
+                    <div class="col-md-6">
+                        <p  *ngIf="this.ProdcutList[0].category_type=='US'"class="card-text">  School/Collage Uniforms</p>
+                        <p  *ngIf="this.ProdcutList[0].category_type=='UH'"class="card-text">  Hospital Uniforms</p>
+                        <p  *ngIf="this.ProdcutList[0].category_type=='UC'"class="card-text">  Catering Uniforms</p>
+                        <p  *ngIf="this.ProdcutList[0].category_type=='UI'"class="card-text"> Industrial  Uniforms</p>
+                        <p  *ngIf="this.ProdcutList[0].category_type=='UR'"class="card-text">  Corporate Uniforms</p>
+                    </div>
+                </div>
+      
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Expected Date of Delivery</label>
+                    </div>
+                    <div class="col-md-6">
+                        <p>{{this.ProdcutList[0].delivery_date}}</p>
+                    </div>
+                </div>
+                <div class="row" style="border-style: none;">
+                    <div class="col-md-6" >
+                        <label>Reference Image</label>
+                    </div>
+                    <div class="col-md-6">
+                        <label>Message</label>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-6" style="padding-top: 10px;display: block;padding-bottom: 10px;
+                    margin-left: auto;
+                    margin-right: auto;
+                    width: 50%;border-bottom: none;">
+                    <img src="{{'http://api.uniconform.in'+''+this.ProdcutList[0].photo}}"    width="200" height="200">
+                    </div> <div class="col-md-6">
+                        <p>{{this.ProdcutList[0].message}}
+                        </p>
+                    </div>
+                </div>
+                 <h3 style="color: indianred; padding-top: 20px;"> Product Details</h3>
+                 <table class="table table-bordered table-striped">
+                    <thead>
+                      <tr>
+                        <th>Item</th>
+                        <th>Quantity in pieces</th>
+                        <th>Size</th>
+                      </tr>
+                    </thead>
+                    <tbody id="myTable">
+                        <tr  *ngFor="let item of ProdcutDetailList" >
+                            <td>{{item['name']}}</td>
+                            <td>{{item['size']}}</td>
+                            <td>{{item['avail_size']}}</td>
+                      </tr>
+                  
+                 
+                    
+                    </tbody>
+                  </table> 
+                   
+            </form>
+
+            
+        </div>
+    </div>
+    <br>
+    <div class="card" *ngIf="this.type=='none'">
+        <h3 class="card-header text-center">Uniform Accessories Order Details </h3>
+        <div class="card-body">
+            <form role="form" data-toggle="validator" >
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>User Id</label>
+                    </div>
+                    <div class="col-md-6">
+                        <p>{{this.ProdcutList[0].user_id}}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Order Id</label>
+                    </div>
+                    <div class="col-md-6">
+                        <p>{{this.ProdcutList[0].order_id}}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Expected Date of Delivery</label>
+                    </div>
+                    <div class="col-md-6">
+                        <p>{{this.ProdcutList[0].delivery_date}}</p>
+                    </div>
+                </div>
+               
+                 <h3 style="color: indianred; padding-top: 20px;"> Product Details</h3>
+                 <table class="table table-bordered table-striped">
+                    <thead>
+                      <tr>
+                        <th>Item</th>
+                        <th>Quantity in pieces</th>
+                       
+                      </tr>
+                    </thead>
+                    <tbody id="myTable">
+                        <tr  *ngFor="let item of ProdcutDetailList" >
+                         
+                        <td>{{item['name']}}</td>
+                        <td>{{item['size']}}</td>
+                        
+                      </tr>
+                  
+                 
+                    
+                    </tbody>
+                  </table> 
+                   
+            </form>
+
+            
+        </div>
+    </div>
+    <br>
+</div>
+
+<div *ngIf="this.Loader" class="loading">Loading&#8230;</div>
+<br>
+<br>
+<footer class="page-footer font-small blue">
+  
+    <!-- Copyright -->
+   
+    <div class="footer-copyright text-center py-3" >© 2020 Copyright:All Right Reserved &nbsp;&nbsp;&nbsp;
+        <a style="padding-right: 5px; cursor: pointer;"(click)="rourter('/terms','uniforms','supplier')" >Terms of Use - </a>
+        <a style="cursor: pointer;"(click)="rourter('/privacy','uniforms','supplier')" >Privacy Policy - </a>
+        <a style="cursor: pointer;"(click)="rourter('/contact','uniforms','supplier')" >Link to Us</a>
+      </div>
+    
+    <!-- Copyright -->
+  
+</footer>
+
+

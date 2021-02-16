@@ -1,0 +1,224 @@
+<!-- <div class="topnav" id="myTopnav">
+  <label>
+  <img class ="ulogo" src="../assets/img/logo Curve.png" >
+</label>
+
+ 
+<a (click)="rouerter('/contact','supplierhome','home')" routerLinkActive="active"><i class="fa fa-fw fa-envelope"></i> Contact Us</a>
+  
+
+  
+<a (click)="rouerter('/home','supplierhome','home')"class="active" ><i class="fa fa-fw fa-home"></i>Home</a>
+  <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+</div> -->
+
+<div class="topnav" id="myTopnav">
+  <label>
+  <img class ="ulogo" src="../assets/img/logo Curve.png" >
+</label>
+
+
+ 
+<!--  
+<div  *ngIf="!this.User_id" class="dropdown">
+  <button class="dropbtn" (click)="rouerter('/login','uniforms','customer')"><i class="fa fa-sign-in"></i> Login</button>
+  </div>
+  <div  *ngIf="this.User_id" class="dropdown">
+    <button class="dropbtn" (click)="LogOut()"><i class="fa fa-sign-out"></i> LogOut</button>
+    </div> -->
+  
+  <div class="dropdown">
+    <button class="dropbtn"><i class="fa fa-info-circle" aria-hidden="true"></i>About Us 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <button class="drop" (click)="rouerter('/contact','uniforms','customer')" style="width: 100%;border: none;background: none;" routerLinkActive="active"> <i class="fa fa-fw fa-envelope" style="padding-right: 30px;"></i>Contact Us</button>
+      <button class="drop"  (click)="rouerter('/terms','uniforms','supplier')" style="width: 100%;border: none;background: none;"routerLinkActive="active" > <i class="fa fa-gavel" style="padding-right: 10px;"></i>Terms And Conditions</button>
+      <button class="drop"  (click)="rouerter('/privacy','uniforms','supplier')" style="width: 100%;border: none;background: none;"routerLinkActive="active" >  <i class="fa fa-user-secret" style="padding-right: 10px;"></i>Privacy And Policy</button>
+    </div>
+  </div> 
+  
+
+
+  <div   class="dropdown">
+    <button class="dropbtn" (click)="rouerter('/home','uniforms','customer')"><i class="fa fa-fw fa-home"></i> Home</button>
+    </div>
+  
+    
+
+
+
+<input type="text" value="Conform Your Uniform" hidden>
+  
+  <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+ 
+  <input type="text" value="Conform Your Uniform" hidden>
+</div>
+<input type="text" value="Conform Your Uniform" hidden>
+<input type="text" value="Conform Your Uniform" hidden>
+
+ 
+<div class="jumbotron">
+ 
+<ul class="breadcrumb">
+  <li><a (click)="rouerter('/home','supplierhome','home')"  routerLinkActive="active" style="cursor: pointer;">Home</a></li>
+  <li><a  routerLinkActive="active">Add Machineries and Spare Parts</a></li>
+</ul>
+
+<div class="container mt-5">
+  <div class="card">
+
+      <h3 class="card-header text-center">Add Machineries and Spare Parts </h3>
+      <div class="card-body">
+          <form role="form" data-toggle="validator"  [formGroup]="profileForm">
+              <div class="form-group">
+                  <label>Brand Name</label>
+                  <input type="text" class="form-control" data-error="You must have a Brand Name." id="inputBrandName" placeholder=" Brand Name" formControlName="brand_name"  [ngClass]="{ 'is-invalid': submitted && fval.brand_name.errors }">
+                  <div *ngIf="submitted && fval.brand_name.errors" class="invalid-feedback">
+                    <div *ngIf="fval.brand_name.errors.required">
+                      Brand Name is required 
+                    </div>
+                     
+                    </div>
+                  <!-- Error -->
+                  <div class="help-block with-errors"></div>
+              </div>
+              <div class="form-group">
+                  <label>Item Name</label>
+                  <input type="text" class="form-control" data-error="You must have a Item Name." id="inputName" placeholder=" Item Name" formControlName="item_name" [ngClass]="{ 'is-invalid': submitted && fval.item_name.errors }">
+                  <div *ngIf="submitted && fval.item_name.errors" class="invalid-feedback">
+                    <div *ngIf="fval.item_name.errors.required">
+                      Item Name is required 
+                    </div>
+                     
+                    </div>
+                  <!-- Error -->
+                  <div class="help-block with-errors"></div>
+              </div>
+              <div class="form-group">
+                  <label>Condition</label>
+                  <br>
+                  <div class="form-check form-check-inline">
+                      <input formControlName="condition"
+                        class="form-check-input"
+                        type="radio"
+                        name="condition"
+                        id="inlineRadio1"
+                        value="New"
+                      />
+                      <label class="form-check-label" for="inlineRadio1">New</label>
+                    </div>
+                    
+                    <div class="form-check form-check-inline">
+                      <input formControlName="condition"
+                        class="form-check-input"
+                        type="radio"
+                        name="condition"
+                        id="inlineRadio2"
+                        value="Used"
+                      />
+                      <label class="form-check-label" for="inlineRadio2">Used</label>
+                    </div>
+                  <div class="help-block with-errors"></div>
+              </div>
+              <div class="form-group purple-border">
+                  <label for="exampleFormControlTextarea4">Product Description</label>
+                  <textarea class="form-control" id="exampleFormControlTextarea4" rows="auto" formControlName="prod_desc" placeholder="Description"  [ngClass]="{ 'is-invalid': submitted && fval.prod_desc.errors }"></textarea>
+                  <div *ngIf="submitted && fval.prod_desc.errors" class="invalid-feedback">
+                    <div *ngIf="fval.prod_desc.errors.required">
+                      Product Description is required 
+                    </div>
+                     
+                    </div>
+                </div>
+                
+                  
+              <label style="
+              text-align:right"> Choose Image</label>
+              <div  class="input-group">
+                  <!-- <div class="input-group-prepend">
+                   
+                    <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+                  </div> -->
+                  <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="inputGroupFile01" formControlName="image"
+                      aria-describedby="inputGroupFileAddon01" (change)="processFile($event)">
+                    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                  </div>
+                </div>
+                <!-- <label  *ngIf="this.id!='machines'" style="
+                text-align:right"> Edit Image</label>
+                <div   *ngIf="this.id!='machines'" class="input-group">
+                    <div class="input-group-prepend">
+                      <img  style="width:18%" class="input-group-text" src="{{'http://127.0.0.1:8000'+''+this.Image}}">
+                    </div>
+                    <div class="custom-file">
+                      <input type="file" class="custom-file-input" id="inputGroupFile01" formControlName="image"
+                        aria-describedby="inputGroupFileAddon01" (change)="processFile($event)">
+                      <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                    </div>
+                  </div> -->
+                <br>
+                <div class="form-group">
+                  <label>Price</label>
+                  <input type="number" class="form-control" data-error="You must have a Price." id="inputName" placeholder="Please provide a Price" formControlName="price"  [ngClass]="{ 'is-invalid': submitted && fval.price.errors }">
+                  <div *ngIf="submitted && fval.price.errors" class="invalid-feedback">
+                    <div *ngIf="fval.price.errors.required">
+                      Price is required 
+                    </div>
+                     
+                    </div>
+                  <!-- Error -->
+                  <div class="help-block with-errors"></div>
+              </div> 
+              <!-- <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="defaultUnchecked" formControlName="terms" [ngClass]="{ 'is-invalid': submitted && fval.terms.errors }">
+                <label class="custom-control-label" for="defaultUnchecked"><a href='/terms'>I agree terms and conditions</a></label>
+                <div *ngIf="submitted && fval.terms.errors" class="invalid-feedback" >
+                  <div *ngIf="fval.terms.errors.required">
+                    Agree terms and conditions is required 
+                  </div>
+                  </div>
+            </div>
+ -->
+ <div class="form-group" style="margin-left: 30px;">
+  <input type="checkbox" class="checkbox" id="defaultUncheckedconditon"formControlName="terms" [ngClass]="{ 'is-invalid': submitted && fval.terms.errors }" /> 
+   <!-- <a style="padding-left: 10px; color: #2f9bd8 !important;  cursor: pointer;" (click)="rouerter('/terms','supplierhome','home')">I agree terms and conditions</a> -->
+   <span>&nbsp;&nbsp;I agree<a style="padding-left: 10px; color: #2f9bd8 !important;  cursor: pointer;"
+    (click)="rouerter('/terms','supplierhome','home')">terms and conditions</a></span> 
+   <div *ngIf="submitted && fval.terms.errors" class="invalid-feedback">
+       
+    <div *ngIf="fval.terms.errors.required">
+      Please agree terms and conditions
+    </div>
+     
+    </div>
+  </div>
+
+
+              <div class="form-group" style="padding-top: 20px;">
+                <div class="text-center">
+                  <button type="submit"  (click)="CustomerSave()" class="btn btn-primary">Continue</button>
+                  </div>
+              </div>
+          </form>
+      </div>
+  </div>
+</div>
+<div *ngIf="this.Loader" class="loading">Loading&#8230;</div>
+
+<footer class="page-footer font-small blue">
+
+<!-- Copyright -->
+
+<div class="footer-copyright text-center py-3" >© 2020 Copyright:All Right Reserved &nbsp;&nbsp;&nbsp;
+  <a style="padding-right: 5px; cursor: pointer;"(click)="rouerter('/terms','uniforms','supplier')" >Terms of Use - </a>
+  <a style="cursor: pointer;"(click)="rouerter('/privacy','uniforms','supplier')" >Privacy Policy - </a>
+  <a style="cursor: pointer;"(click)="rouerter('/contact','uniforms','supplier')" >Link to Us</a>
+</div>
+
+<!-- Copyright -->
+
+</footer>
+</div>
+

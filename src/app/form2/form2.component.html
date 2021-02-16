@@ -1,0 +1,745 @@
+
+<div class="topnav" id="myTopnav">
+  <label>
+  <img class ="ulogo" src="../assets/img/logo Curve.png" >
+</label>
+
+  <a href="#about">About</a>
+
+ 
+  
+  <a routerLink="/customerhome" routerLinkActive="active" style="cursor: pointer;">Home</a>
+  <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+</div>
+
+
+
+<ul class="breadcrumb">
+  <li><a routerLink="/customerhome" style="cursor: pointer;">Home</a></li>
+  <li><a  routerLinkActive="active">Quotation Form</a></li>
+</ul>
+
+<div class="container recentheading w-100">
+    <span>EXPIRED QUOTATION</span>
+
+</div>
+<div class="container mt-2" *ngIf="this.type=='Fabrics'">
+  <div class="card">
+ 
+    <img class="card-img-top" src="../../assets/img/uniform ad 1.jpg" alt="Card image cap">
+      <div class="card-body">
+          <form role="form" data-toggle="validator" [formGroup]="fabricForm">
+
+         
+              <div class="row col-12 form-group">
+                <div class="col-md-6">
+                  <label>Customer ID </label>  <input type="text" class="form-control" formControlName='user_id' disabled >
+                </div>
+                <div class="col-md-6">
+                  <label>Supplier ID </label>  
+                  <input type="text" class="form-control" formControlName='supplier_id'  disabled>
+                </div>
+              </div>
+             
+              <div class="row col-12 form-group">
+                <div class="col-md-6">
+                  <label style="margin-top: 8px;font-size: 11px;">Order No. </label>  
+                  <input type="text" class="form-control" formControlName='order_id' disabled >
+                </div>
+                <div class="col-md-6">
+                  <label style="margin-top: 8px;font-size: 11px;">Quotation No. </label>  
+                  <input type="text" class="form-control" formControlName='quatation_form_id' disabled >
+                
+                </div>
+          
+           
+              </div>
+              <div class="row col-12 form-group">
+                <div class="col-md-3">
+                  <label style="margin-top: 8px;font-size: 11px;"> Plese Choose Expiry date </label>  
+                </div>
+                <div class="col-md-9">
+                  <input type="date" class="form-control" formControlName="delivery_date">
+                </div>
+               
+              </div>
+              
+              <div class="row col-12 form-group">
+                <div class="col-md-3">
+                  <label style="margin-top: 8px;font-size: 11px;">Category</label>  
+                </div>
+                <div class="col-md-9">
+                  <input type="text" class="form-control" formControlName="model_type" disabled >
+                </div>
+               
+              </div>
+                   
+
+
+              <div class="recentheading w-100 " style="text-align: center;">
+                <span>PRODUCT  DETAILS</span>
+            </div>
+            <!-- <h3><b>ITEM TYPE:</b> {{this.QuoutesList[0]?.prod_type}}({{this.QuoutesList[0]?.prod_sub_type}})</h3> -->
+            <div  class="form-group" formArrayName="order_lines" style="padding-top: 20px;">
+              <div *ngFor="let line of  getControls();let i=index" [formGroupName]="i">
+              <div class="row">
+                <div class="col-md-6">
+                  <label>Brand Name</label>
+                  <input type="text" class="form-control" id="exampleFormControlSelect1" formControlName="brand_name" >
+                  </div>
+                  
+                  <div class="col-md-6">
+                    <label>Catalog Number</label>
+                    <input type="text" class="form-control" id="exampleFormControlSelect1" formControlName="catalog_number" >
+                    </div>
+                  </div>
+                    <br>
+                    <br>
+                    <br>
+                <br>
+                <div class="row">
+                    <div class="col-md-6">
+                      <label>Design  Number</label>
+                      <input type="text" class="form-control" id="exampleFormControlSelect1" formControlName="design_no" >
+                      </div>
+                 
+                      <div class="col-md-6">
+                        <label>Shade  Number</label>
+                        <input type="text" class="form-control" id="exampleFormControlSelect1" formControlName="shade_no">
+                        </div>
+                      </div>
+                        <br>
+                        <br>
+                        <br>
+                <br>
+                    
+                    
+              </div>
+            </div>
+        
+              <div class="recentheading w-100 " style="text-align: center;">
+                <span>ORDERED ITEMS</span>
+            </div>
+          
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">ITEM NAME</th>
+                  <th scope="col">QUANTITY</th>
+                  <th scope="col">PRICE(per Item)</th>
+                  <th scope="col">TOTAL</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of this.QuoteList">
+                  <th scope="row">{{item['quotationdetails_id']}}</th>
+                  <td>{{item['item_name']}}</td>
+                  <td>{{item['count']}}</td>
+                  <td>{{item['rate_per_item']}}</td>
+                  <td>{{item['total__amt']}}</td>
+                
+                </tr>
+               
+               
+              </tbody>
+            </table>
+ 
+           
+              <!-- <div class="row col-12 form-group" >
+                <div class="col-md-3">
+                  <label style="margin-top: 8px;font-size: 11px;">Brand Name </label>  
+                </div>
+                <div class="col-md-9">
+                  <input type="text" class="form-control" formControlName='brand_name'>
+                </div>
+              
+              </div> -->
+             
+              
+              <!-- <div class="row col-12 form-group">
+                <div class="col-md-3">
+                  <label style="margin-top: 8px;font-size: 11px;">Catalog Number </label>  
+                </div>
+                <div class="col-md-9">
+                  <input type="text" class="form-control" formControlName='catalog_number'>
+                </div>
+              
+              </div> -->
+             
+             
+              <!-- <div class="row col-12 form-group">
+                <div class="col-md-3">
+                  <label style="margin-top: 8px;font-size: 11px;">Design  Number </label>  
+                </div>
+                <div class="col-md-9">
+                  <input type="text" class="form-control" formControlName='design_no'>
+                </div>
+              
+              </div> -->
+              <!-- <div class="row col-12 form-group">
+                <div class="col-md-3">
+                  <label style="margin-top: 8px;font-size: 11px;">Shade  Number </label>  
+                </div>
+                <div class="col-md-9">
+                  <input type="text" class="form-control" formControlName='shade_no'>
+                </div>
+              
+              </div> -->
+
+              <br>
+              <div class="row w-100 justify-content-center">
+                <p class="recentheading" style="text-align: center;">PRICING DETAILS</p>
+
+              </div>
+              <div class="row w-100 justify-content-center">
+               
+                   
+                      <label class="Amout">GRAND TOTAL :</label> 
+                      {{ this.QuoutesList && this.QuoutesList[0]?.grand_total | currency:'INR'}} &nbsp;<small id="emailHelp" class="form-text text-muted">(All prices are tax includes)</small>
+                    
+                       
+        
+               
+                </div>
+                
+
+           
+              <br>
+              
+              <div class="custom-control custom-checkbox" style="padding-top: 10px;">
+                <input type="checkbox" class="custom-control-input" id="defaultUnchecked" formControlName="terms" [ngClass]="{ 'is-invalid': submitted && fval.delivery_date.errors }">
+                <label class="custom-control-label" for="defaultUnchecked"><a href='/terms'>I agree terms and conditions</a></label>
+                <div *ngIf="submitted && fval.terms.errors" class="invalid-feedback">
+                  <div *ngIf="fval.terms.errors.required">
+                    Agree terms and conditions is required 
+                  </div>
+                   
+                  </div>
+            </div>
+            <br>
+            <br>
+              <div class="row col-12 form-group">
+                <div class="col-md-6" >
+
+                    <button  (click)="UpdateOrder('Accepted Proposal')"  style="width:100%" class="unicornButton btn btn-success">Edit Proposal</button>
+                  
+
+                </div>
+                <br>
+                <br>
+                <div class="col-md-6">
+                    
+                    <button  (click)="UpdateOrder('Rejected Proposal')" style="width:100%" class="unicornButton  btn btn-success">Reject Proposal</button>
+                </div>
+              </div>
+            
+      
+
+
+
+          </form>
+      </div>
+  </div>
+</div>
+<div class="container mt-3" *ngIf="this.type=='Stitching'">
+  
+  <div class="card">
+    <form role="form" data-toggle="validator" [formGroup]="fabricForm">
+
+      <img class="card-img-top" src="../../assets/img/uniform ad 1.jpg" alt="Card image cap">
+      <div class="card-body">
+                   
+        <div class="row col-12 form-group">
+          <div class="col-md-6">
+            <label>Customer ID </label>  <input type="text" class="form-control" formControlName='user_id' disabled>
+          </div>
+          <div class="col-md-6">
+            <label>Supplier ID </label>  
+            <input type="text" class="form-control" formControlName='supplier_id' disabled >
+          </div>
+        </div>
+       
+        <div class="row col-12 form-group">
+          <div class="col-md-6">
+            <label style="margin-top: 8px;font-size: 11px;">Order No. </label>  
+            <input type="text" class="form-control" formControlName='order_id' disabled >
+          </div>
+          <div class="col-md-6">
+            <label style="margin-top: 8px;font-size: 11px;">Quotation No. </label>  
+            <input type="text" class="form-control" formControlName='quatation_form_id' disabled >
+          
+          </div>
+    
+     
+        </div>
+        <div class="row col-12 form-group">
+          <div class="col-md-3">
+            <label style="margin-top: 8px;font-size: 11px;"> Plese Choose Expiry date </label>  
+          </div>
+          <div class="col-md-9">
+            <input type="date" class="form-control" formControlName="delivery_date">
+          </div>
+         
+        </div>
+        
+        <div class="row col-12 form-group">
+          <div class="col-md-3">
+            <label style="margin-top: 8px;font-size: 11px;">Category</label>  
+          </div>
+          <div class="col-md-9">
+            <input type="text" class="form-control" formControlName="model_type" disabled >
+          </div>
+         
+        </div>
+        <div class="row col-12 form-group">
+          <div class="col-md-3">
+            <label style="margin-top: 8px;font-size: 11px;">Total Items Needed</label>  
+          </div>
+          <div class="col-md-9">
+            <input type="text" class="form-control" formControlName="total_count" disabled >
+          </div>
+         
+        </div>
+        <div class="row col-12 form-group">
+          <div class="col-md-3">
+            <label style="margin-top: 8px;font-size: 11px;">Individually Stitched</label>  
+          </div>
+          <div class="col-md-9">
+            <input type="text" class="form-control" formControlName="is_invidulaystiched" disabled >
+          </div>
+         
+        </div>
+        
+
+
+
+   
+            <div class="recentheading w-100 " style="text-align: center;">
+                <span>ORDERED ITEMS</span>
+            </div>
+               <h3><b>ITEM TYPE:</b> {{this.QuoutesList && this.QuoutesList[0]?.prod_type}}({{ this.QuoutesList && this.QuoutesList[0]?.prod_sub_type}})</h3>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">ITEM NAME</th>
+                  <th scope="col">QUANTITY</th>
+                  <th scope="col">PRICE(per Item)</th>
+                  <th scope="col">TOTAL</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of this.QuoteList">
+                  <th scope="row">{{item['quotationdetails_id']}}</th>
+                  <td>{{item['item_name']}}</td>
+                  <td>{{item['count']}}</td>
+                  <td>{{item['rate_per_item']}}</td>
+                  <td>{{item['total__amt']}}</td>
+                
+                </tr>
+               
+               
+              </tbody>
+            </table>
+
+      </div>
+      <div class="row w-100 justify-content-center">
+        <p class="recentheading" style="text-align: center;">PRICING DETAILS</p>
+
+      </div>
+      <div class="row w-100 justify-content-center">
+       
+           
+              <label class="Amout">GRAND TOTAL :</label> 
+              {{this.QuoutesList && this.QuoutesList[0]?.grand_total | currency:'INR'}} &nbsp;<small id="emailHelp" class="form-text text-muted">(All prices are tax includes)</small>
+            
+               
+
+       
+        </div>
+      
+          <div class="row col-12 form-group">
+              <div class="col-md-6" >
+
+                  <button  (click)="UpdateOrder('Accepted Proposal')"  style="width:100%" class="unicornButton btn btn-success">Edit Proposal</button>
+                
+
+              </div>
+              <br>
+              <br>
+              <div class="col-md-6">
+                  
+                  <button  (click)="UpdateOrder('Rejected Proposal')" style="width:100%" class="unicornButton  btn btn-success">Reject Proposal</button>
+              </div>
+            </div>
+            </form>
+
+          
+    </div>
+  
+
+
+</div>
+<div class="container mt-3" *ngIf="this.type=='Fabric and Stitching'">
+  
+  <div class="card">
+ 
+      <form role="form" data-toggle="validator" [formGroup]="fabricForm">
+
+        <img class="card-img-top" src="../../assets/img/uniform ad 1.jpg" alt="Card image cap">
+        <div class="card-body">
+                     
+          <div class="row col-12 form-group">
+            <div class="col-md-6">
+              <label>Customer ID </label>  <input type="text" class="form-control" formControlName='user_id' disabled >
+            </div>
+            <div class="col-md-6">
+              <label>Supplier ID </label>  
+              <input type="text" class="form-control" formControlName='supplier_id' disabled >
+            </div>
+          </div>
+         
+          <div class="row col-12 form-group">
+            <div class="col-md-6">
+              <label style="margin-top: 8px;font-size: 11px;">Order No. </label>  
+              <input type="text" class="form-control" formControlName='order_id' disabled >
+            </div>
+            <div class="col-md-6">
+              <label style="margin-top: 8px;font-size: 11px;">Quotation No. </label>  
+              <input type="text" class="form-control" formControlName='quatation_form_id' disabled >
+            
+            </div>
+      
+       
+          </div>
+          <div class="row col-12 form-group">
+            <div class="col-md-3">
+              <label style="margin-top: 8px;font-size: 11px;"> Plese Choose Expiry date </label>  
+            </div>
+            <div class="col-md-9">
+              <input type="date" class="form-control" formControlName="delivery_date">
+            </div>
+           
+          </div>
+          
+          <div class="row col-12 form-group">
+            <div class="col-md-3">
+              <label style="margin-top: 8px;font-size: 11px;">Category</label>  
+            </div>
+            <div class="col-md-9">
+              <input type="text" class="form-control" formControlName="model_type" disabled >
+            </div>
+           
+          </div>
+          <div class="row col-12 form-group">
+            <div class="col-md-3">
+              <label style="margin-top: 8px;font-size: 11px;">Total Items Needed</label>  
+            </div>
+            <div class="col-md-9">
+              <input type="text" class="form-control" formControlName="total_count" disabled >
+            </div>
+           
+          </div>
+          <div class="row col-12 form-group">
+            <div class="col-md-3">
+              <label style="margin-top: 8px;font-size: 11px;">Individually Stitched</label>  
+            </div>
+            <div class="col-md-9">
+              <input type="text" class="form-control" formControlName="is_invidulaystiched" disabled >
+            </div>
+           
+          </div>
+            <div class="recentheading w-100 " style="text-align: center;">
+                <span>ORDERED ITEMS</span>
+            </div>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">ITEM NAME</th>
+                  <th scope="col">QUANTITY</th>
+                  <th scope="col">PRICE(per Item)</th>
+                  <th scope="col">TOTAL</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of this.QuoteList">
+                  
+                  <th scope="row">{{item['quotationdetails_id']}}</th>
+                  <td>{{item['item_name']}}</td>
+                  <td>{{item['count']}}</td>
+                  <td>{{item['rate_per_item']}}</td>
+                  <td>{{item['total__amt']}}</td>
+                
+                </tr>
+               
+               
+              </tbody>
+            </table>
+
+      </div>
+      <div class="container">
+        <div class="row w-100 justify-content-center">
+          <p class="recentheading" style="text-align: center;">PRICING DETAILS</p>
+
+        </div>
+        <div class="row w-100 justify-content-center">
+         
+             
+                <label class="Amout">GRAND TOTAL :</label> 
+                {{this.QuoutesList && this.QuoutesList[0]?.grand_total | currency:'INR'}} &nbsp;<small id="emailHelp" class="form-text text-muted">(All prices are tax includes)</small>
+              
+                 
+  
+         
+          </div>
+      </div>
+      
+          <div class="row col-12 form-group">
+              <div class="col-md-6" >
+
+                  <button  (click)="UpdateOrder('Accepted Proposal')"  style="width:100%" class="unicornButton btn btn-success">Edit Proposal</button>
+                
+
+              </div>
+              <div class="col-md-6">
+                  
+                  <button  (click)="UpdateOrder('Rejected Proposal')" style="width:100%" class="unicornButton  btn btn-success">Reject Proposal</button>
+              </div>
+            </div>
+          </form>
+    </div>
+  
+
+
+</div>
+<div class="container mt-3" *ngIf="this.type=='none'">
+  
+  <div class="card">
+
+    <form role="form" data-toggle="validator" [formGroup]="fabricForm">
+
+      <img class="card-img-top" src="../../assets/img/uniform ad 1.jpg" alt="Card image cap">
+      <div class="card-body">
+                   
+        <div class="row col-12 form-group">
+          <div class="col-md-6">
+            <label>Customer ID </label>  <input type="text" class="form-control" formControlName='user_id' disabled >
+          </div>
+          <div class="col-md-6">
+            <label>Supplier ID </label>  
+            <input type="text" class="form-control" formControlName='supplier_id' disabled >
+          </div>
+        </div>
+       
+        <div class="row col-12 form-group">
+          <div class="col-md-6">
+            <label style="margin-top: 8px;font-size: 11px;">Order No. </label>  
+            <input type="text" class="form-control" formControlName='order_id' disabled >
+          </div>
+          <div class="col-md-6">
+            <label style="margin-top: 8px;font-size: 11px;">Quotation No. </label>  
+            <input type="text" class="form-control" formControlName='quatation_form_id' disabled >
+          
+          </div>
+    
+     
+        </div>
+        <div class="row col-12 form-group">
+          <div class="col-md-3">
+            <label style="margin-top: 8px;font-size: 11px;"> Plese Choose Expiry date </label>  
+          </div>
+          <div class="col-md-9">
+            <input type="date" class="form-control" formControlName="delivery_date">
+          </div>
+         
+        </div>
+        
+        <div class="row col-12 form-group">
+          <div class="col-md-3">
+            <label style="margin-top: 8px;font-size: 11px;">Category</label>  
+          </div>
+          <div class="col-md-9">
+            <input type="text" class="form-control" formControlName="model_type" disabled >
+          </div>
+         
+        </div>
+            <div class="recentheading w-100 " style="text-align: center;">
+                <span>ORDERED ITEMS</span>
+            </div>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">ITEM NAME</th>
+                  <th scope="col">QUANTITY</th>
+                  <th scope="col">PRICE(per Item)</th>
+                  <th scope="col">TOTAL</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of this.QuoteList">
+                  <th scope="row">{{item['quotationdetails_id']}}</th>
+                  <td>{{item['item_name']}}</td>
+                  <td>{{item['count']}}</td>
+                  <td>{{item['rate_per_item']}}</td>
+                  <td>{{item['total__amt']}}</td>
+                
+                </tr>
+               
+               
+              </tbody>
+            </table>
+
+      </div>
+      <div class="container">
+        <div class="row w-100 justify-content-center">
+          <p class="recentheading" style="text-align: center;">PRICING DETAILS</p>
+
+        </div>
+        <div class="row w-100 justify-content-center">
+         
+             
+                <label class="Amout">GRAND TOTAL :</label> 
+                {{this.QuoutesList && this.QuoutesList[0]?.grand_total | currency:'INR'}} &nbsp;<small id="emailHelp" class="form-text text-muted">(All prices are tax includes)</small>
+              
+                 
+  
+         
+          </div>
+      </div>
+      
+          <div class="row col-12 form-group">
+              <div class="col-md-6" >
+
+                  <button  (click)="UpdateOrder('Accepted Proposal')"  style="width:100%" class="unicornButton btn btn-success">Edit Proposal</button>
+                
+
+              </div>
+              <div class="col-md-6">
+                  
+                  <button  (click)="UpdateOrder('Rejected Proposal')" style="width:100%" class="unicornButton  btn btn-success">Reject Proposal</button>
+              </div>
+            </div>
+          </form>
+    </div>
+  
+
+
+</div>
+<div class="container mt-3" *ngIf="this.type=='Order Based Form'">
+  
+<div class="card">
+
+  <form role="form" data-toggle="validator" [formGroup]="fabricForm">
+
+    <img class="card-img-top" src="../../assets/img/uniform ad 1.jpg" alt="Card image cap">
+    <div class="card-body">
+                 
+      <div class="row col-12 form-group">
+        <div class="col-md-6">
+          <label>Customer ID </label>  <input type="text" class="form-control" formControlName='user_id' disabled >
+        </div>
+        <div class="col-md-6">
+          <label>Supplier ID </label>  
+          <input type="text" class="form-control" formControlName='supplier_id' disabled >
+        </div>
+      </div>
+     
+      <div class="row col-12 form-group">
+        <div class="col-md-6">
+          <label style="margin-top: 8px;font-size: 11px;">Order No. </label>  
+          <input type="text" class="form-control" formControlName='order_id' disabled >
+        </div>
+        <div class="col-md-6">
+          <label style="margin-top: 8px;font-size: 11px;">Quotation No. </label>  
+          <input type="text" class="form-control" formControlName='quatation_form_id' disabled >
+        
+        </div>
+  
+   
+      </div>
+      <div class="row col-12 form-group">
+        <div class="col-md-3">
+          <label style="margin-top: 8px;font-size: 11px;"> Plese Choose Expiry date </label>  
+        </div>
+        <div class="col-md-9">
+          <input type="date" class="form-control" formControlName="delivery_date">
+        </div>
+       
+      </div>
+      
+      <div class="row col-12 form-group">
+        <div class="col-md-3">
+          <label style="margin-top: 8px;font-size: 11px;">Category</label>  
+        </div>
+        <div class="col-md-9">
+          <input type="text" class="form-control" formControlName="model_type" disabled >
+        </div>
+       
+      </div>
+          <div class="recentheading w-100 " style="text-align: center;">
+              <span>ORDERED ITEMS</span>
+          </div>
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">ITEM NAME</th>
+                <th scope="col">QUANTITY</th>
+                <th scope="col">PRICE(per Item)</th>
+               
+                <th scope="col">TOTAL</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of this.QuoteList">
+                <th scope="row">{{item['quotationdetails_id']}}</th>
+                <td>{{item['item_name']}}</td>
+                <td>{{item['count']}}</td>
+                <td>{{item['rate_per_item']}}</td>
+                <td>{{item['total__amt']}}</td>
+              
+              </tr>
+             
+             
+            </tbody>
+          </table>
+
+    </div>
+    <div class="container">
+      <div class="row w-100 justify-content-center">
+        <p class="recentheading" style="text-align: center;">PRICING DETAILS</p>
+
+      </div>
+      <div class="row w-100 justify-content-center">
+       
+           
+              <label class="Amout">GRAND TOTAL :</label> 
+              {{this.QuoutesList && this.QuoutesList[0]?.grand_total | currency:'INR'}} &nbsp;<small id="emailHelp" class="form-text text-muted">(All prices are tax includes)</small>
+            
+               
+
+       
+        </div>
+    </div>
+    
+        <div class="row col-12 form-group">
+            <div class="col-md-6" >
+
+                <button  (click)="UpdateOrder('Accepted Proposal')"  style="width:100%" class="unicornButton btn btn-success">Edit Proposal</button>
+              
+
+            </div>
+            <div class="col-md-6">
+                
+                <button  (click)="UpdateOrder('Rejected Proposal')" style="width:100%" class="unicornButton  btn btn-success">Reject Proposal</button>
+            </div>
+          </div>
+        </form>
+  </div>
+
+
+
+</div>

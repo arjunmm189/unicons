@@ -1,0 +1,121 @@
+<div class="topnav" id="myTopnav">
+    <label>
+    <img class ="ulogo" src="../assets/img/logo Curve.png" >
+    </label>
+    <button class="drop" href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</button>
+</div>
+  
+  
+  <div id="mySidenav" class="sidenav" style="margin-top: 90px;">
+    <button  href="javascript:void(0)" class="closebtn" style="border: none;float: right;padding-top: 5px;padding-right: 5px;padding-bottom: 5px;" onclick="closeNav()">&times;</button>
+    <button class="drop" (click)="rourter('/adminhome','adminhome','home')" style ="cursor: pointer; width: 100%;">Home</button>
+    <button class="drop" (click)="rourter('/supplier_list','adminhome','home')" style ="cursor: pointer; width: 100%;">Supplier List</button>
+    <button class="drop"  (click)="rourter('/buyers_list','adminhome','home')" style ="cursor: pointer; width: 100%;">Buyers List</button>
+    <button class="drop" (click)="rourter('/supplier_details','adminhome','home')" style ="cursor: pointer; width: 100%;">Supplier Details</button>
+    <button class="drop"  (click)="rourter('/order_details','adminhome','home')" style ="cursor: pointer;width: 100%;">Customer Orders</button>
+    <button class="drop"  (click)="rourter('/quotations','adminhome','home')" style ="cursor: pointer; width: 100%;"> Quotations</button>
+    <button class="drop"  (click)="rourter('/banner','adminhome','home')" style ="cursor: pointer; width: 100%;color: white;"> Banner list</button>
+    <button class="drop"  (click)="rourter('/adminlabourlist','adminhome','home')" style ="cursor: pointer; width: 100%;"> Labour list</button>
+    <button class="drop" (click)="rourter('/adminmachinelist','adminhome','home')" style ="cursor: pointer; width: 100%;">  Machine Supplier Details</button>
+    <button class="drop" (click)="rourter('/adminproduct','adminhome','home')">  Machine And Spare List</button>
+    <button class="drop"  (click)="rourter('/adminaccs','adminhome','home')"> ReadyMade And Accessories List</button>
+  </div>
+  
+  <h2></h2>
+  <p></p>
+  <div class="ico">
+    <span class="icon" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span>
+    </div>
+    
+    <ul class="breadcrumb" style="padding-top: 120px;">
+      <li><a (click)="rourter('/adminhome','adminhome','home')" routerLinkActive="active" style="cursor: pointer">Home</a></li>
+      <li><a  routerLinkActive="active"> Add Banner</a></li>
+    </ul> 
+  
+<div class="container mt-3">
+    <div class="card" *ngIf="this.id">
+
+        <h3 class="card-header text-center"> Edit  Banner</h3>
+        <div class="card-body">
+            <form role="form" data-toggle="validator"  [formGroup]="profileForm">
+            <div >
+              <img  style="width: 46%;"src="{{'http://api.uniconform.in'+''+this.ImageList[0].banner_path}}">
+            </div>
+            <div class="form-group">
+              <label style=" text-align:right"> Choose to Edit Image Image</label>
+              <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+                  </div>
+                  <div class="custom-file">
+                    <input type="file"  #Image class="custom-file-input" id="inputGroupFile01"
+                      aria-describedby="inputGroupFileAddon01" formControlName="photo"  (change)="oFileChange($event)"  multiple>
+                    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                  </div>
+                </div>
+            </div>
+            <button type="submit" (click)="EditBannerImage()" class="btn btn-primary btn-block" >Edit</button>
+            </form>
+        </div>
+    </div>
+    <div class="card" *ngIf="!this.id">
+
+      <h3 class="card-header text-center"> Add Banner</h3>
+      <div class="card-body">
+          <form role="form" data-toggle="validator"  [formGroup]="profileForm">
+              <div class="form-group">
+                  <label>Banner Name</label>
+                  <input type="text" class="form-control" data-error="You must have a name." id="inputName" placeholder="Please provide a Banner Name" formControlName="banner"  >
+                 
+              </div> 
+              <div class="form-group">
+                <label for="exampleFormControlSelect1">Banner Type</label>
+                <select class="form-control" id="exampleFormControlSelect1" (change)="selectChange($event.target.value)" formControlName="banner_type"   [ngClass]="{ 'is-invalid': submitted && fval.model_type.errors }">
+                  <option value="Banner Type" selected disabled>Banner Type</option>
+                  <option value="Supplier banner">Supplier banner</option>
+                  <option value="Customer banner">Customer banner</option>
+                  <option value="User banner">User banner</option>
+                </select> 
+               
+              </div>
+           
+              <div class="form-group">
+                <label style=" text-align:right"> Choose Image</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+                    </div>
+                    <div class="custom-file">
+                      <input type="file"  #Image class="custom-file-input" id="inputGroupFile01"
+                        aria-describedby="inputGroupFileAddon01" formControlName="photo"  (change)="oFileChange($event)"  multiple>
+                      <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                    </div>
+                  </div>
+              </div>
+              <div class="form-group" style="padding-top: 20px;">
+                  <button type="submit" (click)="addbannerImage()" class="btn btn-primary btn-block" >Submit</button>
+              </div>
+          </form>
+      </div>
+  </div>
+</div>
+
+
+<div *ngIf="this.Loader" class="loading">Loading&#8230;</div>
+<br>
+<br>
+<footer class="page-footer font-small blue">
+  
+    <!-- Copyright -->
+  
+    <div class="footer-copyright text-center py-3" >© 2020 Copyright:All Right Reserved &nbsp;&nbsp;&nbsp;
+      <a style="padding-right: 5px; cursor: pointer;"(click)="rourter('/terms','uniforms','supplier')" >Terms of Use - </a>
+      <a style="cursor: pointer;"(click)="rourter('/privacy','uniforms','supplier')" >Privacy Policy - </a>
+      <a style="cursor: pointer;"(click)="rourter('/contact','uniforms','supplier')" >Link to Us</a>
+    </div>
+  
+    <!-- Copyright -->
+  
+</footer>
+
+

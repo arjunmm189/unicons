@@ -1,0 +1,126 @@
+<div class="topnav" id="myTopnav">
+  <label>
+  <img class ="ulogo" src="../assets/img/logo Curve.png" >
+</label>
+
+  <a href="#about">About</a>
+  
+
+  
+  <a (click)="rouerter('/supplierhome','supplierhome','home')"  routerLinkActive="active" style="cursor: pointer;">Home</a>
+  <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+</div>
+
+
+<ul class="breadcrumb">
+  <li><a (click)="rouerter('/supplierhome','supplierhome','home')"  routerLinkActive="active" style="cursor: pointer;">Home</a></li>
+  <li><a  routerLinkActive="active">Add Machineries and Spare Parts</a></li>
+
+</ul>
+
+<div class="container mt-5">
+  <div class="card">
+
+      <h5 class="card-header text-center">Add Machineries and Spare Parts </h5>
+      <div class="card-body">
+          <form role="form" data-toggle="validator">
+              <div class="form-group">
+                  <label>Brand Name</label>
+                  <input type="text" class="form-control" data-error="You must have a Brand Name." id="inputBrandName" placeholder="Brand Name" required>
+                  <div *ngIf="submitted && fval.designation.errors" class="invalid-feedback">
+                    <div *ngIf="fval.designation.errors.required">
+                      Position is required 
+                    </div>
+                     
+                    </div>
+                  <!-- Error -->
+                  <div class="help-block with-errors"></div>
+              </div>
+              <div class="form-group">
+                  <label>Item Name</label>
+                  <input type="text" class="form-control" data-error="You must have a Item Name." id="inputName" placeholder=" Item Name" required>
+
+                  <!-- Error -->
+                  <div class="help-block with-errors"></div>
+              </div>
+              <div class="form-group">
+                  <label>Machine Condition</label>
+                  <br>
+                  <div class="form-check form-check-inline">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="inlineRadioOptions"
+                        id="inlineRadio1"
+                        value="option1"
+                      />
+                      <label class="form-check-label" for="inlineRadio1">New</label>
+                    </div>
+                    
+                    <div class="form-check form-check-inline">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="inlineRadioOptions"
+                        id="inlineRadio2"
+                        value="option2"
+                      />
+                      <label class="form-check-label" for="inlineRadio2">Used</label>
+                    </div>
+                  <div class="help-block with-errors"></div>
+              </div>
+              <div class="form-group purple-border">
+                  <label for="exampleFormControlTextarea4">Product Description</label>
+                  <textarea class="form-control" id="exampleFormControlTextarea4" rows="auto" formControlName="message" placeholder="Please provide a Description"></textarea>
+                </div>
+                
+                  
+              <label style="
+              text-align:right"> Choose Image</label>
+              <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+                  </div>
+                  <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="inputGroupFile01"
+                      aria-describedby="inputGroupFileAddon01">
+                    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                  </div>
+                </div>
+                <br>
+                <div class="form-group">
+                  <label>Price</label>
+                  <input type="text" class="form-control" data-error="You must have a Price." id="inputName" placeholder="Please provide a Price" required>
+
+                  <!-- Error -->
+                  <div class="help-block with-errors"></div>
+              </div> 
+              <div class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input" id="defaultUnchecked">
+                  <label class="custom-control-label" for="defaultUnchecked">I agree terms and conditions</label>
+              </div>
+
+
+
+              <div class="form-group" style="padding-top: 20px;">
+                  <button type="submit"  (click)="CustomerSave()" class="btn btn-primary btn-block">Continue</button>
+              </div>
+          </form>
+      </div>
+  </div>
+</div>
+<div *ngIf="this.Loader" class="loading">Loading&#8230;</div>
+
+<footer class="page-footer font-small blue">
+
+<!-- Copyright -->
+<div class="footer-copyright text-center py-3">© 2020 Copyright:All Right Reserved
+  <a style="padding:48px;" href="/privacy">Terms of Use - Privacy Policy - Link to Us</a>
+</div>
+
+
+<!-- Copyright -->
+
+</footer>
+
+

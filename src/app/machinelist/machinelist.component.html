@@ -1,0 +1,190 @@
+<!-- <div class="topnav" id="myTopnav">
+    <label>
+        <img class="ulogo" src="../assets/img/logo Curve.png">
+    </label>
+
+    <a href="#about">About</a>
+    <a (click)="rouerter('/labourform','labourstechnicians','labours')">Labours and Technicians</a>
+    <a (click)="rouerter('/machine','machineandspareparts','machine')" routerLinkActive="active">Machines and Spare
+        Parts</a>
+
+
+    <div class="dropdown">
+        <button class="dropbtn">Buyers and Sellers
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <a (click)="rouerter('/form','uniforms','customer')" routerLinkActive="active">Customers</a>
+            <a (click)="rouerter('/supplier','uniforms','supplier')">Suppliers</a>
+        </div>
+    </div>
+
+    <a href="#home" class="active" style="color: #007e56;cursor: initial;">Home</a>
+    <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+</div>
+
+
+
+<br> -->
+<div class="topnav" id="myTopnav">
+  <label>
+  <img class ="ulogo" src="../assets/img/logo Curve.png" >
+</label>
+
+
+<!--  
+ 
+<div  *ngIf="!this.User_id" class="dropdown">
+  <button class="dropbtn" (click)="rouerter('/login','uniforms','customer')"><i class="fa fa-sign-in"></i> Login</button>
+  </div>
+  <div  *ngIf="this.User_id" class="dropdown">
+    <button class="dropbtn" (click)="LogOut()"><i class="fa fa-sign-out"></i> LogOut</button>
+    </div>
+
+  
+ -->
+
+  
+  <div class="dropdown">
+    <button class="dropbtn"><i class="fa fa-info-circle" aria-hidden="true"></i>About Us 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <button class="drop" (click)="rouerter('/contact','uniforms','customer')" style="width: 100%;border: none;background: none;" routerLinkActive="active"> <i class="fa fa-fw fa-envelope" style="padding-right: 30px;"></i>Contact Us</button>
+      <button class="drop"  (click)="rouerter('/terms','uniforms','supplier')" style="width: 100%;border: none;background: none;"routerLinkActive="active" > <i class="fa fa-gavel" style="padding-right: 10px;"></i>Terms And Conditions</button>
+      <button class="drop"  (click)="rouerter('/privacy','uniforms','supplier')" style="width: 100%;border: none;background: none;"routerLinkActive="active" >  <i class="fa fa-user-secret" style="padding-right: 10px;"></i>Privacy And Policy</button>
+    </div>
+  </div> 
+  
+
+
+  <div   class="dropdown">
+    <button class="dropbtn" (click)="rouerter('/home','uniforms','customer')"><i class="fa fa-fw fa-home"></i> Home</button>
+    </div>
+  
+    
+
+
+
+<input type="text" value="Conform Your Uniform" hidden>
+  
+  <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+ 
+  <input type="text" value="Conform Your Uniform" hidden>
+</div>
+<input type="text" value="Conform Your Uniform" hidden>
+<input type="text" value="Conform Your Uniform" hidden>
+
+ 
+
+
+
+<ul class="breadcrumb" style="padding-top: 40px !important;padding-bottom: 60px !important;">
+    <li><a (click)="rouerter('/home','supplierhome','home')" routerLinkActive="active" style="cursor: pointer">Home</a></li>
+    <li><a  routerLinkActive="active">Listing </a></li>
+  </ul>
+  
+
+  <div class="container-fluid  mb-4">
+    <!-- <div class="row">
+        <div class="col-md-6"> -->
+
+          <span class="head" *ngIf="this.type=='Ready mades'" style="text-align:left ; color: black;font-size: 40px;padding-left: 50px;font-family:-apple-system">Readymades</span>
+          <span class="head" *ngIf="this.type=='Accesories'" style="text-align:left ; color: black;font-size: 40px;padding-left: 50px;font-family:-apple-system">Uniform Accessories</span>
+          <span class="head" *ngIf="this.type=='machines'" style="text-align:left ; color: #162530;font-size: 20px;padding-left: 50px;font-family:-apple-system">MACHINERIES & SPARE PARTS</span>
+      
+          <div class="row  justify-content-center" style="padding-top: 60px;">
+         
+              <div class="card1" style="width: 18rem;" *ngFor="let item of this.ProdList" >
+                <img class="imgs"style="width: 17rem;" src="{{'http://api.uniconform.in'+''+item['image']}}">
+                <div class="card-body1">
+                  <a class="prodnme" style="width : 100px;
+                  overflow:hidden;
+                  display:inline-block;
+                  text-overflow: ellipsis;
+                  white-space: nowrap; "   >{{item['item_name']}}</a>
+                  <br><br>
+                  <span class="price"><small>Rs.</small>{{item['price']}}/<small style="font-size: 14px;"> Piece</small> </span>
+                  <br>
+          
+                  
+                  <span class="size" style="width : 120px;
+                  overflow:hidden;
+                  display:inline-block;
+                  text-overflow: ellipsis;
+                  white-space: nowrap; ">Brand Name:{{item['shades']}}</span>
+                  <br>
+                  <!-- <span  *ngIf="item['condition']"  class="size"style="width : 150px;
+                  overflow:hidden;
+                  display:inline-block;
+                  text-overflow: ellipsis;
+                  white-space: nowrap; "> Condition:{{item['condition']}}</span> -->
+                  <br>
+                 
+                
+                  <br>
+                  <div class="inner"><a (click)="gotoList('/machinesingle',item['prod_id'])"  target="_blank"><button  type="button"     class="btn btn-success unicornButton"><i class="fa fa-eye" aria-hidden="true" ></i> View More</button></a></div>
+          
+          
+              </div>
+          
+           
+          
+          </div>
+          
+        </div> <br> 
+      
+          <!-- </div>
+        <div class="col-md-6" style="text-align:right ;padding-right: 30px">
+        
+          <button type="button" class="btn btn-success">View All</button>
+        </div>
+      </div> -->
+
+    <!-- <div class="row"> -->
+    
+        
+      <!-- <div class="card1" *ngFor="let item of this.ProdList">
+        <img class="imgs" src="{{'http://api.uniconform.in'+''+item['image']}}">
+        <div class="card-body1">
+          <a class="prodnme" (click)="gotoList('/machinesingle',item['prod_id'])">{{item['item_name']}}</a>
+          <br>
+          <span class="price"><small>Rs.</small> {{item['price']}}/<small style="font-size: 14px;"> Piece</small> </span>
+          <br>
+          <span class="companyname" style="font-weight: 100;">{{item['organization_name']}}, {{item['place']}}</span>
+          <br>
+          <span class="companyaddress">{{item['district']}} , {{item['state']}} </span>
+          <br>
+          <span class="phone" ><i class="fa fa-phone" aria-hidden="true"></i> {{item['phone_number']}}</span>
+          <br>
+          <br>
+          <div class="inner"><a [href]="'tel:'+item['phone_number']" target="_blank"><button  type="button" class="btn btn-success unicornButton"><i class="fa fa-phone" aria-hidden="true" ></i> Call Supplier</button></a></div>
+
+        </div>
+     
+
+    </div>
+   
+
+    </div> -->
+
+</div>
+
+<div *ngIf="this.Loader" class="loading">Loading&#8230;</div>
+<br><br>
+
+
+<footer class="page-footer font-small blue">
+  
+  
+
+  <div class="footer-copyright text-center py-3" >© 2020 Copyright:All Right Reserved &nbsp;&nbsp;&nbsp;
+    <a style="padding-right: 5px; cursor: pointer;"(click)="rouerter('/terms','uniforms','supplier')" >Terms of Use - </a>
+    <a style="cursor: pointer;"(click)="rouerter('/privacy','uniforms','supplier')" >Privacy Policy - </a>
+    <a style="cursor: pointer;"(click)="rouerter('/contact','uniforms','supplier')" >Link to Us</a>
+  </div>
+  
+ 
+  <!-- Copyright -->
+
+</footer>

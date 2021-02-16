@@ -1,0 +1,864 @@
+
+<div class="topnav" id="myTopnav">
+    <label>
+    <img class ="ulogo" src="../assets/img/logo Curve.png" >
+  </label>
+  
+  
+   
+  <!--  
+   <div  *ngIf="!this.User_id" class="dropdown">
+    <button class="dropbtn" (click)="rouerter('/login','uniforms','customer')"><i class="fa fa-sign-in"></i> Login</button>
+    </div>
+    <div  *ngIf="this.User_id" class="dropdown">
+      <button class="dropbtn" (click)="LogOut()"><i class="fa fa-sign-out"></i> LogOut</button>
+      </div> -->
+  
+    
+  
+  
+    
+    <div class="dropdown">
+      <button class="dropbtn"><i class="fa fa-info-circle" aria-hidden="true"></i>About Us 
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <button class="drop" (click)="rouerter('/contact','uniforms','customer')" style="width: 100%;border: none;background: none;" routerLinkActive="active"> <i class="fa fa-fw fa-envelope" style="padding-right: 30px;"></i>Contact Us</button>
+        <button class="drop"  (click)="rouerter('/terms','uniforms','supplier')" style="width: 100%;border: none;background: none;"routerLinkActive="active" > <i class="fa fa-gavel" style="padding-right: 10px;"></i>Terms And Conditions</button>
+        <button class="drop"  (click)="rouerter('/privacy','uniforms','supplier')" style="width: 100%;border: none;background: none;"routerLinkActive="active" >  <i class="fa fa-user-secret" style="padding-right: 10px;"></i>Privacy And Policy</button>
+      </div>
+    </div> 
+    
+  
+  
+    <div   class="dropdown">
+      <button class="dropbtn" (click)="rouerter('/customerhome','uniforms','customer')"><i class="fa fa-fw fa-home"></i> Home</button>
+      </div>
+    
+      
+  
+  
+  
+  <input type="text" value="Conform Your Uniform" hidden>
+    
+    <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+   
+    <input type="text" value="Conform Your Uniform" hidden>
+  </div>
+  <input type="text" value="Conform Your Uniform" hidden>
+  <input type="text" value="Conform Your Uniform" hidden>
+  
+  
+  <ul class="breadcrumb" >
+    <li><a routerLink="/supplierhome" style="cursor: pointer;">Home</a></li>
+    <li><a  routerLinkActive="active">Update Quotation Form</a></li>
+  </ul>
+  
+  <div class="container mt-2" *ngIf="this.type=='Order Based Form'">
+    <div class="card">
+  
+        <h3 class="card-header text-center"> ReadyMade Uniforms Quotation form </h3>
+        <div class="card-body">
+            <form role="form" data-toggle="validator" [formGroup]="fabricForm">
+  
+           
+                <div class="row col-12 form-group">
+                  <div class="col-md-6">
+                    <label>Customer ID </label>  <input type="text" class="form-control" formControlName='user_id' disabled style="background-color: white;">
+                  </div>
+                  <div class="col-md-6">
+                    <label>Supplier ID </label>  
+                    <input type="text" class="form-control" formControlName='customer_id'  disabled style="background-color: white;">
+                  </div>
+                </div>
+               
+                <div class="row col-12 form-group">
+                  <div class="col-md-3">
+                    <label style="margin-top: 8px;font-size: 11px;">Order No. </label>  
+                  </div>
+                  <div class="col-md-9">
+                    <input type="text" class="form-control" formControlName='order_id'  disabled style="background-color: white;">
+                  </div>
+            
+             
+                </div>
+                <div class="row col-12 form-group">
+                  <div class="col-md-3">
+                    <label style="margin-top: 8px;font-size: 11px;">Category</label>  
+                  </div>
+                  <div class="col-md-9">
+                    <input type="text" class="form-control" formControlName="model_type"  disabled style="background-color: white;">
+                  </div>
+                 
+                </div>
+                <div class="row col-12 form-group">
+                  <div class="col-md-3">
+                    <label style="margin-top: 8px;font-size: 11px;">We can supply before</label>  
+                  </div>
+                  <div class="col-md-9">
+                    <input type="text" class="form-control" formControlName="delivery_date" disabled style="background-color: white;">
+                  </div>
+                 
+                </div>
+                <div class="row w-100 justify-content-center">
+                  <p class="recentheading" style="text-align: center;">PRODUCT DETAILS</p>
+  
+                </div>
+                
+               
+              
+                <div  class="form-group" formArrayName="order_lines" style="padding-top: 20px;">
+                <div  *ngFor="let line of  getControls();let i=index" [formGroupName]="i">
+                  <div class="row">
+                  <div class="col-md-6">
+                  <label>Item Name</label>
+                  <input type="text" class="form-control" id="exampleFormControlSelect1" formControlName="item"  disabled style="background-color: white;">
+                  </div>
+               
+                  <div class="col-md-6">
+                    <label>Quantity</label>
+                    <input type="text" class="form-control" id="exampleFormControlSelect1" formControlName="count"  disabled style="background-color: white;">
+                    </div>
+                  </div>
+                    <br>
+                    <br>
+  
+                    <div class="row">
+                    <div class="col-md-6">
+                      <label >Size</label>
+                      <input type="text" class="form-control" id="exampleFormControlSelect1" formControlName="avail_size"  disabled style="background-color: white;" >
+                      </div>
+                    <div class="col-md-6">
+                      <label >Rate Per Pcs.(Tax included)</label>
+                      <input type="text" class="form-control" id="exampleFormControlSelect1" formControlName="rate_per_meter"  (input)="Calculate($event.target.value,i)" >
+                      </div>
+                      </div>
+                     
+                        <br>
+                        <br>
+                 
+                        <div class="row">
+                      <div class="col-md-6">
+                        <label>Total Amount. Rs. </label>  <input   type="text" class="form-control" formControlName='total_amount'  disabled style="background-color: white;">
+                      </div>
+                        </div>
+                      <div class="row w-100" style=" border: 0.1px solid lightgrey;margin: 19px;">
+                         
+      
+                      </div>
+                      
+                      
+                </div>
+              </div>
+              <div class="row w-100 justify-content-center">
+                <p class="recentheading" style="text-align: center;">PRICING DETAILS</p>
+  
+              </div>
+              
+                <br>
+                <div class="row col-12 form-group">
+                  <div class="col-md-3">
+                    <label>Grand Total Rs.</label> 
+                  </div>
+                  <div class="col-md-9">
+                   
+                    <input type="text" class="form-control" [ngModel]="Total_Amount" formControlName='grand_total'  disabled style="background-color: white;">
+                    <small id="emailHelp" class="form-text text-muted">(All prices are tax includes)</small>
+                  </div>
+                </div>
+  
+             
+                <br>
+              
+        
+                <!-- <div class="custom-control custom-checkbox" style="padding-top: 10px;">
+                    <input type="checkbox" class="custom-control-input" id="defaultUnchecked" formControlName="terms" [ngClass]="{ 'is-invalid': submitted && fval.delivery_date.errors }">
+                    <label class="custom-control-label" for="defaultUnchecked"><a href='/terms'>I agree terms and conditions</a></label>
+                    <div *ngIf="submitted && fval.terms.errors" class="invalid-feedback">
+                      <div *ngIf="fval.terms.errors.required">
+                        Agree terms and conditions is required 
+                      </div>
+                       
+                      </div>
+                </div> -->
+                <div class="form-group" style="padding-top: 20px;">
+                  <div class="text-center ">
+                  <button  *ngIf="this.OrderStatus=='Accepted Proposal'"class="btn btn-success unicornButton  btn-block" (click)="rouerter1(this.UserId ,this.QuotationForm,this.DeliveryDate)" routerLinkActive="active">Contact Customer 
+                  </button>
+                </div>
+                <div class="text-center ">
+                  <button  *ngIf="this.OrderStatus=='Accepted by supplier'" class="btn btn-success unicornButton btn-block" routerLinkActive="active">Contact Supplier
+                  </button>
+                </div>
+                <div class="text-center ">
+                  <button  *ngIf="this.OrderStatus==''"class="btn btn-success unicornButton btn-block"  (click)="rouerter1(this.UserId ,this.QuotationForm,this.DeliveryDate)" routerLinkActive="active">Contact Customer  
+                  </button>
+                </div>
+              </div>
+  
+            </form>
+        </div>
+    </div>
+  </div>
+  
+  
+  <div class="container mt-2" *ngIf="this.type=='none'">
+    <div class="card">
+  
+        <h3 class="card-header text-center"> Uniform Accessories Quotation form </h3>
+        <div class="card-body">
+            <form role="form" data-toggle="validator" [formGroup]="fabricForm">
+  
+           
+                <div class="row col-12 form-group">
+                  <div class="col-md-6">
+                    <label>Customer ID </label>  <input type="text" class="form-control" formControlName='user_id'  disabled style="background-color: white;">
+                  </div>
+                  <div class="col-md-6">
+                    <label>Supplier ID </label>  
+                    <input type="text" class="form-control" formControlName='customer_id'>
+                  </div>
+                </div>
+               
+                <div class="row col-12 form-group">
+                  <div class="col-md-3">
+                    <label style="margin-top: 8px;font-size: 11px;">Order No. </label>  
+                  </div>
+                  <div class="col-md-9">
+                    <input type="text" class="form-control" formControlName='order_id'  disabled style="background-color: white;">
+                  </div>
+            
+             
+                </div>
+                <div class="row col-12 form-group">
+                  <div class="col-md-3">
+                    <label style="margin-top: 8px;font-size: 11px;">We can supply before</label>  
+                  </div>
+                  <div class="col-md-9">
+                    <input type="text" class="form-control" formControlName="delivery_date"  disabled style="background-color: white;">
+                  </div>
+                 
+                </div>
+                <div class="row w-100 justify-content-center">
+                  <p class="recentheading" style="text-align: center;">PRODUCT DETAILS</p>
+  
+                </div>
+                
+               
+              
+                <div  class="form-group" formArrayName="order_lines" style="padding-top: 20px;">
+                <div  *ngFor="let line of  getControls();let i=index" [formGroupName]="i"  >
+                  <div class="row">
+                  <div class="col-md-6">
+                  <label>Item Name</label>
+                  <input type="text" class="form-control" id="exampleFormControlSelect1" formControlName="item" disabled style="background-color: white;">
+                  </div>
+                  <div class="col-md-6">
+                    <label>Quantity</label>
+                    <input type="text" class="form-control" id="exampleFormControlSelect1" formControlName="count" disabled style="background-color: white;">
+                    </div>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="row">
+                    <div class="col-md-6">
+                      <label >Rate Per Pcs.(Tax included)</label>
+                      <input type="text" class="form-control" id="exampleFormControlSelect1" formControlName="rate_per_meter"  (input)="Calculate($event.target.value,i)" >
+                      </div>
+                      <div class="col-md-6">
+                        <label>Total Amount. Rs. </label>  <input   type="text" class="form-control" formControlName='total_amount' disabled style="background-color: white;">
+                      </div>
+                    </div>
+                      <div class="row w-100" style=" border: 0.1px solid lightgrey;margin: 19px;">
+                         
+      
+                      </div>
+                      
+                      
+                </div>
+              </div>
+              <div class="row w-100 justify-content-center">
+                <p class="recentheading" style="text-align: center;">PRICING DETAILS</p>
+  
+              </div>
+              
+                <br>
+                <div class="row col-12 form-group">
+                  <div class="col-md-3">
+                    <label>Grand Total Rs.</label> 
+                  </div>
+                  <div class="col-md-9">
+                   
+                    <input type="text" class="form-control" [ngModel]="Total_Amount" formControlName='grand_total' disabled style="background-color: white;">
+                    <small id="emailHelp" class="form-text text-muted">(All prices are tax includes)</small>
+                  </div>
+                </div>
+  
+             
+                <br>
+              
+        
+                <div class="custom-control custom-checkbox" style="padding-top: 10px;">
+                    <input type="checkbox" class="custom-control-input" id="defaultUnchecked" formControlName="terms" [ngClass]="{ 'is-invalid': submitted && fval.delivery_date.errors }">
+                    <label class="custom-control-label" for="defaultUnchecked"><a href='/terms'>I agree terms and conditions</a></label>
+                    <div *ngIf="submitted && fval.terms.errors" class="invalid-feedback">
+                      <div *ngIf="fval.terms.errors.required">
+                        Agree terms and conditions is required 
+                      </div>
+                       
+                      </div>
+                </div>
+                <div class="
+                text:center">
+                <button  *ngIf="this.OrderStatus=='Accepted Proposal'"class="btn btn-success unicornButton  btn-block" (click)="rouerter1(this.UserId ,this.QuotationForm,this.DeliveryDate)" routerLinkActive="active">Contact Customer 
+                </button>
+                <button  *ngIf="this.OrderStatus=='Accepted by supplier'" class="btn btn-success unicornButton  btn-block" routerLinkActive="active">Contact Supplier
+                </button>
+                <button  *ngIf="this.OrderStatus==''"class="btn btn-success unicornButton btn-block"  (click)="rouerter1(this.UserId ,this.QuotationForm,this.DeliveryDate)" routerLinkActive="active">Contact Customer  
+                </button>
+              </div>
+  
+            </form>
+        </div>
+    </div>
+  </div>
+  <div class="container mt-2" *ngIf="this.type=='Fabric and Stitching'">
+    <div class="card">
+  
+        <h3 class="card-header text-center"> Fabrics and Stitching Quotation Form </h3>
+        <div class="card-body">
+            <form role="form" data-toggle="validator" [formGroup]="fabricForm">
+  
+           
+                <div class="row col-12 form-group">
+                  <div class="col-md-6">
+                    <label>Customer ID </label>  <input type="text" class="form-control" formControlName='user_id' disabled style="background-color: white;">
+                  </div>
+                  <div class="col-md-6">
+                    <label>Supplier ID </label>  
+                    <input type="text" class="form-control" formControlName='customer_id' disabled style="background-color: white;">
+                  </div>
+                </div>
+               
+                <div class="row col-12 form-group">
+                  <div class="col-md-3">
+                    <label style="margin-top: 8px;font-size: 11px;">Order No. </label>  
+                  </div>
+                  <div class="col-md-9">
+                    <input type="text" class="form-control" formControlName='order_id' disabled style="background-color: white;">
+                  </div>
+            
+             
+                </div>
+                
+                <div class="row col-12 form-group">
+                  <div class="col-md-3">
+                    <label style="margin-top: 8px;font-size: 11px;">Category</label>  
+                  </div>
+                  <div class="col-md-9">
+                    <input type="text" class="form-control" formControlName="model_type" disabled style="background-color: white;">
+                  </div>
+                 
+                </div>
+                
+             
+                <div class="row col-12 form-group" >
+                  <div class="col-md-3">
+                    <label style="margin-top: 8px;font-size: 11px;">Total Items Needed </label>  
+                  </div>
+                  <div class="col-md-9">
+                    <input type="text" class="form-control" formControlName='total_count' disabled style="background-color: white;">
+                  </div>
+                
+                </div>
+               
+                
+                <div class="row col-12 form-group">
+                  <div class="col-md-3">
+                    <label style="margin-top: 8px;font-size: 11px;">We Prefer Individually Measured Stitching </label>  
+                  </div>
+                  <div class="col-md-9">
+                    <input type="text" class="form-control" formControlName='is_invidulaystiched' disabled style="background-color: white;">
+                  </div>
+                
+                </div>
+                <div class="row col-12 form-group">
+                  <div class="col-md-3">
+                    <label style="margin-top: 8px;font-size: 11px;">We can supply before</label>  
+                  </div>
+                  <div class="col-md-9">
+                    <input type="text" class="form-control" formControlName="delivery_date" disabled style="background-color: white;">
+                  </div>
+                 
+                </div>
+  
+                <div class="row w-100 justify-content-center">
+                  <p class="recentheading" style="text-align: center;">PRODUCT DETAILS</p>
+  
+                </div>
+               
+              
+                <div  class="form-group" formArrayName="order_lines" style="padding-top: 20px;">
+                <div  *ngFor="let line of  getControls();let i=index" [formGroupName]="i">
+                  <div class="row">
+                  <div class="col-md-6">
+                  <label>Item Name</label>
+                  <input type="text" class="form-control" id="exampleFormControlSelect1" formControlName="item" disabled style="background-color: white;">
+                  </div>
+                  <div class="col-md-6">
+                    <label>Quantity</label>
+                    <input type="text" class="form-control" id="exampleFormControlSelect1" formControlName="count" disabled style="background-color: white;">
+                    </div>
+                  </div>
+                    <br>
+                    <br>
+                    <div class="row">
+                    <div class="col-md-6">
+                      <label>Rate Per Mtr.(Tax included)</label>
+                      <input type="text" class="form-control" id="exampleFormControlSelect1" formControlName="rate_per_meter"   (input)="Calculate($event.target.value,i)" >
+                      </div>
+                      <div class="col-md-6">
+                        <label>Total Amount. Rs. </label>  <input   type="text" class="form-control" formControlName='total_amount' disabled style="background-color: white;">
+                      </div>
+                      </div>
+                      <br>
+                      <br>
+  
+                      <div class="row w-100" style=" border: 0.1px solid lightgrey;margin: 19px;">
+                         
+      
+                      </div>
+                      
+                </div>
+              </div>
+                <br>
+                <div class="row w-100 justify-content-center">
+                  <p class="recentheading" style="text-align: center;">PRICING DETAILS</p>
+  
+                </div>
+                <div class="row col-12 form-group">
+                  <div class="col-md-3">
+                    <label>Grand Total Rs.</label>  
+                  </div>
+                  <div class="col-md-9">
+                  
+                    <input type="text" class="form-control" [ngModel]="Total_Amount"  formControlName='grand_total' disabled style="background-color: white;">
+                    <small id="emailHelp" class="form-text text-muted">(All prices are tax includes)</small>
+                  </div>
+                </div>
+  
+             
+                <br>
+              
+        
+                <!-- <div class="custom-control custom-checkbox" style="padding-top: 10px;">
+                    <input type="checkbox" class="custom-control-input" id="defaultUnchecked" formControlName="terms" [ngClass]="{ 'is-invalid': submitted && fval.delivery_date.errors }">
+                    <label class="custom-control-label" for="defaultUnchecked"><a href='/terms'>I agree terms and conditions</a></label>
+                    <div *ngIf="submitted && fval.terms.errors" class="invalid-feedback">
+                      <div *ngIf="fval.terms.errors.required">
+                        Agree terms and conditions is required 
+                      </div>
+                       
+                      </div>
+                </div> -->
+                <!-- <div class="form-group" style="padding-top: 20px;">
+                    <button type="submit" (click)="FabricFormsave()" class="btn btn-primary btn-block">Send Quotation</button>
+                </div> -->
+                <div class="
+                text:center">
+                <button  *ngIf="this.OrderStatus=='Accepted Proposal'"class="btn btn-success unicornButton  btn-block" (click)="rouerter1(this.UserId ,this.QuotationForm,this.DeliveryDate)" routerLinkActive="active">Contact Customer 
+                </button>
+                <button  *ngIf="this.OrderStatus=='Accepted by supplier'" class="btn btn-success unicornButton  btn-block" routerLinkActive="active">Contact Supplier
+                </button>
+                <button  *ngIf="this.OrderStatus==''"class="btn btn-success unicornButton btn-block"  (click)="rouerter1(this.UserId ,this.QuotationForm,this.DeliveryDate)" routerLinkActive="active">Contact Customer  
+                </button>
+              </div>
+  
+            </form>
+        </div>
+    </div>
+  </div>
+  
+  
+     
+  <div class="container mt-2" *ngIf="this.type=='Stitching'">
+    <div class="card">
+  
+        <h3 class="card-header text-center">Stitching Quotation Form </h3>
+        <div class="card-body">
+            <form role="form" data-toggle="validator" [formGroup]="fabricForm">
+  
+           
+                <div class="row col-12 form-group">
+                  <div class="col-md-6">
+                    <label>Customer ID </label>  <input type="text" class="form-control" formControlName='user_id' disabled style="background-color: white;">
+                  </div>
+                  <div class="col-md-6">
+                    <label>Supplier ID </label>  
+                    <input type="text" class="form-control" formControlName='customer_id' disabled style="background-color: white;">
+                  </div>
+                </div>
+               
+                <div class="row col-12 form-group">
+                  <div class="col-md-3">
+                    <label style="margin-top: 8px;font-size: 11px;">Order No. </label>  
+                  </div>
+                  <div class="col-md-9">
+                    <input type="text" class="form-control" formControlName='order_id' disabled style="background-color: white;">
+                  </div>
+            
+             
+                </div>
+                
+                <div class="row col-12 form-group">
+                  <div class="col-md-3">
+                    <label style="margin-top: 8px;font-size: 11px;">Category</label>  
+                  </div>
+                  <div class="col-md-9">
+                    <input type="text" class="form-control" formControlName="model_type" disabled style="background-color: white;">
+                  </div>
+                 
+                </div>
+                
+             
+                <div class="row col-12 form-group" >
+                  <div class="col-md-3">
+                    <label style="margin-top: 8px;font-size: 11px;">Total Items Needed </label>  
+                  </div>
+                  <div class="col-md-9">
+                    <input type="text" class="form-control" formControlName='total_count' disabled style="background-color: white;">
+                  </div>
+                
+                </div>
+               
+                
+                <div class="row col-12 form-group">
+                  <div class="col-md-3">
+                    <label style="margin-top: 8px;font-size: 11px;">We Prefer Individually Measured Stitching </label>  
+                  </div>
+                  <div class="col-md-9">
+                    <input type="text" class="form-control" formControlName='is_invidulaystiched' disabled style="background-color: white;">
+                  </div>
+                
+                </div>
+                <div class="row col-12 form-group">
+                  <div class="col-md-3">
+                    <label style="margin-top: 8px;font-size: 11px;">We can supply before</label>  
+                  </div>
+                  <div class="col-md-9">
+                    <input type="text" class="form-control" formControlName="delivery_date" disabled style="background-color: white;">
+                  </div>
+                 
+                </div>
+                <div class="row w-100 justify-content-center">
+                  <p class="recentheading" style="text-align: center;">PRODUCT DETAILS</p>
+  
+                </div>
+               
+              
+                <div  class="form-group" formArrayName="order_lines" style="padding-top: 20px;">
+                <div *ngFor="let line of  getControls();let i=index" [formGroupName]="i">
+                  <div class="row">
+                  <div class="col-md-6">
+                  <label>Item Name</label>
+                  <input type="text" class="form-control" id="exampleFormControlSelect1" formControlName="item" disabled style="background-color: white;">
+                  </div>
+                 
+                  <div class="col-md-6">
+                    <label>Quantity</label>
+                    <input type="text" class="form-control" id="exampleFormControlSelect1" formControlName="count" disabled style="background-color: white;">
+                    </div>
+                  </div>
+                    <br>
+                    <br>
+                    <div class="row">
+                    <div class="col-md-6">
+                      <label>Rate Per Pcs.(Tax included)</label>
+                      <input type="text" class="form-control" id="exampleFormControlSelect1" formControlName="rate_per_meter"   (input)="Calculate($event.target.value,i)" >
+                      </div>
+                      <div class="col-md-6">
+                        <label>Total Amount. Rs. </label>  <input   type="text" class="form-control" formControlName='total_amount' disabled style="background-color: white;">
+                      </div>
+                      </div>
+                     
+                 
+                      <br>
+                      <br>
+  
+                      <div class="row w-100" style=" border: 0.1px solid lightgrey;margin: 19px;">
+                         
+      
+                      </div>
+                      
+                </div>
+              </div>
+                <br>
+                <div class="row w-100 justify-content-center">
+                  <p class="recentheading" style="text-align: center;">PRICING DETAILS</p>
+  
+                </div>
+                <div class="row col-12 form-group">
+                  <div class="col-md-3">
+                    <label>Grand Total Rs.</label>  
+                  </div>
+                  <div class="col-md-9">
+                   
+                    <input type="text" class="form-control"  [ngModel]="Total_Amount" formControlName='grand_total' disabled style="background-color: white;">
+                    <small id="emailHelp" class="form-text text-muted">(All prices are tax includes)</small>
+                  </div>
+                </div>
+  
+             
+                <br>
+              
+        
+                <!-- <div class="custom-control custom-checkbox" style="padding-top: 10px;">
+                    <input type="checkbox" class="custom-control-input" id="defaultUnchecked" formControlName="terms" [ngClass]="{ 'is-invalid': submitted && fval.delivery_date.errors }">
+                    <label class="custom-control-label" for="defaultUnchecked"><a href='/terms'>I agree terms and conditions</a></label>
+                    <div *ngIf="submitted && fval.terms.errors" class="invalid-feedback">
+                      <div *ngIf="fval.terms.errors.required">
+                        Agree terms and conditions is required 
+                      </div>
+                       
+                      </div>
+                </div> -->
+                <!-- <div class="form-group" style="padding-top: 20px;">
+                    <button type="submit" (click)="FabricFormsave()" class="btn btn-primary btn-block">Send Quotation</button>
+                </div> -->
+                <div class="
+                text:center">
+                <button  *ngIf="this.OrderStatus=='Accepted Proposal'"class="btn btn-success unicornButton  btn-block" (click)="rouerter1(this.UserId ,this.QuotationForm,this.DeliveryDate)" routerLinkActive="active">Contact Customer 
+                </button>
+                <button  *ngIf="this.OrderStatus=='Accepted by supplier'" class="btn btn-success unicornButton  btn-block" routerLinkActive="active">Contact Supplier
+                </button>
+                <button  *ngIf="this.OrderStatus==''"class="btn btn-success unicornButton btn-block"  (click)="rouerter1(this.UserId ,this.QuotationForm,this.DeliveryDate)" routerLinkActive="active">Contact Customer  
+                </button>
+              </div>
+            </form>
+        </div>
+    </div>
+  </div>
+
+  <div class="container mt-2" *ngIf="this.type=='Fabrics'">
+    <div class="card">
+  
+        <h3 class="card-header text-center"> Fabrics Quotation form </h3>
+        <div class="card-body">
+            <form role="form" data-toggle="validator" [formGroup]="fabricForm">
+  
+           
+                <div class="row col-12 form-group">
+                  <div class="col-md-6">
+                    <label>Customer ID </label>  <input type="text" class="form-control" formControlName='user_id' disabled style="background-color: white;">
+                  </div>
+                  <div class="col-md-6">
+                    <label>Supplier ID </label>  
+                    <input type="text" class="form-control" formControlName='customer_id' disabled style="background-color: white;">
+                  </div>
+                </div>
+               
+                <div class="row col-12 form-group">
+                  <div class="col-md-3">
+                    <label style="margin-top: 8px;font-size: 11px;">Order No. </label>  
+                  </div>
+                  <div class="col-md-9">
+                    <input type="text" class="form-control" formControlName='order_id' disabled style="background-color: white;">
+                  </div>
+            
+             
+                </div>
+                
+                <div class="row col-12 form-group">
+                  <div class="col-md-3">
+                    <label style="margin-top: 8px;font-size: 11px;">Category</label>  
+                  </div>
+                  <div class="col-md-9">
+                    <input type="text" class="form-control" formControlName="model_type" disabled style="background-color: white;">
+                  </div>
+                 
+                </div>
+                <div class="row col-12 form-group">
+                  <div class="col-md-3">
+                    <label style="margin-top: 8px;font-size: 11px;">We can supply before</label>  
+                  </div>
+                  <div class="col-md-9">
+                    <input type="text" class="form-control" formControlName="delivery_date" disabled style="background-color: white;">
+                  </div>
+                 
+                </div>
+                <div class="row w-100 justify-content-center">
+                  <p class="recentheading" style="text-align: center;">PRODUCT DETAILS</p>
+  
+                </div>
+  
+                <div  class="form-group" formArrayName="order_lines" style="padding-top: 20px;">
+                  <div *ngFor="let line of  getControls();let i=index" [formGroupName]="i">
+                   
+                    <div class="row">
+                    <div class="col-md-6">
+                    <label>Item Name</label>
+                    <input type="text" class="form-control" id="exampleFormControlSelect1" formControlName="item" disabled style="background-color: white;">
+                    </div>
+                    <div class="col-md-6">
+                      <label >Quantity</label>
+                      <input type="text" class="form-control" id="exampleFormControlSelect1" formControlName="count" disabled style="background-color: white;">
+                      </div>
+                    </div>
+                    <br>
+                    <br>
+<!--                
+                      <div class="row"> 
+                      <div class="col-md-6">
+                        <label>Brand Name</label>
+                        <input type="text" class="form-control" id="exampleFormControlSelect1" formControlName="brand_name" disabled style="background-color: white;">
+                        </div>
+                        
+                        <div class="col-md-6">
+                          <label>Catalog Number</label>
+                          <input type="text" class="form-control" id="exampleFormControlSelect1" formControlName="catalog_number" disabled style="background-color: white;">
+                          </div>
+                          </div> -->
+                     
+                     
+<!--           
+                      <div class="row"> 
+                          <div class="col-md-6">
+                            <label>Design  Number</label>
+                            <input type="text" class="form-control" id="exampleFormControlSelect1" formControlName="design_no" disabled style="background-color: white;">
+                            </div>
+                       
+                            <div class="col-md-6">
+                              <label>Shade  Number</label>
+                              <input type="text" class="form-control" id="exampleFormControlSelect1" formControlName="shade_no" disabled style="background-color: white;">
+                              </div>
+                              </div> -->
+                          
+                         
+                          
+                      <div class="row"> 
+                      <div class="col-md-6">
+                        <label>Rate Per Mtr.(Tax included)</label>
+                        <input type="text" class="form-control" id="exampleFormControlSelect1" formControlName="rate_per_meter"   (input)="Calculate($event.target.value,i)" >
+                        </div>
+                        <div class="col-md-6">
+                          <label>Total Amount</label>
+                          <input type="text" class="form-control" id="exampleFormControlSelect1" formControlName="total_amount"  (input)="Calculate($event.target.value,i)" disabled style="background-color: white;">
+                          </div>
+                          </div>
+                          <br>
+                        <div class="row w-100" style=" border: 0.1px solid lightgrey;margin: 19px;">
+                         
+      
+                        </div>
+                  </div>
+                </div>
+                
+             
+                <!-- <div class="row col-12 form-group" >
+                  <div class="col-md-3">
+                    <label style="margin-top: 8px;font-size: 11px;">Brand Name </label>  
+                  </div>
+                  <div class="col-md-9">
+                    <input type="text" class="form-control" formControlName='brand_name'>
+                  </div>
+                
+                </div> -->
+               
+                
+                <!-- <div class="row col-12 form-group">
+                  <div class="col-md-3">
+                    <label style="margin-top: 8px;font-size: 11px;">Catalog Number </label>  
+                  </div>
+                  <div class="col-md-9">
+                    <input type="text" class="form-control" formControlName='catalog_number'>
+                  </div>
+                
+                </div> -->
+               
+               
+                <!-- <div class="row col-12 form-group">
+                  <div class="col-md-3">
+                    <label style="margin-top: 8px;font-size: 11px;">Design  Number </label>  
+                  </div>
+                  <div class="col-md-9">
+                    <input type="text" class="form-control" formControlName='design_no'>
+                  </div>
+                
+                </div> -->
+                <!-- <div class="row col-12 form-group">
+                  <div class="col-md-3">
+                    <label style="margin-top: 8px;font-size: 11px;">Shade  Number </label>  
+                  </div>
+                  <div class="col-md-9">
+                    <input type="text" class="form-control" formControlName='shade_no'>
+                  </div>
+                
+                </div> -->
+  
+                <br>
+                <div class="row w-100 justify-content-center">
+                  <p class="recentheading" style="text-align: center;">PRICING DETAILS</p>
+  
+                </div>
+                <div class="row col-12 form-group">
+                  <div class="col-md-3">
+                    <label>Grand Total Rs.</label>  
+                    <!-- <label>Total Amount. Rs. </label>  <input  [ngModel]="Total_Amount" type="text" class="form-control" formControlName='total_amount'> -->
+                  </div>
+                  <div class="col-md-9">
+                  
+                    <input type="text" class="form-control"  [ngModel]="Total_Amount" formControlName='grand_total' disabled style="background-color: white;">
+                    <small id="emailHelp" class="form-text text-muted">(All prices are tax includes)</small>
+                  </div>
+                 
+                </div>
+  
+             
+                <br>
+              
+        
+                <!-- <div class="custom-control custom-checkbox" style="padding-top: 10px;">
+                    <input type="checkbox" class="custom-control-input" id="defaultUnchecked" formControlName="terms" [ngClass]="{ 'is-invalid': submitted && fval.delivery_date.errors }">
+                    <label class="custom-control-label" for="defaultUnchecked"><a href='/terms'>I agree terms and conditions</a></label>
+                    <div *ngIf="submitted && fval.terms.errors" class="invalid-feedback">
+                      <div *ngIf="fval.terms.errors.required">
+                        Agree terms and conditions is required 
+                      </div>
+                       
+                      </div>
+                </div> -->
+                <!-- <div class="form-group" style="padding-top: 20px;">
+                    <button type="submit" (click)="FabricFormsave()" class="btn btn-primary btn-block">Send Quotation</button>
+                </div> -->
+                <div class="
+                text:center">
+                <button  *ngIf="this.OrderStatus=='Accepted Proposal'"class="btn btn-success unicornButton  btn-block" (click)="rouerter1(this.UserId ,this.QuotationForm,this.DeliveryDate)" routerLinkActive="active">Contact Customer 
+                </button>
+                <button  *ngIf="this.OrderStatus=='Accepted by supplier'" class="btn btn-success unicornButton  btn-block" routerLinkActive="active">Contact Supplier
+                </button>
+                <button  *ngIf="this.OrderStatus==''"class="btn btn-success unicornButton btn-block"  (click)="rouerter1(this.UserId ,this.QuotationForm,this.DeliveryDate)" routerLinkActive="active">Contact Customer  
+                </button>
+              </div>
+  
+            </form>
+        </div>
+    </div>
+  </div>
+  
+  
+  
+  <div *ngIf="this.Loader" class="loading">Loading&#8230;</div>
+  
+  <footer class="page-footer font-small blue">
+    
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2020 Copyright:All Right Reserved
+      <a style="padding:48px;" href="/privacy">Terms of Use - Privacy Policy - Link to Us</a>
+    </div>
+  
+   
+    <!-- Copyright -->
+  
+  </footer>
+  
+  

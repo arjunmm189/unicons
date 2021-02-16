@@ -1,0 +1,97 @@
+
+ <div class="topnav" id="myTopnav">
+    <label>
+    <img class ="ulogo" src="../assets/img/logo Curve.png" >
+  </label>
+  
+  
+   
+  <!--  
+  <div  class="dropdown">
+    <button class="dropbtn" (click)="rouerter('/login','uniforms','customer')"><i class="fa fa-sign-in"></i> Login</button>
+    </div>
+  
+    
+   -->
+  
+    
+    <div class="dropdown">
+      <button class="dropbtn"><i class="fa fa-info-circle" aria-hidden="true"></i>About Us 
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <button class="drop" (click)="rouerter('/contact','uniforms','customer')" style="width: 100%;border: none;background: none;" routerLinkActive="active"> <i class="fa fa-fw fa-envelope" style="padding-right: 30px;"></i>Contact Us</button>
+        <button class="drop"  (click)="rouerter('/terms','uniforms','supplier')" style="width: 100%;border: none;background: none;"routerLinkActive="active" > <i class="fa fa-gavel" style="padding-right: 10px;"></i>Terms And Conditions</button>
+        <button class="drop"  (click)="rouerter('/privacy','uniforms','supplier')" style="width: 100%;border: none;background: none;"routerLinkActive="active" >  <i class="fa fa-user-secret" style="padding-right: 10px;"></i>Privacy And Policy</button>
+      </div>
+    </div> 
+    
+  
+  
+    <div   class="dropdown">
+      <button class="dropbtn" (click)="rouerter('/supplierhome','uniforms','customer')"><i class="fa fa-fw fa-home"></i> Home</button>
+      </div>
+    
+      
+  
+  
+  
+  <input type="text" value="Conform Your Uniform" hidden>
+    
+    <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+   
+    <input type="text" value="Conform Your Uniform" hidden>
+  </div>
+  <input type="text" value="Conform Your Uniform" hidden>
+  <input type="text" value="Conform Your Uniform" hidden>
+  
+   
+  <div class="jumbotron">
+  <ul class="breadcrumb">
+    <li><a (click)="rouerter('/supplierhome','supplierhome','home')"  routerLinkActive="active" style="cursor: pointer;">Home</a></li>
+    <li><a class="active" style="color: #007e56;cursor: initial;">Labour Status Details</a></li>
+  </ul>
+  
+  <div class="container mt-5">
+      <div class="card">
+  
+          <h3 class="card-header text-center"> Labour Status Details </h3>
+          <div class="card-body">
+              <form role="form" data-toggle="validator" [formGroup]="profileForm">
+                   <div class="form-group">
+                    <label for="exampleFormControlSelect1"> User Id</label>
+                    <input type="text" class="form-control" data-error="You must have a Place" id="inputPlace" placeholder="userid" formControlName="user_id" >
+                   
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleFormControlSelect1"> I Need Job &nbsp; &nbsp;&nbsp;</label>
+                    <label class="switch" style="padding-right: 50px;">
+                        <input type="checkbox" (change)="canBeEditable($event.target.checked)" formControlName="status">
+                        <span class="slider round"></span>
+                      </label>
+                  </div>
+                  <div class="form-group" style="padding-top: 20px;">
+                    <div class="text-center">
+                      <button type="submit" (click)="CustomerSave()" class="btn btn-primary">Submit</button>
+                    </div>
+                  </div>
+              </form>
+          </div>
+      </div>
+  </div>
+  <div *ngIf="this.Loader" class="loading">Loading&#8230;</div>
+   <br>
+   <br>
+  <footer class="page-footer font-small blue">
+    
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3" >© 2020 Copyright:All Right Reserved &nbsp;&nbsp;&nbsp;
+      <a style="padding-right: 5px; cursor: pointer;"(click)="rouerter('/terms','uniforms','supplier')" >Terms of Use - </a>
+      <a style="cursor: pointer;"(click)="rouerter('/privacy','uniforms','supplier')" >Privacy Policy - </a>
+      <a style="cursor: pointer;"(click)="rouerter('/contact','uniforms','supplier')" >Link to Us</a>
+    </div>
+  
+   
+    <!-- Copyright -->
+  
+  </footer>

@@ -1,0 +1,368 @@
+<div class="topnav" id="myTopnav">
+  <label>
+    <img class="ulogo" src="../assets/img/logo Curve.png">
+  </label>
+
+
+
+
+
+
+
+  <!-- <a (click)="Router('/custunfrmaccs','Uniform Accesoriess','none')" class="active" >Uniform Accessories</a> -->
+  <!-- <div class="dropdown">
+  <button class="dropbtn">Ready Made Uniforms
+  <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-content">
+  <a (click)="Router('/readymadeorder','ReadyMade Uniforms','OrderBasedForm')">Order Based Form</a>
+  <a routerLink="/progress">Stock Based List</a>
+  </div>
+  </div> -->
+  <div class="dropdown">
+    <button class="dropbtn"><i class="fa fa-user"></i>Account
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div *ngIf="!this.User_id" class="dropdown-content">
+      <button class="drop" (click)="Router('/login','Customized Uniforms','Fabrics')"
+        style="width: 100%;border: none;background: none;" routerLinkActive="active"> <i class="fa fa-sign-in"
+          style="padding-right: 10px;"></i>Login</button>
+    </div>
+    <div *ngIf="this.User_id" class="dropdown-content">
+      <button class="drop"
+        style="width: 100%;border: none;background: none;" routerLinkActive="active"> <i class="fa fa-toggle-on"
+          style="padding-right: 10px;color: green;"></i> {{this.ProfileId}}</button>
+      <button class="drop" 
+        style="width: 100%;border: none;background: none;" routerLinkActive="active"> <i class="fa fa-check"
+          style="padding-right: 10px;color: green;"></i>{{this.ProfilePhone}}
+        <br> <span style="font-size: 10px; padding-left: 10px;">(Verified)</span>
+      </button>
+      <!-- <button class="drop" (click)="Router('/profile','Customized Uniforms','Fabric and Stitching')"
+  style="width: 100%;border: none;background: none;" routerLinkActive="active"> <i class="fa fa-mobile"
+  style="padding-right: 10px;"></i>Download App</button> -->
+
+      <button class="drop" (click)="Router('/profile','Customized Uniforms','Fabrics')"
+        style="width: 100%;border: none;background: none;" routerLinkActive="active"> <i class="fa fa-pencil"
+          style="padding-right: 10px;"></i>Edit Profile</button>
+      <!-- <button class="drop" (click)="Router('/profile','Customized Uniforms','Stitching')"
+  style="width: 100%;border: none;background: none;" routerLinkActive="active"> <i class="fa fa-cog"
+  style="padding-right: 10px;"></i>Settings</button> -->
+      <!-- <button class="drop" (click)="Router('/profile','Customized Uniforms','Fabric and Stitching')"
+  style="width: 100%;border: none;background: none;" routerLinkActive="active"> <i class="fa fa-mobile"
+  style="padding-right: 10px;"></i>Download App</button> -->
+      <button class="drop" (click)="LogOut()" style="width: 100%;border: none;background: none;"
+        routerLinkActive="active"> <i class="fa fa-sign-out" style="padding-right: 10px;"></i>Log Out</button>
+    </div>
+  </div>
+
+
+  <div class="dropdown">
+    <button class="dropbtn"><i class="fa fa-info-circle" aria-hidden="true"></i>About Us
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <button class="drop" (click)="rouerter('/contact','uniforms','customer')"
+        style="width: 100%;border: none;background: none;" routerLinkActive="active"> <i class="fa fa-fw fa-envelope"
+          style="padding-right: 30px;"></i>Contact Us</button>
+      <button class="drop" (click)="rouerter('/terms','uniforms','supplier')"
+        style="width: 100%;border: none;background: none;" routerLinkActive="active"> <i class="fa fa-gavel"
+          style="padding-right: 10px;"></i>Terms And Conditions</button>
+      <button class="drop" (click)="rouerter('/privacy','uniforms','supplier')"
+        style="width: 100%;border: none;background: none;" routerLinkActive="active"> <i class="fa fa-user-secret"
+          style="padding-right: 10px;"></i>Privacy And Policy</button>
+    </div>
+  </div>
+
+  <!-- <div class="dropdown">
+  <button class="dropbtn" (click)="Router('/custunfrmaccs','Uniform Accesoriess','none')" ><i class="fas fa-socks"></i> Uniform Accessories</button>
+  </div>
+  <div class="dropdown">
+  <button class="dropbtn"><i class="fas fa-tshirt" aria-hidden="true"></i>Ready Made Uniforms
+  <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-content">
+  <button class="drop" (click)="Router('/readymadeorder','ReadyMade Uniforms','OrderBasedForm')" style="width: 100%;border: none;background: none;" routerLinkActive="active"> <i class="fa fa-th-list" aria-hidden="true" style="padding-right: 10px;"></i>Order Based Form</button>
+  <button class="drop" (click)="Router('/progress','Customized Uniforms','Stitching')" style="width: 100%;border: none;background: none;"routerLinkActive="active" > <i class="fa fa-list" aria-hidden="true" style="padding-right: 10px;"></i>Stock Based List</button>
+  
+  </div>
+  </div> -->
+  <!-- <div class="dropdown">
+  <button class="dropbtn">Customized Uniforms
+  <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-content">
+  <a (click)="Router('/fabricform','Customized Uniforms','Fabrics')">Fabrics</a>
+  <a (click)="Router('/custcustomsstitch','Customized Uniforms','Stitching')">Stitching</a>
+  <a (click)="Router('/custcustomfabricstitch','Customized Uniforms','Fabric and Stitching')">Fabric and Stitching</a>
+  </div>
+  </div> -->
+  <!-- <div class="dropdown">
+  <button class="dropbtn"><i class="fas fa-user-tie" aria-hidden="true"></i>Customized Uniforms
+  <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-content">
+  <button class="drop" (click)="Router('/fabricform','Customized Uniforms','Fabrics')" style="width: 100%;border: none;background: none;" routerLinkActive="active"> <i class="fa fa-fw fa-envelope" style="padding-right: 30px;"></i>Fabrics</button>
+  <button class="drop" (click)="Router('/custcustomsstitch','Customized Uniforms','Stitching')" style="width: 100%;border: none;background: none;"routerLinkActive="active" > <i class="fa fa-gavel" style="padding-right: 10px;"></i>Stitching</button>
+  <button class="drop" (click)="Router('/custcustomfabricstitch','Customized Uniforms','Fabric and Stitching')" style="width: 100%;border: none;background: none;"routerLinkActive="active" > <i class="fas fa-cut" style="padding-right: 10px;"></i>Fabric and Stitching</button>
+  </div>
+  </div> -->
+  <input type="text" value="Conform Your Uniform" hidden>
+  <input type="text" value="Conform Your Uniform" hidden>
+  <!-- <div class="dropdown">
+  <button class="dropbtn"> <i class="fa fa-user"></i>Account
+  <i class="fa fa-caret-down"></i>
+  </button>
+  <div *ngIf="!this.User_id" class="dropdown-content">
+  <a href="/login" routerLinkActive="active"> <i class="fa fa-sign-in"></i>Login</a>
+  
+  </div>
+  <div *ngIf="this.User_id" class="dropdown-content">
+  <a href="/profile" routerLinkActive="active"> <i style="color:green" class="fa fa-toggle-on"> </i> {{this.ProfileId}}</a>
+  <a href="/profile" routerLinkActive="active"><i style="color:green" class="fa fa-check"></i>{{this.ProfilePhone}} <br>
+  <span style="font-size: 10px; padding-left: 10px;">(Verified)</span>
+  </a>
+  
+  <a href="/profile" routerLinkActive="active"> <i class="fa fa-pencil"></i>Edit Profile</a>
+  <a href="/profile" routerLinkActive="active"> <i class="fa fa-cog"></i>Settings</a>
+  <a href="/profile" routerLinkActive="active"> <i class="fa fa-mobile"></i>Download App</a>
+  
+  <a (click)="LogOut()" routerLinkActive="active"><i class="fa fa-sign-out"></i>Log Out</a>
+  
+  </div>
+  </div> -->
+
+  <input type="text" value="Conform Your Uniform" hidden>
+  <input type="text" value="Conform Your Uniform" hidden>
+
+
+  <div class="dropdown">
+    <button class="dropbtn" routerLinkActive="active"><i class="fa fa-fw fa-home"></i>
+      Home</button>
+  </div>
+
+  <input type="text" value="Conform Your Uniform" hidden>
+  <input type="text" value="Conform Your Uniform" hidden>
+
+
+
+  <input type="text" value="Conform Your Uniform" hidden>
+  <input type="text" value="Conform Your Uniform" hidden>
+  <!-- <a href="#home" class="active" style="color: #007e56;">Home</a> -->
+  <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+</div>
+
+
+<div class="hero-inner" style="margin-top: 75px;">
+  <div class="hero-wrapper">
+    <div class="caption">
+
+
+      <ngb-carousel [showNavigationArrows]="true" [showNavigationIndicators]="true" interval="4000" [keyboard]="true"
+        [pauseOnHover]="true" [wrap]="true" style="z-index: -18;">
+
+        <ng-template ngbSlide id={{i}} *ngFor="let item of this.Banners;let i=index">
+          <img class="s1" style="width: 100%; height: 30rem;" src="{{'http://api.uniconform.in'+''+item['banner_path']}}"
+            alt="unicon">
+          <div class="carousel-caption">
+
+          </div>
+        </ng-template>
+
+
+
+      </ngb-carousel>
+
+
+    </div>
+  </div>
+</div>
+<br>
+  
+<br>
+
+<div class="container">
+  <div class="row">
+  <div class="col-sm-12">
+  
+  <h1 class="text-center banner"style="font-size: 23px" > Smart,efficient and easiest way for all uniform needs.Meet the challanges of online era-without travelling</h1>
+  
+  </div>
+  </div>
+  </div>
+<!-- <div class="container mt-5">
+  <div class="row">
+  <div class="card" style="width: 10rem;height: 13rem;">
+  <img src="../../assets/img/fabric.jpg" style="width: 10rem;height: 10rem;">
+  <div class="card-body">
+  <a (click)="Router('/fabricform','Customized Uniforms','Fabrics')" ></a>
+  </div>
+  
+  </div>
+  <div class="card" style="width: 10rem;height: 13rem;">
+  <img src="../../assets/img/stitc.jpg" style="width: 10rem;height: 10rem;">
+  <div class="card-body">
+  <a (click)="Router('/custcustomsstitch','Customized Uniforms','Stitching')" >Stitching</a>
+  </div>
+  
+  </div>
+  <div class="card" style="width: 10rem;height: 13rem;">
+  <img src="../../assets/img/fabandstit.jpg" style="width: 10rem;height: 10rem;">
+  <div class="card-body">
+  <a (click)="Router('/custcustomfabricstitch','Customized Uniforms','Fabric and Stitching')" >Fabric and Stitching</a>
+  </div>
+  
+  </div>
+  <div class="card" style="width: 10rem;height: 13rem;">
+  <img src="../../assets/img/orderr.jpg" style="width: 10rem;height: 10rem;">
+  <div class="card-body">
+  <a (click)="Router('/readymadeorder','ReadyMade Uniforms','OrderBasedForm')" >Order Based Form</a>
+  </div>
+  
+  </div>
+  <div class="card" style="width: 10rem;height: 13rem;">
+  <img src="../../assets/img/stockk.jpg" style="width: 10rem;height: 10rem;">
+  <div class="card-body">
+  <a (click)="Router('/progress','ReadyMade Uniforms','StockBasedList')" >Stock Based List</a>
+  </div>
+  
+  </div>
+  <div class="card" style="width: 10rem;height: 13rem;">
+  <img src="../../assets/img/uniacc.jpg" style="width: 10rem;height: 10rem;">
+  <div class="card-body">
+  <a (click)="Router('/custunfrmaccs','Uniform Accesoriess','none')" >Uniform Accessories</a>
+  </div>
+  
+  </div>
+  
+  </div>
+  
+  </div> -->
+<div class="container mt-5 ">
+  <div class="row justify-content-center">
+
+    <div class="card" style="width: 15rem;height: 14rem;">
+      <a (click)="Router('/customerdropdown','Customized Uniforms','Stitching')">
+        <img class="imges" src="../../assets/img/orderhere.jpg" style="width: 13rem;height: 13rem;">
+        <div class="card-body">
+     
+        </div>
+      </a>
+    </div>
+
+    <div class="card" style="width: 15rem;height: 14rem;">
+      <a (click)="Router('/recentquotes','Customized Uniforms','Fabrics')">
+        <img class="imges" src="../../assets/img/Quotations.jpg" style="width: 13rem;height: 13rem;">
+        <div class="card-body">
+          <!-- My Quotations -->
+        </div>
+      </a>
+    </div>
+  
+  </div>
+</div>
+<div class="container mt-4">
+
+  <div class="row justify-content-center">
+
+    <div class="card" style="width: 15rem;height: 14rem;">
+      <a (click)="Router('/quotatio','Customized Uniforms','Stitching')">
+        <img class="imges" src="../../assets/img/stitc.jpg" style="width: 13rem;height: 13rem;padding-top: 10px">
+        <div class="card-body">
+          <!-- Expired Quotations -->
+        </div>
+      </a>
+    </div>
+   
+    <div class="card" style="width: 15rem;height: 14rem;">
+      <a (click)="gotoList('/homelistproduct','Accesories')">
+        <img class="imges" src="../../assets/img/acc.jpg" style="width: 13rem; height: 13rem;">
+        <div class="card-body">
+         
+        </div>
+      </a>
+    </div>
+
+    <div class="card" style="width: 15rem;height: 14rem;">
+      <a (click)="gotoList('/homelistproduct','Ready mades')">
+        <img class="imges" src="../../assets/img/Uniforms & Readymades.jpg" style="width: 13rem; height: 13rem;">
+        <div class="card-body">
+       
+        </div>
+      </a>
+    </div>
+
+    <div class="card" style="width: 15rem;height: 14rem;">
+      <a (click)="gotoList('/machinelist','machines')">
+        <img class="imges" src="../../assets/img/ma.jpg" style="width: 13rem; height: 13rem;">
+        <div class="card-body">
+        
+        </div>
+      </a>
+    </div>
+
+  </div>
+  <div *ngIf="this.Loader" class="loading">Loading&#8230;</div>
+
+</div>
+<!-- <div class="container">
+  <div class="row" style="padding-top: 50px;padding-bottom: 50px;padding-left: 18px;">
+  <div class="card" style="width: 10rem;">
+  <img src="../../assets/img/outdoor.jpg" class="card-img-top" alt="...">
+  <div class="card-body"style="padding-left: 51px;">
+  <a href="#" >Fabrics</a>
+  </div>
+  </div>
+  
+  
+  <div class="card" style="width: 10rem;">
+  <img src="../../assets/img/outdoor.jpg" class="card-img-top" alt="...">
+  <div class="card-body"style="padding-left: 50px;">
+  <a href="#" >Stitching</a>
+  </div>
+  </div>
+  
+  
+  <div class="card" style="width: 10rem;">
+  <img src="../../assets/img/outdoor.jpg" class="card-img-top" alt="...">
+  <div class="card-body" style="padding-left: 28px;">
+  <a href="#" >Fabric and Stitching</a>
+  </div>
+  </div>
+  <div class="card" style="width: 10rem;">
+  <img src="../../assets/img/outdoor.jpg" class="card-img-top" alt="...">
+  <div class="card-body" style="padding-left: 32px;">
+  <a href="#" >Order Based Form</a>
+  </div>
+  </div>
+  <div class="card" style="width: 10rem;">
+  <img src="../../assets/img/outdoor.jpg" class="card-img-top" alt="...">
+  <div class="card-body" style="padding-left: 35px;">
+  <a href="#" >Stock Based List</a>
+  </div>
+  </div>
+  
+  
+  <div class="card" style="width: 10rem;">
+  <img src="../../assets/img/outdoor.jpg" class="card-img-top" alt="...">
+  <div class="card-body" style="padding-left: 25px;">
+  <a href="#" >Uniform Accessories</a>
+  </div>
+  
+  </div>
+  </div>
+  </div> -->
+
+
+<footer class="page-footer font-small blue">
+
+  <!-- Copyright -->
+
+  <div class="footer-copyright text-center py-3" >© 2020 Copyright:All Right Reserved &nbsp;&nbsp;&nbsp;
+    <a style="padding-right: 5px; cursor: pointer;"(click)="rouerter('/terms','uniforms','supplier')" >Terms of Use - </a>
+    <a style="cursor: pointer;"(click)="rouerter('/privacy','uniforms','supplier')" >Privacy Policy - </a>
+    <a style="cursor: pointer;"(click)="rouerter('/contact','uniforms','supplier')" >Link to Us</a>
+  </div>
+
+  <!-- Copyright -->
+
+</footer>

@@ -1,0 +1,276 @@
+<!-- <div class="topnav" id="myTopnav">
+    <label>
+    <img class ="ulogo" src="../assets/img/logo Curve.png" >
+  </label>
+  
+    <a href="#about">About</a>
+  
+    
+    
+    <a (click)="rouerter('/supplierhome','supplierhome','home')" routerLinkActive="active" style="cursor: pointer">Home</a>
+    <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+</div>
+  
+   -->
+   
+  <div class="topnav" id="myTopnav">
+    <label>
+    <img class ="ulogo" src="../assets/img/logo Curve.png" >
+  </label>
+  
+  
+<!--    
+   
+  <div  *ngIf="!this.User_id" class="dropdown">
+    <button class="dropbtn" (click)="rouerter('/login','uniforms','customer')"><i class="fa fa-sign-in"></i> Login</button>
+    </div>
+    <div  *ngIf="this.User_id" class="dropdown">
+      <button class="dropbtn" (click)="LogOut()"><i class="fa fa-sign-out"></i> LogOut</button>
+      </div>
+  
+    
+  
+  -->
+    
+    <div class="dropdown">
+      <button class="dropbtn"><i class="fa fa-info-circle" aria-hidden="true"></i>About Us 
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <button class="drop" (click)="rouerter('/contact','uniforms','customer')" style="width: 100%;border: none;background: none;" routerLinkActive="active"> <i class="fa fa-fw fa-envelope" style="padding-right: 30px;"></i>Contact Us</button>
+        <button class="drop"  (click)="rouerter('/terms','uniforms','supplier')" style="width: 100%;border: none;background: none;"routerLinkActive="active" > <i class="fa fa-gavel" style="padding-right: 10px;"></i>Terms And Conditions</button>
+        <button class="drop"  (click)="rouerter('/privacy','uniforms','supplier')" style="width: 100%;border: none;background: none;"routerLinkActive="active" >  <i class="fa fa-user-secret" style="padding-right: 10px;"></i>Privacy And Policy</button>
+      </div>
+    </div> 
+    
+
+  
+    <div   class="dropdown">
+      <button class="dropbtn" (click)="rouerter('/supplierhome','uniforms','customer')"><i class="fa fa-fw fa-home"></i> Home</button>
+      </div>
+    
+      
+  
+  
+  
+  <input type="text" value="Conform Your Uniform" hidden>
+    
+    <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+   
+    <input type="text" value="Conform Your Uniform" hidden>
+  </div>
+  <input type="text" value="Conform Your Uniform" hidden>
+  <input type="text" value="Conform Your Uniform" hidden>
+  
+   
+  
+  <ul class="breadcrumb">
+    <li><a (click)="rouerter('/supplierhome','supplierhome','home')" routerLinkActive="active" style="cursor: pointer">Home</a></li>
+    <li><a  routerLinkActive="active">Orders And Enquiries </a></li>
+  </ul>
+  <br>
+  <br>
+  <div class="container">
+  <div class="row">
+    
+      <div class="col-md-4" >
+        <span class="mt-2">
+          Filter  by Category:
+        </span>
+        <br>
+        <div class="form-group">
+        
+            <select class="form-control" id="sel1"   (change)="SelectOnoptChnge($event.target.value,this.OrdeList)" style="border-radius: 20px;">
+              <option value="All">All</option>
+              <option value="Fabrics">Fabric</option>
+              <option value="Stitching" >Stitching</option>
+              <option value="Fabric and Stitching">Fabric And Stitching</option>
+              <option  value="none">Accessories</option>
+              <option  value="Order Based Form">Ready Mades</option>
+              
+            </select>
+          </div>
+    </div>
+    <div class="col-md-4" >
+      <span class="mt-2">
+        Sort  by Date:
+      </span>
+      <br>
+      <div class="form-group">
+      
+          <select class="form-control" id="sel1"   (change)="SelctChnge($event.target.value,this.OrdeList)" style="border-radius: 20px;">
+            <option selected disabled>Sort By Date</option>
+            <option value="all">ALL</option>
+            <option value="asc">ASCENDING</option>
+            <option value="desc">DESCENDING</option>
+          
+            
+          </select>
+        </div>
+    </div>
+    <div class="col-md-4" >
+      <span class="mt-2">Sort by Pincode:</span>
+      <br>
+      <select class="form-control" id="sel1"   (change)="SelectPincodechnge($event.target.value,this.OrdeList)" style="border-radius: 20px;">
+        <option value="All">All</option>
+        <option value="{{this.Pincode}}">Near Me</option>
+        
+      </select>
+  </div>
+
+    
+
+  </div>
+</div>
+
+<div *ngIf="this.OrdeList.length==0" class="container justify-content-center">
+  <h3 style="text-align: center">No Items Found</h3>
+
+</div>
+
+  <div class="container mt-5" *ngIf="this.OrdeList.length>0 ">
+
+
+      
+    <table class="table table-bordered table-striped mt-3">
+      <thead>
+        <tr>
+          
+    
+          <th style="width: 200px;">Type</th>
+          <th style="width: 200px;">Sub Type</th>
+          <th style="width: 100px;">Order Id</th>
+          <th style="width: 200px;">Category</th>
+          <th style="width: 100px;">Expected Delivery Date</th>
+          <th style="width: 200px;">Action</th>
+        </tr>
+      </thead>
+      <tbody id="myTable">
+        <tr   *ngFor="let orders of  this.OrdeList |filter:searchword as result" style="height: 208px;">
+            
+          <td> <h2 *ngIf="orders['prod_sub_type']=='none'" class="card-title">{{orders['product_type']}}</h2>
+            <h2 *ngIf="orders['prod_sub_type']!='none'" class="card-title">{{orders['product_type']}}</h2></td>
+          <td>{{orders['prod_sub_type']}}</td>
+          <td>{{orders['order_id']}}</td>
+          <td>  <p  *ngIf="orders['category_type']=='US'"class="card-text">  School/Collage Uniforms</p>
+            <p  *ngIf="orders['category_type']=='UH'"class="card-text">  Hospital Uniforms</p>
+            <p  *ngIf="orders['category_type']=='UC'"class="card-text">  Catering Uniforms</p>
+            <p  *ngIf="orders['category_type']=='UI'"class="card-text">  Industrial  Uniforms</p>
+            <p  *ngIf="orders['category_type']=='UR'"class="card-text">  Corporate Uniforms</p>
+            <p  *ngIf="orders['category_type']=='Others'"class="card-text">  Others</p>
+  
+  </td>
+          <td>{{orders['delivery_date']| date: 'dd MMM,yyyy'}}</td>
+          <td>
+          
+            <a [routerLink]="['/orderformedit',orders['order_id'],orders['prod_sub_type']]" routerLink="/orderformedit" style="cursor: pointer;text-decoration: underline;color: #007e56 ;">  View Quotation form </a>
+          </td>
+        </tr>
+    
+   
+      
+      </tbody>
+    </table> 
+     
+
+  <!-- <div  class="card mb-3"  *ngFor="let orders of  this.OrdeList |filter:searchword as result" style="height: 208px;">
+    
+    <div class="row">
+      <div class="col-md-3" style="align-items: unset;
+      /* padding: 32px; */
+      align-self: end;">
+        <img *ngIf="orders['photo']" class="card-img-top"src="{{'http://api.uniconform.in'+''+orders['photo']}}" style="width:100%; height: 206px;"  alt="Uniforms" title="uniforms">
+        <img *ngIf="!orders['photo']" class="card-img-top" src="../../assets/img/noimage.jpg" style="width:100%; height: 206px;"  alt="Uniforms" title="uniforms">
+        </div>
+        <div class="col-md-9" style="
+      align-items: center;
+    align-self: center;
+    padding: 30px;
+    ">
+          <h2 *ngIf="orders['prod_sub_type']=='none'" class="card-title">{{orders['product_type']}} ( Uniform Accessories)</h2>
+          <h2 *ngIf="orders['prod_sub_type']!='none'" class="card-title">{{orders['product_type']}} ({{orders['prod_sub_type']}} )</h2>
+          <p class="card-text"> <i class="fa fa-list-alt" aria-hidden="true"></i> Order ID :{{orders['order_id']}}</p>
+          <p  *ngIf="orders['category_type']=='US'"class="card-text"> <i class="fa fa-product-hunt" aria-hidden="true"></i> Category  : School/Collage Uniforms</p>
+          <p  *ngIf="orders['category_type']=='UH'"class="card-text"> <i class="fa fa-product-hunt" aria-hidden="true"></i> Category  : Hospital Uniforms</p>
+          <p  *ngIf="orders['category_type']=='UC'"class="card-text"> <i class="fa fa-product-hunt" aria-hidden="true"></i> Category  : Catering Uniforms</p>
+          <p  *ngIf="orders['category_type']=='UI'"class="card-text"> <i class="fa fa-product-hunt" aria-hidden="true"></i> Category  : Industrial  Uniforms</p>
+          <p  *ngIf="orders['category_type']=='UR'"class="card-text"> <i class="fa fa-product-hunt" aria-hidden="true"></i> Category  : Corporate Uniforms</p>
+
+
+          <p class="card-text"> <i class="fa fa-calendar" aria-hidden="true"></i>  Expected Delivery Date  :{{orders['delivery_date']| date: 'dd MMM,yyyy'}}</p>
+          <p class="card-text"> <i class="fa fa-wpforms" aria-hidden="true"></i>  <small class="text-muted"> <a [routerLink]="['/orderformedit',orders['order_id'],orders['prod_sub_type']]" routerLink="/orderformedit" style="cursor: pointer;text-decoration: underline;color: #007e56 ;">  View Quotation form </a></small></p>
+           
+          </div>
+
+    </div>
+
+    
+  </div> -->
+ 
+</div>
+ 
+
+  <!-- <div class="container">
+    <h2></h2>
+    <div class="row">
+        <div class="col-md-6" >
+            <div class="form-group">
+            
+                <select class="form-control" id="sel1"   (change)="SelectOnoptChnge($event.target.value)">
+                  <option value="fabric">Fabric</option>
+                  <option value="Stitching" >Stitching</option>
+                  <option value="Fabric and Stitching">Fabric And Stitching</option>
+                  <option  value="none">Accessories</option>
+                </select>
+              </div>
+        </div>
+        <div class="col-md-6" >
+            <input  [(ngModel)]="searchword" (input)="searchThis(this.OrdeList)"  class="form-control" id="myInput" type="text" placeholder="Search.." >
+        </div>
+
+    </div>
+   
+  
+    <br>
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>Order Number</th>
+          <th>Category</th>
+          <th>Category Type</th>
+          <th>Delivery Date</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="myTable">
+        <tr *ngFor="let orders of  this.OrdeList |filter:searchword as result">
+          <td>{{orders['order_id']}}</td>
+          <td>{{orders['product_type']}}</td>
+          <td>{{orders['prod_sub_type']}}</td>
+          <td>{{orders['delivery_date']}}</td>
+          <td>
+           
+          </td>
+        </tr>
+   
+       
+      </tbody>
+    </table>
+  </div> -->
+
+<div *ngIf="this.Loader" class="loading">Loading&#8230;</div>
+ 
+<footer class="page-footer font-small blue">
+  
+  <!-- Copyright -->
+  
+  <div class="footer-copyright text-center py-3" >© 2020 Copyright:All Right Reserved &nbsp;&nbsp;&nbsp;
+    <a style="padding-right: 5px; cursor: pointer;"(click)="rouerter('/terms','uniforms','supplier')" >Terms of Use - </a>
+    <a style="cursor: pointer;"(click)="rouerter('/privacy','uniforms','supplier')" >Privacy Policy - </a>
+    <a style="cursor: pointer;"(click)="rouerter('/contact','uniforms','supplier')" >Link to Us</a>
+  </div>
+ 
+  <!-- Copyright -->
+
+</footer>
+    

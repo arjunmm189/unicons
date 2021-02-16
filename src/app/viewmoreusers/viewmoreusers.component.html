@@ -1,0 +1,158 @@
+<div class="topnav" id="myTopnav">
+  <label>
+  <img class ="ulogo" src="../assets/img/logo Curve.png" >
+  </label>
+  <button class="drop" href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</button>
+</div>
+
+
+<div id="mySidenav" class="sidenav" style="margin-top: 90px;">
+  <button  href="javascript:void(0)" class="closebtn" style="border: none;float: right;padding-top: 5px;padding-right: 5px;padding-bottom: 5px;" onclick="closeNav()">&times;</button>
+  <button class="drop" (click)="rouerter('/adminhome','adminhome','home')" style ="cursor: pointer; width: 100%;">Home</button>
+  <button class="drop" (click)="rouerter('/supplier_list','adminhome','home')" style ="cursor: pointer; width: 100%;color: white;">Supplier List</button>
+  <button class="drop" (click)="rouerter('/buyers_list','adminhome','home')" style ="cursor: pointer; width: 100%;">Buyers List</button>
+  <button class="drop" (click)="rouerter('/supplier_details','adminhome','home')" style ="cursor: pointer; width: 100%;">Supplier Details</button>
+  <button class="drop"  (click)="rouerter('/order_details','adminhome','home')" style ="cursor: pointer;width: 100%;">Customer Orders</button>
+  <button class="drop"  (click)="rouerter('/quotations','adminhome','home')" style ="cursor: pointer; width: 100%;"> Quotations</button>
+  <button class="drop" (click)="rouerter('/banner','adminhome','home')" style ="cursor: pointer; width: 100%; ">Banner list</button>
+  <button class="drop"  (click)="rouerter('/adminlabourlist','adminhome','home')" style ="cursor: pointer; width: 100%;"> Labour list</button>
+  <button class="drop" (click)="rouerter('/adminmachinelist','adminhome','home')" style ="cursor: pointer; width: 100%;">  Machine Supplier Details</button>
+  <button class="drop" (click)="rouerter('/adminproduct','adminhome','home')">  Machine And Spare List</button>
+  <button class="drop"  (click)="rouerter('/adminaccs','adminhome','home')"> ReadyMade And Accessories List</button>
+</div>
+
+<h2></h2>
+<p></p>
+<div class="ico">
+  <span class="icon" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span>
+  </div>
+  
+      <ul class="breadcrumb">
+        <li><a (click)="rouerter('/adminhome','adminhome','home')" routerLinkActive="active" style="cursor: pointer">Home</a></li>
+        <li><a routerLinkActive="active">View Supplier Details </a></li>
+      </ul>
+    
+    <div class="container mt-5">
+        <div class="card">
+    
+            <h3 class="card-header text-center">View Supplier Details  </h3>
+            <div class="card-body">
+                <form role="form" data-toggle="validator" [formGroup]="profileForm" >
+                    <div class="form-group">
+                        <div class="form-group">
+                            <label>Company Started  Year:</label>
+                            
+                            {{this.SatrtedYear | date: 'dd  MMM,yyyy'}}
+                            
+                        </div>
+                        <label>Company Name</label>
+                        <input type="text" class="form-control" data-error="You must have a name." id="inputName" placeholder="Please provide a Starting Year" formControlName="organization_name">
+          
+                        <!-- Error -->
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="form-group">
+                        <label>Supplier Name</label>
+                        <input type="text" class="form-control" data-error="You must have a name." id="inputName" placeholder="Please provide a Starting Year" formControlName="supplier_name">
+          
+                        <!-- Error -->
+                        <div class="help-block with-errors"></div>
+                    </div>
+                
+              
+            
+              <div class="form-group">
+                <label>Place</label>
+                <input type="text" class="form-control"  data-error="You must have a name." id="inputName" placeholder="Please provide a Place" formControlName="place">
+      
+                <!-- Error -->
+                <div class="help-block with-errors"></div>
+              </div>
+              <div class="form-group">
+                <label>State</label>
+                <input type="text" class="form-control"  data-error="You must have a name." id="inputName" placeholder="Please provide a State Name" formControlName="state">
+      
+                <!-- Error -->
+                <div class="help-block with-errors"></div>
+              </div>
+              <div class="form-group">
+                <label>District</label>
+                <input type="text" class="form-control"  data-error="You must have a name." id="inputName" placeholder="Please provide a District Name" formControlName="districtl">
+      
+                <!-- Error -->
+                <div class="help-block with-errors"></div>
+              </div>
+                    
+                      <div class="form-group">
+                        <label>Pincode</label>
+                        <input type="text" class="form-control"  data-error="You must have a name." id="inputName" placeholder="Please provide a Pincode" formControlName="pincode">
+    
+                        <!-- Error -->
+                        <div class="help-block with-errors"></div>
+                      </div>
+                    <div class="form-group">
+                        <label>Gst Number</label>
+                        <input type="text" class="form-control"  data-error="You must have a name." id="inputName" placeholder="Please provide a Gst Number" formControlName="gst_number">
+    
+                        <!-- Error -->
+                        <div class="help-block with-errors"></div>
+                    </div>
+
+
+                    <div class="form-group">
+                      <div class="row">
+                        <div class="col-md-3">
+                          UDYAM -
+                        </div>
+                        <div class="col-md-9">
+                          <input type="text" class="form-control"  data-error="You must have a name."  placeholder="Please provide a UDYAM Number" formControlName="udayam_number">
+                        </div>
+                     
+                      </div>
+                      <!-- <input type="text" class="form-control" data-error="You must have a name." id="inputName" placeholder="Please provide a Gst Number" formControlName="gst_number">
+  
+                  
+                      <div class="help-block with-errors"></div> -->
+                  </div>
+
+
+                    <div class="form-group">
+                        <label>Phone Number </label>
+                        <input type="text" class="form-control" data-error="You must have a name." id="inputName" placeholder="Please provide a Phone Number" formControlName="phone_number">
+                       
+                       
+                        <div class="help-block with-errors"></div>
+                    </div>
+    
+    
+    <!-- <div *ngIf="this.Messge" style="font-size: 12px;color: red;">
+        Email has been sent to User
+
+    </div> -->
+                    <div class="form-group" style="padding-top: 20px;">
+                        <button type="submit"  (click)="CustomerSave()" class="btn btn-primary btn-block">Accept Supplier</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="this.Loader" class="loading">Loading&#8230;</div>
+    <br><br>
+    <footer class="page-footer font-small blue">
+  
+      <!-- Copyright -->
+   
+ 
+  <div class="footer-copyright text-center py-3" >© 2020 Copyright:All Right Reserved &nbsp;&nbsp;&nbsp;
+    <a style="padding-right: 5px; cursor: pointer;"(click)="rouerter('/terms','uniforms','supplier')" >Terms of Use - </a>
+    <a style="cursor: pointer;"(click)="rouerter('/privacy','uniforms','supplier')" >Privacy Policy - </a>
+    <a style="cursor: pointer;"(click)="rouerter('/contact','uniforms','supplier')" >Link to Us</a>
+  </div>
+ 
+     
+      <!-- Copyright -->
+    
+    </footer>
+    
+
+

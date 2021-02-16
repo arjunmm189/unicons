@@ -1,0 +1,139 @@
+<!-- <div class="topnav" id="myTopnav">
+    <label>
+    <img class ="ulogo" src="../assets/img/logo Curve.png" >
+  </label>
+  
+    <a href="#about">About</a>
+  
+   
+    
+    <a routerLink="/home" routerLinkActive="active" style="cursor: pointer;">Home</a>
+    <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+  </div>
+  
+   -->
+     
+   <div class="topnav" id="myTopnav">
+    <label>
+    <img class ="ulogo" src="../assets/img/logo Curve.png" >
+  </label>
+  
+  
+  <!--  
+   
+  <div  *ngIf="!this.User_id" class="dropdown">
+    <button class="dropbtn" (click)="rouerter('/login','uniforms','customer')"><i class="fa fa-sign-in"></i> Login</button>
+    </div>
+    <div  *ngIf="this.User_id" class="dropdown">
+      <button class="dropbtn" (click)="LogOut()"><i class="fa fa-sign-out"></i> LogOut</button>
+      </div>
+  
+  
+  
+  
+      
+    
+   -->
+  
+    
+    <div class="dropdown">
+      <button class="dropbtn"><i class="fa fa-info-circle" aria-hidden="true"></i>About Us 
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <button class="drop" (click)="roueter('/contact','uniforms','customer')" style="width: 100%;border: none;background: none;" routerLinkActive="active"> <i class="fa fa-fw fa-envelope" style="padding-right: 30px;"></i>Contact Us</button>
+        <button class="drop"  (click)="roueter('/terms','uniforms','supplier')" style="width: 100%;border: none;background: none;"routerLinkActive="active" > <i class="fa fa-gavel" style="padding-right: 10px;"></i>Terms And Conditions</button>
+        <button class="drop"  (click)="roueter('/privacy','uniforms','supplier')" style="width: 100%;border: none;background: none;"routerLinkActive="active" >  <i class="fa fa-user-secret" style="padding-right: 10px;"></i>Privacy And Policy</button>
+      </div>
+    </div> 
+    
+  
+  
+    <div   class="dropdown">
+      <button class="dropbtn" (click)="roueter('/customerhome','uniforms','customer')"><i class="fa fa-fw fa-home"></i> Home</button>
+      </div>
+    
+      
+  
+  
+  
+  <input type="text" value="Conform Your Uniform" hidden>
+    
+    <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+   
+    <input type="text" value="Conform Your Uniform" hidden>
+  </div>
+  <input type="text" value="Conform Your Uniform" hidden>
+  <input type="text" value="Conform Your Uniform" hidden>
+  
+   
+    
+    <ul class="breadcrumb">
+      <li><a (click)="roueter('/customerhome','supplierhome','home')" style="cursor: pointer;">Home</a></li>
+      <li><a  routerLinkActive="active">
+        Expired Quotes</a></li>
+    </ul>
+  
+    <div class="container recentheading w-100">
+        <span>EXPIRED QUOTES</span>
+  
+    </div>
+   
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6"></div>
+    <div class="col-md-6">
+      <div class="form-group has-search" style="float: right;">
+        <span class="fa fa-search form-control-feedback"></span>
+        <input type="text" class="form-control"  [(ngModel)]="searchword" (input)="searchThis()"   placeholder="Search....">
+      </div>
+    </div>
+  </div>
+      
+    </div>
+  <div class="container">
+  <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">QUOTE ID</th>
+          <th scope="col">SUPPLIER ID</th>
+          <th scope="col">ORDER ID</th>
+          <!-- <th scope="col"> DATE</th> -->
+          <th scope="col">STATUS</th>
+          <th scope="col">TOTAL</th>
+          <th scope="col">ACTIVITY</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of this.ProductList">
+          <th scope="row">{{item['quotatit_id']}}</th>
+          <td>{{item['quatation_form_id']}}</td>
+          <td>{{item['supplier_id']}}</td>
+          <td>{{item['order_form_id']}}</td>
+          <!-- <td>{{item['quotatit_id']}}</td> -->
+          <td *ngIf="!item['is_order_accepted']">None</td>
+          <td *ngIf="item['is_order_accepted']">{{item['is_order_accepted']}}</td>
+          <td>{{item['grand_total']}}</td>
+          <td> <button class="button4" (click)="rouerter('form2',item['order_form_id'],item['prod_sub_type'],item['quatation_form_id'])">View</button></td>
+        </tr>
+      
+      </tbody>
+    </table>
+    <div *ngIf="this.Loader" class="loading">Loading&#8230;</div>
+    </div>
+    <br>
+    <br>
+     <footer class="page-footer font-small blue">
+   
+       <!-- Copyright -->
+       <div class="footer-copyright text-center py-3">© 2020 Copyright:All Right Reserved
+         <a style="padding:48px;" (click)="roueter('/privacy','supplierhome','home')">Terms of Use - Privacy Policy - Link to Us</a>
+       </div>
+  
+      
+       <!-- Copyright -->
+     
+     </footer>
+     
+  

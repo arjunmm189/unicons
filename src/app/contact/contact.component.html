@@ -1,0 +1,127 @@
+<!-- <div class="topnav" id="myTopnav">
+    <label>
+        <img class="ulogo" src="../assets/img/logo Curve.png">
+    </label>
+
+    <a href="#about">About</a>
+
+
+
+    <a routerLink="/home" routerLinkActive="active">Home</a>
+    <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+</div> -->
+
+<div class="topnav" id="myTopnav">
+  <label>
+  <img class ="ulogo" src="../assets/img/logo Curve.png" >
+</label>
+
+
+ 
+<!--    
+<div  *ngIf="!this.User_id" class="dropdown">
+  <button class="dropbtn" (click)="rouerter('/login','uniforms','customer')"><i class="fa fa-sign-in"></i> Login</button>
+  </div>
+  <div  *ngIf="this.User_id" class="dropdown">
+    <button class="dropbtn" (click)="LogOut()"><i class="fa fa-sign-out"></i> LogOut</button>
+    </div>
+
+
+ -->
+
+
+  
+  <div class="dropdown" >
+    <button class="dropbtn" ><i class="fa fa-info-circle" aria-hidden="true"></i>About Us 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content" >
+      <button class="drop" (click)="rouerter('/contact','uniforms','customer')" style="width: 100%;border: none;background: none;" routerLinkActive="active"> <i class="fa fa-fw fa-envelope" style="padding-right: 30px;"></i>Contact Us</button>
+      <button class="drop"  (click)="rouerter('/terms','uniforms','supplier')" style="width: 100%;border: none;background: none;"routerLinkActive="active" > <i class="fa fa-gavel" style="padding-right: 10px;"></i>Terms And Conditions</button>
+      <button class="drop"  (click)="rouerter('/privacy','uniforms','supplier')" style="width: 100%;border: none;background: none;"routerLinkActive="active" >  <i class="fa fa-user-secret" style="padding-right: 10px;"></i>Privacy And Policy</button>
+    </div>
+  </div> 
+     
+ <!-- <div  class="dropdown">
+  <button class="dropbtn" (click)="rouerter('/login','uniforms','customer')"><i class="fa fa-sign-in"></i> Login</button>
+  </div>
+ -->
+
+  <div   class="dropdown">
+    <button class="dropbtn" (click)="rouerter('/home','uniforms','customer')"><i class="fa fa-fw fa-home"></i> Home</button>
+    </div>
+  
+    
+
+
+
+<input type="text" value="Conform Your Uniform" hidden>
+  
+  <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+ 
+  <input type="text" value="Conform Your Uniform" hidden>
+</div>
+<input type="text" value="Conform Your Uniform" hidden>
+<input type="text" value="Conform Your Uniform" hidden>
+
+ 
+
+<div class="container" style="margin-top: 180px;margin-bottom: 50px !important;">
+
+  <h1 style="text-align: center;font-weight: 500px;">Contact Us</h1>
+  <br>
+  <h3>Please Fill your details</h3>
+  <div class="container">
+      <div class="row">
+          <div class="col-md-6">
+              <form [formGroup]="fabricForm">
+                  <label for="fname">Subject</label>
+                  <input type="text" id="fname"  formControlName="subject" placeholder="Your subject..">
+
+                  <label for="lname">Name</label>
+                  <input type="text" id="lname"  formControlName="name" placeholder="Your Name..">
+                  <label for="lname">Company Name</label>
+                  <input type="text" id="lname" formControlName="org_name" placeholder="Your  Company Name..">
+
+                  <label for="lname">Phone Number </label>
+                  <input type="text" id="lname"  formControlName="phone_numer" placeholder="Your  Phone Number..">
+                  <label for="lname">Email Id</label>
+                  <input type="text" id="lname"  formControlName="email"  placeholder="Your  Email Id..">
+
+
+
+                  <label for="subject">Message</label>
+                  <textarea id="subject"  formControlName="message"  placeholder="Write something.."
+                      style="height:200px"></textarea>
+
+                  <input type="submit" (click)="sendMail()" value="Send Email" class="sub">
+              </form>
+          </div>
+          <br>
+          <div class="col-md-6" style="text-align: center;">
+            <h4 class="is-size-4 title">Email</h4><a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to==uniconform1@gmail.com &body=I'm%20interested%20in%20your%20services" target="_blank"
+            class="has-text-weight-bold">uniconform1@gmail.com</a><br><br>
+              <h4 class="is-size-4 title">Other options</h4>
+              <div>215/I</div>
+              <div>Winner Building</div>
+              <div>Plassanal. P.o</div>
+              <div>Kerala - 686579</div>
+              <div>India</div><br>
+              <br>
+              <!-- <a href="https://goo.gl/maps/Qrw1dXmi4GK2" target="_blank"
+                  rel="noopener noreferrer" class="has-text-weight-bold">Find us on Google Map</a><br><br> -->
+            
+              <h4 class="is-size-4 title">Contact No</h4>
+              <div><a href="tel:+917306042730" class="has-text-weight-bold">+91-73060-42730</a><br><br></div>
+              <h4 class="is-size-4 title">Facebook</h4><a href="https://www.facebook.com/uniconform" target="_blank"
+              class="has-text-weight-bold">www.facebook.com/uniconform </a><br><br>
+              <h4 class="is-size-4 title">Whats app</h4><a href="https://api.whatsapp.com/send?phone=91+7306042730&text=I'm%20interested%20in%20your%20services'"  target="_blank"
+              class="has-text-weight-bold">+91-73060-42730 </a><br><br>
+          </div>
+      </div>
+  </div>
+  <div *ngIf="this.Loader" class="loading">Loading&#8230;</div>
+
+</div>
+<br>
+<br>

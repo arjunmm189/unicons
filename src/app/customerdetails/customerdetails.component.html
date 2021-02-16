@@ -1,0 +1,159 @@
+<div class="topnav" id="myTopnav">
+    <label>
+    <img class ="ulogo" src="../assets/img/logo Curve.png" >
+    </label>
+  <!--   
+    <a href="#about">About</a>
+    <a routerLink="/home" routerLinkActive="active">Home</a> -->
+    <button class="drop" href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</button>
+  </div>
+  
+  
+  <div id="mySidenav" class="sidenav" style="margin-top: 90px;">
+    <button  href="javascript:void(0)" class="closebtn" style="border: none;float: right;padding-top: 5px;padding-right: 5px;padding-bottom: 5px;" onclick="closeNav()">&times;</button>
+    <button class="drop" (click)="rouerter('/adminhome','adminhome','home')" style ="cursor: pointer; width: 100%;">Home</button>
+    <button class="drop" (click)="rouerter('/supplier_list','adminhome','home')" style ="cursor: pointer; width: 100%;">Supplier List</button>
+    <button class="drop" (click)="rouerter('/buyers_list','adminhome','home')" style ="cursor: pointer;width: 100%;color: white;">Buyers List</button>
+    <button class="drop" (click)="rouerter('/supplier_details','adminhome','home')" style ="cursor: pointer; width: 100%;">Supplier Details</button>
+    <button class="drop"   (click)="rouerter('/order_details','adminhome','home')" style ="cursor: pointer;width: 100%;">Customer Orders</button>
+    <button class="drop"  (click)="rouerter('/quotations','adminhome','home')" style ="cursor: pointer; width: 100%;"> Quotations</button>
+    <button class="drop"  (click)="rouerter('/banner','adminhome','home')" style ="cursor: pointer; width: 100%;"> Banner list</button>
+    <button class="drop"  (click)="rouerter('/adminlabourlist','adminhome','home')" style ="cursor: pointer; width: 100%;"> Labour list</button>
+    <button class="drop" (click)="rouerter('/adminmachinelist','adminhome','home')" style ="cursor: pointer; width: 100%;">  Machine Supplier Details</button>
+    <button class="drop" (click)="rouerter('/adminproduct','adminhome','home')">  Machine And Spare List</button>
+    <button class="drop"  (click)="rouerter('/adminaccsdetails','adminhome','home')"> ReadyMade And Accessories List</button>
+  </div>
+  
+  <h2></h2>
+  <p></p>
+  <div class="ico">
+    <span class="icon" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span>
+    </div>
+   
+<div class="container mt-3" style="padding-top: 100px;">
+    <div class="card">
+
+        <h3 class="card-header text-center"> Customer Details </h3>
+        <div class="card-body">
+            <form role="form" data-toggle="validator" [formGroup]="profileForm">
+
+
+             
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Select Category</label>
+                    <select class="form-control" id="exampleFormControlSelect1"  formControlName="model_type" >
+                      <option value="US">School / College Uniform</option>
+                      <option value="UH">Hospital Uniform</option>
+                      <option value="UC">Catering Uniforms</option>
+                      <option value="UI">Industraial Uniform</option>
+                      <option value="UR">Corporate Uniform</option>
+                      <option value="OT">Others</option>
+                    </select> 
+                   
+                  </div>
+                  <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" class="form-control" data-error="You must have a name."  formControlName="customer_name" id="inputName" placeholder=" Name"  >
+
+
+                    <!-- Error -->
+                    <div class="help-block with-errors"></div>
+                </div>
+                <div class="form-group">
+                    <label>Organization Name</label>
+                    <input type="text" class="form-control" data-error="You must have a name."  formControlName="organization_name"id="inputOrganization" placeholder="Shop Name" >
+              
+                    <!-- Error -->
+                    <div class="help-block with-errors"></div>
+                </div>
+                <div class="form-group">
+                    <label>Designation</label>
+                    <input type="text" class="form-control" data-error="You must have a name." id="inputDesignation"  formControlName="designation"placeholder="designation like Manager,Staff etc">
+      
+
+                    <!-- Error -->
+                    <div class="help-block with-errors"></div>
+                </div>
+                  <div class="form-group">
+                    <label>Place</label>
+                    <input type="text" class="form-control" data-error="You must have a name." id="inputPlace" formControlName="place"  placeholder=" Place">
+
+                    <!-- Error -->
+                    <div class="help-block with-errors"></div>
+                </div>
+                <div class="form-group">
+                  <label>State</label>
+                  <input type="text" class="form-control" data-error="You must have a State." id="inputstate" placeholder="State" formControlName="state">
+               
+                  <!-- Error -->
+                  <div class="help-block with-errors"></div>
+              </div>
+              <div class="form-group">
+                <label>District</label>
+                <input type="text" class="form-control" data-error="You must have a District." id="inputdistrict" placeholder=" District" formControlName="districtl">
+             
+                <!-- Error -->
+                <div class="help-block with-errors"></div>
+            </div>
+              
+                <div class="form-group">
+                    <label>Pincode</label>
+                
+                    <input type="number" class="form-control" data-error="You must have a name." id="inputPincode" formControlName="pincode" placeholder="Pincode" name="pcode"  maxlength="6">
+                   
+                   
+                    <!-- Error -->
+                    <div class="help-block with-errors"></div>
+                </div>
+                <div class="form-group">
+                    <label>Phone Number 1</label>
+                    <input type="text" class="form-control" data-error="You must have a name." id="inputPhone" formControlName="phone_number"  placeholder=" Phone Number"  maxlength="10">
+                  
+                       
+                       
+                   
+                   
+                    <div class="help-block with-errors"></div>
+                </div>
+
+                <div class="form-group">
+                    <label>Phone Number 2</label>
+                    <input type="number" class="form-control" data-error="You must have a name." id="inputNumber" formControlName="alternative_number" placeholder=" Phone Number">
+                  </div>  
+                   
+                
+               
+
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" class="form-control" id="inputEmail" placeholder="Email" formControlName="email" required >
+               
+                </div>
+            
+             
+
+
+
+                <div class="form-group" style="padding-top: 20px;">
+                  
+                </div>
+            </form>
+        </div>
+    </div>
+    <div *ngIf="this.Loader" class="loading">Loading&#8230;</div>
+</div>
+<br>
+<br>
+<footer class="page-footer font-small blue">
+  
+    <!-- Copyright -->
+  
+    <div class="footer-copyright text-center py-3" >© 2020 Copyright:All Right Reserved &nbsp;&nbsp;&nbsp;
+      <a style="padding-right: 5px; cursor: pointer;"(click)="rouerter('/terms','uniforms','supplier')" >Terms of Use - </a>
+      <a style="cursor: pointer;"(click)="rouerter('/privacy','uniforms','supplier')" >Privacy Policy - </a>
+      <a style="cursor: pointer;"(click)="rouerter('/contact','uniforms','supplier')" >Link to Us</a>
+    </div>
+   
+    <!-- Copyright -->
+  
+  </footer>

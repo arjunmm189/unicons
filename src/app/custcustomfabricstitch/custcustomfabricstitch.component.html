@@ -1,0 +1,246 @@
+<!-- <div class="topnav" id="myTopnav">
+  <label>
+  <img class ="ulogo" src="../assets/img/logo Curve.png" >
+</label>
+
+<a (click)="rouerter('/contact','supplierhome','home')" routerLinkActive="active"><i class="fa fa-fw fa-envelope"></i> Contact Us</a>
+  <a (click)="rouerter('/home','supplierhome','home')"class="active" ><i class="fa fa-fw fa-home"></i>Home</a>
+  <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+</div> -->
+
+<div class="topnav" id="myTopnav">
+  <label>
+  <img class ="ulogo" src="../assets/img/logo Curve.png" >
+</label>
+
+
+ 
+<!--  
+<div  *ngIf="!this.User_id" class="dropdown">
+  <button class="dropbtn" (click)="rouerter('/login','uniforms','customer')"><i class="fa fa-sign-in"></i> Login</button>
+  </div>
+  <div  *ngIf="this.User_id" class="dropdown">
+    <button class="dropbtn" (click)="LogOut()"><i class="fa fa-sign-out"></i> LogOut</button>
+    </div>
+ -->
+
+
+
+
+  
+  <div class="dropdown">
+    <button class="dropbtn"><i class="fa fa-info-circle" aria-hidden="true"></i>About Us 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <button class="drop" (click)="rouerter('/contact','uniforms','customer')" style="width: 100%;border: none;background: none;" routerLinkActive="active"> <i class="fa fa-fw fa-envelope" style="padding-right: 30px;"></i>Contact Us</button>
+      <button class="drop"  (click)="rouerter('/terms','uniforms','supplier')" style="width: 100%;border: none;background: none;"routerLinkActive="active" > <i class="fa fa-gavel" style="padding-right: 10px;"></i>Terms And Conditions</button>
+      <button class="drop"  (click)="rouerter('/privacy','uniforms','supplier')" style="width: 100%;border: none;background: none;"routerLinkActive="active" >  <i class="fa fa-user-secret" style="padding-right: 10px;"></i>Privacy And Policy</button>
+    </div>
+  </div> 
+  
+
+
+  <div   class="dropdown">
+    <button class="dropbtn" (click)="rouerter('/customerhome','uniforms','customer')"><i class="fa fa-fw fa-home"></i> Home</button>
+    </div>
+  
+    
+
+
+
+<input type="text" value="Conform Your Uniform" hidden>
+  
+  <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+ 
+  <input type="text" value="Conform Your Uniform" hidden>
+</div>
+<input type="text" value="Conform Your Uniform" hidden>
+<input type="text" value="Conform Your Uniform" hidden>
+
+ 
+<div class="jumbotron">
+  
+    <ul class="breadcrumb">
+      <li><a (click)="rouerter('/customerhome','customerhome','home')" routerLinkActive="active" style="cursor: pointer">Home</a></li>
+      <li><a  routerLinkActive="active"> Custom Fabric And Stitching Form</a></li>
+    </ul>
+  
+  <div class="container mt-3">
+      <div class="card">
+  
+          <h3 class="card-header text-center">Custom Fabric And Stitching Form</h3>
+          <div class="card-body">
+              <form role="form" data-toggle="validator" [formGroup]="fabricForm">
+              <div class="form-group">
+                  <label for="exampleFormControlSelect1">Select Category</label><span class="required">*</span>
+                  <select class="form-control" id="exampleFormControlSelect1" formControlName="model_type"  (change)="selectChange($event.target.value)" [ngClass]="{ 'is-invalid': submitted && fval.model_type.errors }">
+                    <option value="US">School / College Uniform</option>
+                    <option value="UH">Hospital Uniform</option>
+                    <option value="UC">Catering Uniforms</option>
+                    <option value="UI">Industraial Uniform</option>
+                    <option value="UR">Corporate Uniform</option>
+                    <option value="Others">Others</option>
+                  </select>
+                  <div *ngIf="submitted && fval.model_type.errors" class="invalid-feedback">
+                    <div *ngIf="fval.model_type.errors.required">
+                      Category is required 
+                    </div>
+                     
+                    </div>
+                </div>
+                <div class="form-group">
+                  <label>Number Of Persons</label>(Uniform Needed)<span class="required">*</span>
+                  <input type="number" class="form-control" data-error="You must have Number Of Persons." id="inputName" formControlName="total_count" [ngClass]="{ 'is-invalid': submitted && fval.total_count.errors }">
+                  <div *ngIf="submitted && fval.total_count.errors" class="invalid-feedback">
+                    <div *ngIf="fval.total_count.errors.required">
+                      Number Of Persons is required 
+                    </div>
+                     
+                    </div>
+                  <!-- Error -->
+                <div class="help-block with-errors"></div>
+              </div> 
+                
+
+                    <div  class="form-group" formArrayName="order_lines" style="padding-top: 20px;">
+                      <div class="row"  *ngFor="let line of  getControls();let i=index" [formGroupName]="i">
+                        <div class="form-group col-md-6" >
+                          <label for="inputState" >Select Item</label><span class="required">*</span>
+                          <select id="inputState" class="form-control" formControlName="item"  [ngClass]="{ 'is-invalid': submitted && line.get('item').hasError('required') }" >
+                            <option *ngFor="let cat of categories" value="{{cat.cat_item}}">{{cat.cat_item}}</option>
+                          </select>
+                          <div *ngIf="submitted&& line.get('item').hasError('required')" class="invalid-feedback">
+                            <div *ngIf="line.get('item').hasError('required')">
+                              Item Name is required
+                            </div>
+        
+                          </div>
+                          
+                        </div>
+                        
+                        <div class="form-group col-md-6">
+                          <div class="row">
+                            <div class="qty">
+                              <label for="inputCity" >Quantity (In Pcs) </label><span class="required">*</span>
+                              <input type="number" style="width: 267px" class="form-control" id="inputCity" placeholder="Please provide Quantity (In Meter)" formControlName="count" [ngClass]="{'is-invalid': submitted && line.get('count').hasError('required')}">
+                            </div>
+                            <div *ngIf="submitted && line.get('count').hasError('required')" class="has-error">
+                             
+                              <div *ngIf="line.get('count').hasError('required')">
+                                Quantity is required
+                              </div>
+          
+                            </div>
+                            <div class="col-md-2" style="padding-top: 41px;">
+                              <label for="inputCity">pcs.</label>
+                         
+                             
+                            </div>
+                         
+                            
+                            
+                          </div>
+                         
+                          </div>
+                        
+                        </div>
+                       
+                     
+                      
+                        
+                     
+                      </div>
+                     
+                      <div class="form-group" style="padding-top: 20px;">
+                      
+                          <button type="submit" class="btn btn-primary btn-block" (click)="ADD()" style="background-color: transparent;color: black;">Add Item</button>
+  
+                      </div>
+              <div class="custom-control custom-checkbox" style="padding-top: 10px;">
+                    <input type="checkbox" class="custom-control-input" id="defaultUnchecked" (change)="canBeEditable($event.target.checked)"  formControlName="stich_type">
+                    <label class="custom-control-label" for="defaultUnchecked">We Prefer Individually Measured Stitching</label>
+                </div>
+                <br>
+                  <div class="form-group">
+                      <label>Expected Date of Delivery</label>
+                      <input type="date" class="form-control" data-error="You must have a name." id="inputName" placeholder="Please provide an Expected Date of Delivery" formControlName="delivery_date"  [ngClass]="{ 'is-invalid': submitted && fval.delivery_date.errors }">
+                      <div *ngIf="submitted && fval.delivery_date.errors" class="invalid-feedback">
+                        <div *ngIf="fval.delivery_date.errors.required">
+                          Expected Date of Delivery is required 
+                        </div>
+                         
+                        </div>
+                        <div *ngIf="submitted && this.myDate>fval.delivery_date.value" class="has-error">
+                          Provide a Valid Delivery Date
+                        </div>
+                        <small id="emailHelp" class="form-text text-muted">(Minimum 3 days required for Delivery)</small>  
+                    <div class="help-block with-errors"></div>
+                  </div> 
+                  <div class="form-group">
+                    <div class="row">
+        
+                      <div class="form-group col-md-6"> 
+                  <label style="
+                  text-align:right">Or Choose Photo</label>
+                  <div class="input-group">
+                      <!-- <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+                      </div> -->
+                      <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="inputGroupFile01"
+                          aria-describedby="inputGroupFileAddon01" formControlName="photo" (change)="processFile($event)">
+                        <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group purple-border col-md-6 ">
+                      <label for="exampleFormControlTextarea4">Description</label>
+                      <textarea class="form-control" id="exampleFormControlTextarea4" rows="auto" formControlName="message"></textarea>
+                    </div>
+                    
+                    </div>
+                  </div>
+       
+                  <div class="form-group" style="margin-left: 30px;">
+                  <input type="checkbox" class="checkbox" id="defaultUncheckedconditon"formControlName="terms" [ngClass]="{ 'is-invalid': submitted && fval.terms.errors }" /> 
+               <span>&nbsp;&nbsp;I agree<a style="padding-left: 10px; color: #2f9bd8 !important;  cursor: pointer;" (click)="rouerter('/terms','supplierhome','home')">terms and conditions</a></span> 
+                   <div *ngIf="submitted && fval.terms.errors" class="invalid-feedback">
+                       
+                    <div *ngIf="fval.terms.errors.required">
+                      Please agree terms and conditions
+                    </div>
+                     
+                    </div>
+                  </div>
+                  <div class="form-group" style="padding-top: 20px;">
+                    <div class="text-center">
+                      <button type="submit" (click)="FabricFormsave()" class="btn btn-primary">Submit</button>
+                    </div>
+                  </div>
+
+  
+              </form>
+          </div>
+      </div>
+      <div *ngIf="this.Loader" class="loading">Loading&#8230;</div>
+  </div>
+  <br>
+<br>
+  <footer class="page-footer font-small blue">
+  
+    <!-- Copyright -->
+  
+   
+  <div class="footer-copyright text-center py-3" >© 2020 Copyright:All Right Reserved &nbsp;&nbsp;&nbsp;
+    <a style="padding-right: 5px; cursor: pointer;"(click)="rouerter('/terms','uniforms','supplier')" >Terms of Use - </a>
+    <a style="cursor: pointer;"(click)="rouerter('/privacy','uniforms','supplier')" >Privacy Policy - </a>
+    <a style="cursor: pointer;"(click)="rouerter('/contact','uniforms','supplier')" >Link to Us</a>
+  </div>
+    <!-- Copyright -->
+  
+  </footer>
+  </div>
+  
+
+

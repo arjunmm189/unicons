@@ -1,0 +1,290 @@
+<div class="topnav" id="myTopnav">
+    <label>
+    <img class ="ulogo" src="../assets/img/logo Curve.png" >
+    </label>
+    <button class="drop" href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</button>
+</div>
+  
+  
+  <div id="mySidenav" class="sidenav" style="margin-top: 90px;">
+    <button  href="javascript:void(0)" class="closebtn" style="border: none;float: right;padding-top: 5px;padding-right: 5px;padding-bottom: 5px;" onclick="closeNav()">&times;</button>
+    <button class="drop" (click)="rourter('/adminhome','adminhome','home')" style ="cursor: pointer; width: 100%;">Home</button>
+    <button class="drop" (click)="rourter('/supplier_list','adminhome','home')" style ="cursor: pointer; width: 100%;">Supplier List</button>
+    <button class="drop"  (click)="rourter('/buyers_list','adminhome','home')" style ="cursor: pointer; width: 100%;">Buyers List</button>
+    <button class="drop" (click)="rourter('/supplier_details','adminhome','home')" style ="cursor: pointer; width: 100%;color: white;">Supplier Details</button>
+    <button class="drop"  (click)="rourter('/order_details','adminhome','home')" style ="cursor: pointer;width: 100%;">Customer Orders</button>
+    <button class="drop"  (click)="rourter('/quotations','adminhome','home')" style ="cursor: pointer; width: 100%;"> Quotations</button>
+    <button class="drop"  (click)="rourter('/banner','adminhome','home')" style ="cursor: pointer; width: 100%;"> Banner list</button>
+    <button class="drop"  (click)="rourter('/adminlabourlist','adminhome','home')" style ="cursor: pointer; width: 100%;"> Labour list</button>
+    <button class="drop" (click)="rourter('/adminmachinelist','adminhome','home')" style ="cursor: pointer; width: 100%;">  Machine Supplier Details</button>  
+    <button class="drop" (click)="rourter('/adminproduct','adminhome','home')">  Machine And Spare List</button>
+    <button class="drop"  (click)="rourter('/adminaccs','adminhome','home')"> ReadyMade And Accessories List</button>
+</div>
+  
+  <h2></h2>
+  <p></p>
+  <div class="ico">
+    <span class="icon" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span>
+    </div>
+    
+    <!-- <ul class="breadcrumb" style="padding-top: 120px;">
+      <li><a (click)="rourter('/adminhome','adminhome','home')" routerLinkActive="active" style="cursor: pointer">Home</a></li>
+      <li><a  routerLinkActive="active">Quotation Details</a></li>
+    </ul>  -->
+  
+<div class="container mt-3" style="padding-top: 120px;">
+    <div class="card" *ngIf="this.type=='fabric'">
+
+        <h3 class="card-header text-center"> Fabric Supplier Details </h3>
+        <div class="card-body">
+            <form role="form" data-toggle="validator" >
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Company Dealer</label>
+                    </div>
+                    <div class="col-md-6">
+                        <p>{{this.ProdList[0]?.is_companydeler}}
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Company Names</label>
+                    </div>
+                    <div class="col-md-6">
+                        <p>{{this.ProdList[0]?.compnay_names}}
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Wholesaler</label>
+                    </div>
+                    <div class="col-md-6">
+                        <p>{{this.ProdList[0]?.is_wholesaler}}</p>
+                    </div>
+                </div>
+                <div class="row" style="border-style: none;">
+                    <div class="col-md-6" >
+                        <label>Retailer</label>
+                    </div>
+                    <div class="col-md-6">
+                        <p>{{this.ProdList[0]?.is_retailer}}</p>
+                    </div>
+                </div>
+             
+            </form>
+
+            
+        </div>
+    </div>
+    <br>
+
+    <div class="card" *ngIf="this.type=='stitching'">
+
+        <h3 class="card-header text-center"> Stiching Servicers Details</h3>
+        <div class="card-body">
+            <form role="form" data-toggle="validator" >
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Comapany Under Taking</label>
+                    </div>
+                    <div class="col-md-6">
+                        <p>{{this.ProdList[0]?.company_undertaking}}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Number Of Labours</label>
+                    </div>
+                    <div class="col-md-6">
+                        <p>{{this.ProdList[0]?.no_labours}}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Male</label>
+                    </div>
+                    <div class="col-md-6">
+                        <p>{{this.ProdList[0]?.male_number}}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Female</label>
+                    </div>
+                    <div class="col-md-6">
+                        <p>{{this.ProdList[0]?.female_number}}</p>
+                    </div>
+                </div>
+               
+                 <h3 style="color: indianred; padding-top: 20px;"> Production Details</h3>
+                 <table class="table table-bordered table-striped">
+                    <thead>
+                      <tr>
+                        <th>Category</th>
+                        <th>Quantity in Meter</th>
+                       
+                      </tr>
+                    </thead>
+                    <tbody id="myTable">
+                      <tr  *ngFor="let item of this.TempOrdeList">
+                         
+                        <td>{{item['item_name']}}</td>
+                        <td>{{item['item_count']}}</td>
+                       
+                      </tr>
+                  
+                 
+                    
+                    </tbody>
+                  </table> 
+                   
+            </form>
+
+            
+        </div>
+    </div>
+    <br>
+    <div class="card" *ngIf="this.type=='fabricandstitching'">
+        <h3 class="card-header text-center"> Fabrics with Stitching</h3>
+        <div class="card-body">
+            <form role="form" data-toggle="validator" >
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Company Dealer</label>
+                    </div>
+                    <div class="col-md-6">
+                        <p>{{this.ProdList[0]?.is_companydeler}}
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Company Names</label>
+                    </div>
+                    <div class="col-md-6">
+                        <p>{{this.ProdList[0]?.compnay_names}}
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Comapany Under Taking</label>
+                    </div>
+                    <div class="col-md-6">
+                        <p>{{this.ProdList[0]?.company_undertaking}}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Number Of Labours</label>
+                    </div>
+                    <div class="col-md-6">
+                        <p>{{this.ProdList[0]?.no_labours}}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Male</label>
+                    </div>
+                    <div class="col-md-6">
+                        <p>{{this.ProdList[0]?.male_number}}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Female</label>
+                    </div>
+                    <div class="col-md-6">
+                        <p>{{this.ProdList[0]?.female_number}}</p>
+                    </div>
+                </div>
+               
+                 <h3 style="color: indianred; padding-top: 20px;"> Production Details</h3>
+                 <table class="table table-bordered table-striped">
+                    <thead>
+                      <tr>
+                        <th>Category</th>
+                        <th>Quantity in Meter</th>
+                       
+                      </tr>
+                    </thead>
+                    <tbody id="myTable">
+                        <tr  *ngFor="let item of this.TempOrdeList">
+                         
+                            <td>{{item['item_name']}}</td>
+                            <td>{{item['item_count']}}</td>
+                           
+                          </tr>
+                  
+                 
+                    
+                    </tbody>
+                  </table> 
+            </form>
+            
+        </div>
+    </div>
+    <br>
+    <div class="card" *ngIf="this.type=='none'">
+        <h3 class="card-header text-center"> Uniform Accessories Supplier</h3>
+        <div class="card-body">
+            <form role="form" data-toggle="validator" >
+                <div class="row" style="border-style: none;">
+                    <div class="col-md-6">
+                        <label>Provided Items</label>
+                    </div>
+                    <div class="col-md-6">
+                        <p>{{this.ProdList[0]?.Providing_accesoseries}}</p>
+                    </div>
+                </div>
+                
+                   
+            </form>
+
+            
+        </div>
+    </div>
+    <br>
+    <div class="card" *ngIf="this.type=='orderbasedform'">
+        <h3 class="card-header text-center"> Ready Mades Supplier Details </h3>
+        <div class="card-body">
+            <form role="form" data-toggle="validator" >
+                <div class="row" style="border-style: none;">
+                    <div class="col-md-6">
+                        <label>Category</label>
+                    </div>
+                    <div class="col-md-6">
+                        <p>{{this.ProdList[0]?.readymade_providng_items}}</p>
+                    </div>
+                </div>
+                
+                   
+            </form>
+
+            
+        </div>
+    </div>
+    <br>
+</div>
+
+<div *ngIf="this.Loader" class="loading">Loading&#8230;</div>
+<br>
+<br>
+<footer class="page-footer font-small blue">
+  
+    <!-- Copyright -->
+  
+    <div class="footer-copyright text-center py-3" >© 2020 Copyright:All Right Reserved &nbsp;&nbsp;&nbsp;
+        <a style="padding-right: 5px; cursor: pointer;"(click)="rourter('/terms','uniforms','supplier')" >Terms of Use - </a>
+        <a style="cursor: pointer;"(click)="rourter('/privacy','uniforms','supplier')" >Privacy Policy - </a>
+        <a style="cursor: pointer;"(click)="rourter('/contact','uniforms','supplier')" >Link to Us</a>
+      </div>
+    
+   
+    <!-- Copyright -->
+  
+</footer>
+
+

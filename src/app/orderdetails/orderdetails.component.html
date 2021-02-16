@@ -1,0 +1,144 @@
+<div class="topnav" id="myTopnav">
+  <label>
+  <img class ="ulogo" src="../assets/img/logo Curve.png" >
+  </label>
+<!--   
+  <a href="#about">About</a>
+  <a routerLink="/home" routerLinkActive="active">Home</a> -->
+  <button class="drop" href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</button>
+</div>
+
+
+<div id="mySidenav" class="sidenav" style="margin-top: 90px;">
+  <button  href="javascript:void(0)" class="closebtn" style="border: none;float: right;padding-top: 5px;padding-right: 5px;padding-bottom: 5px;" onclick="closeNav()">&times;</button>
+  <button class="drop"(click)="rourter('/adminhome','adminhome','home')" style ="cursor: pointer;width: 100%;">Home</button>
+  <button class="drop" (click)="rourter('/supplier_list','adminhome','home')" style ="cursor: pointer; width: 100%;">Supplier List</button>
+  <button class="drop" (click)="rourter('/buyers_list','adminhome','home')" style ="cursor: pointer; width: 100%;">Buyers List</button>
+  <button class="drop" (click)="rourter('/supplier_details','adminhome','home')" style ="cursor: pointer; width: 100%;">Supplier Details</button>
+  <button class="drop"   routerLinkActive="active"   style="cursor: initial; width: 100%;color: white;">Customer Orders</button>
+  <button class="drop"  (click)="rourter('/quotations','adminhome','home')" style ="cursor: pointer; width: 100%;"> Quotations</button>
+  <button class="drop"  (click)="rourter('/banner','adminhome','home')" style ="cursor: pointer; width: 100%;"> Banner list</button>
+  <button class="drop"  (click)="rourter('/adminlabourlist','adminhome','home')" style ="cursor: pointer; width: 100%;"> Labour list</button>
+  <button class="drop" (click)="rourter('/adminmachinelist','adminhome','home')" style ="cursor: pointer; width: 100%;">  Machine Supplier Details</button>
+  <button class="drop" (click)="rourter('/adminproduct','adminhome','home')">  Machine And Spare List</button>
+  <button class="drop"  (click)="rourter('/adminaccs','adminhome','home')"> ReadyMade And Accessories List</button>
+</div>
+
+<h2></h2>
+<p></p>
+<div class="ico">
+  <span class="icon" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span>
+  </div>
+ 
+
+  <div class="container" style="padding-top: 100px;">
+  
+ 
+    <div class="row">
+      <div class="col-md-6">
+       <h2 class="recentheading" ><i  class="fa fa-list-alt"></i>ORDERS LIST &nbsp;({{this.ProdList?.length}})</h2>
+     </div>
+     <div class="col-md-6">
+
+       
+     </div>
+   </div>
+       <div class="bordersed" style="border-bottom: 1px solid lightgrey;">
+     </div>
+
+ 
+     <div class="container" style="padding-top: 21px;
+     padding-bottom: 20px;">
+      <div class="row">
+        
+        <div class="col-md-6" style="padding-top: 10px !important;">
+          <div class="select" style="float: left;">
+            <select name="slct" id="slct" (change)="CatChnge($event.target.value,this.ProdList)">
+              <option selected disabled>Select  By Type</option>
+              <option value="All">All</option>
+              <option value="Fabrics">Fabrics</option>
+              <option value="Fabric and Stitching">Fabric and Stitching</option>
+              <option value="Stitching">Stitching</option>
+              <option value="none">Uniform Accessories</option>
+              <option value="Order Based Form">ReadyMade Uniforms</option>
+           
+            </select>
+          </div>
+               
+          </div>
+          <div class="col-md-6" style="padding-top: 10px !important;">
+ 
+            <div class="form-group has-search" style="float: right;">
+              <span class="fa fa-search form-control-feedback"></span>
+              <input type="text" class="form-control"  [(ngModel)]="searchword" (input)="searchThis(this.ProdList)"   placeholder="Search....">
+            </div>
+            </div>
+    
+
+    </div>
+    
+  
+      
+  
+  
+
+
+   
+    </div>
+
+    
+     <table class="table table-bordered table-striped mt-3">
+      <thead>
+        <tr>
+          <th> Order Id</th>
+          
+          <th>User Id</th>
+        
+          <th>Ordered Item</th>
+          <th>Item Type</th>
+          <th>Date of Delivery</th>
+         
+       
+      
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="myTable">
+        <tr *ngFor="let item of  this.ProdList |filter:searchword as result">
+            <td>{{item['order_id']}}</td>
+          <td>{{item['user_id']}}</td>
+          <td>{{item['product_type']}}</td>
+          <td>{{item['prod_sub_type']}}</td>
+          <td>{{item['delivery_date'] | date}}</td>
+         
+         
+         
+          <td>
+            <a (click)="rouerterwithtype('/adminquo',item['order_id'],item['prod_sub_type'])" routerLinkActive="active"  style="cursor: pointer;text-decoration: underline;color: #007e56 ;">View Orderdetail </a>
+          </td>
+        </tr>
+    
+   
+      
+      </tbody>
+    </table> 
+     
+
+<div *ngIf="this.Loader" class="loading">Loading&#8230;</div>
+<br><br>
+<footer class="page-footer font-small blue">
+  
+  <!-- Copyright -->
+ 
+  <div class="footer-copyright text-center py-3" >© 2020 Copyright:All Right Reserved &nbsp;&nbsp;&nbsp;
+    <a style="padding-right: 5px; cursor: pointer;"(click)="rourter('/terms','uniforms','supplier')" >Terms of Use - </a>
+    <a style="cursor: pointer;"(click)="rourter('/privacy','uniforms','supplier')" >Privacy Policy - </a>
+    <a style="cursor: pointer;"(click)="rourter('/contact','uniforms','supplier')" >Link to Us</a>
+  </div>
+
+ 
+  <!-- Copyright -->
+
+</footer>
+
+

@@ -1,0 +1,279 @@
+<!-- <div class="topnav" id="myTopnav">
+    <label>
+    <img class ="ulogo" src="../assets/img/logo Curve.png" >
+  </label>
+  
+    <a href="#about">About</a>
+  
+    
+    <div class="dropdown">
+      <button class="dropbtn">Buyers and Sellers 
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a class="active" style="cursor: initial;">Customers</a>
+        <a (click)="rouerter('/supplier','uniforms','supplier')">Suppliers</a>
+      </div>
+    </div> 
+    
+    <a routerLink="/home" routerLinkActive="active">Home</a>
+    <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+  </div> -->
+
+  <div class="topnav" id="myTopnav">
+    <label>
+    <img class ="ulogo" src="../assets/img/logo Curve.png" >
+  </label>
+  
+  
+   
+<!--    
+  <div  *ngIf="!this.User_id" class="dropdown">
+    <button class="dropbtn" (click)="rouerter('/login','uniforms','customer')"><i class="fa fa-sign-in"></i> Login</button>
+    </div>
+    <div  *ngIf="this.User_id" class="dropdown">
+      <button class="dropbtn" (click)="LogOut()"><i class="fa fa-sign-out"></i> LogOut</button>
+      </div>
+   -->
+    
+  
+ 
+    
+    <div class="dropdown">
+      <button class="dropbtn"><i class="fa fa-info-circle" aria-hidden="true"></i>About Us 
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <button class="drop" (click)="rouerter('/contact','uniforms','customer')" style="width: 100%;border: none;background: none;" routerLinkActive="active"> <i class="fa fa-fw fa-envelope" style="padding-right: 30px;"></i>Contact Us</button>
+        <button class="drop"  (click)="rouerter('/terms','uniforms','supplier')" style="width: 100%;border: none;background: none;"routerLinkActive="active" > <i class="fa fa-gavel" style="padding-right: 10px;"></i>Terms And Conditions</button>
+        <button class="drop"  (click)="rouerter('/privacy','uniforms','supplier')" style="width: 100%;border: none;background: none;"routerLinkActive="active" >  <i class="fa fa-user-secret" style="padding-right: 10px;"></i>Privacy And Policy</button>
+      </div>
+    </div> 
+    
+
+  
+    <div   class="dropdown">
+      <button class="dropbtn" (click)="rouerter('/home','uniforms','customer')"><i class="fa fa-fw fa-home"></i> Home</button>
+      </div>
+    
+      
+  
+  
+  
+  <input type="text" value="Conform Your Uniform" hidden>
+    
+    <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+   
+    <input type="text" value="Conform Your Uniform" hidden>
+  </div>
+  <input type="text" value="Conform Your Uniform" hidden>
+  <input type="text" value="Conform Your Uniform" hidden>
+  
+   
+  <div class="jumbotron">
+  <ul class="breadcrumb">
+    <li><a (click)="rouerter('/home','supplierhome','home')" routerLinkActive="active" style="cursor: pointer">Home</a></li>
+    <li><a  routerLinkActive="active">Customer</a></li>
+  </ul>
+  <div class="row container recentheading w-100" style="padding-left: 38px;">
+   <span></span>
+  </div>
+  
+<div class="container mt-3">
+ 
+    <div class="card">
+
+        <h3 class="card-header text-center"> Customer Details </h3>
+        <div class="card-body">
+            <form role="form" data-toggle="validator" [formGroup]="profileForm">
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Select Category</label>
+                    <select class="form-control" id="exampleFormControlSelect1" (change)="selectChange($event.target.value)" formControlName="model_type"   [ngClass]="{ 'is-invalid': submitted && fval.model_type.errors }">
+                      <option selected disabled>Select Your Category</option>
+                      <option value="US">School / College Uniform</option>
+                      <option value="UH">Hospital Uniform</option>
+                      <option value="UC">Catering Uniforms</option>
+                      <option value="UI">Industraial Uniform</option>
+                      <option value="UR">Corporate Uniform</option>
+                      <option value="OT">Others</option>
+                    </select> 
+                      <div *ngIf="submitted && fval.model_type.errors" class="invalid-feedback">
+                      <div *ngIf="fval.model_type.errors.required">
+                        Category is required 
+                      </div>
+                       
+                      </div>
+                  </div>
+                  <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" class="form-control" data-error="You must have a name."  formControlName="customer_name" id="inputName" placeholder=" Name"  [ngClass]="{ 'is-invalid': submitted && fval.customer_name.errors }">
+                    <div *ngIf="submitted && fval.customer_name.errors" class="invalid-feedback">
+                      <div *ngIf="fval.customer_name.errors.required">
+                      Customer Name is required 
+                      </div>
+                       
+                      </div>
+
+                    <!-- Error -->
+                    <div class="help-block with-errors"></div>
+                </div>
+                <div class="form-group">
+                    <label>Name of Institution</label>
+                    <input type="text" class="form-control" data-error="You must have a name."  formControlName="organization_name"id="inputOrganization" placeholder="Institution Name"  [ngClass]="{ 'is-invalid': submitted && fval.organization_name.errors }">
+                    <div *ngIf="submitted && fval.organization_name.errors" class="invalid-feedback">
+                      <div *ngIf="fval.organization_name.errors.required">
+                        Institution name is required 
+                      </div>
+                       
+                      </div>
+                    <!-- Error -->
+                    <div class="help-block with-errors"></div>
+                </div>
+                <div class="form-group">
+                    <label>Designation</label>
+                    <input type="text" class="form-control" data-error="You must have a name." id="inputDesignation"  formControlName="designation"placeholder="Eg: Manager,Staff etc" >
+              
+                </div>
+                  <div class="form-group">
+                    <label>Place</label>
+                    <input type="text" class="form-control" data-error="You must have a name." id="inputPlace" formControlName="place"  placeholder=" Place" [ngClass]="{ 'is-invalid': submitted && fval.place.errors }">
+                    <div *ngIf="submitted && fval.place.errors" class="invalid-feedback">
+                      <div *ngIf="fval.place.errors.required">
+                        Place is required 
+                      </div>
+                       
+                      </div>
+                    <!-- Error -->
+                    <div class="help-block with-errors"></div>
+                </div>
+                <div class="form-group">
+                  <label>State</label>
+                  <input type="text" class="form-control" data-error="You must have a State." id="inputstate" placeholder="State" formControlName="state" [ngClass]="{ 'is-invalid': submitted && fval.state.errors }">
+                  <div *ngIf="submitted && fval.state.errors" class="invalid-feedback">
+                    <div *ngIf="fval.state.errors.required">
+                      State is required 
+                    </div>
+                     
+                    </div>
+                  <!-- Error -->
+                  <div class="help-block with-errors"></div>
+              </div>
+              <div class="form-group">
+                <label>District</label>
+                <input type="text" class="form-control" data-error="You must have a District." id="inputdistrict" placeholder=" District" formControlName="districtl" [ngClass]="{ 'is-invalid': submitted && fval.districtl.errors }">
+                <div *ngIf="submitted && fval.districtl.errors" class="invalid-feedback">
+                  <div *ngIf="fval.districtl.errors.required">
+                    District is required 
+                  </div>
+                   
+                  </div>
+                <!-- Error -->
+                <div class="help-block with-errors"></div>
+            </div>
+              
+                <div class="form-group">
+                    <label>Pincode</label>
+                
+                    <input type="number" class="form-control" data-error="You must have a name." id="inputPincode" formControlName="pincode" placeholder="Pincode" name="pcode"  maxlength="6" [ngClass]="{ 'is-invalid': submitted && fval.pincode.invalid }" >
+                    <div *ngIf="submitted && fval.pincode.errors"class="invalid-feedback">
+                      <div *ngIf="fval.pincode.errors.required">
+                        Pincode is required.
+                        </div>
+                        <div *ngIf="fval.pincode.errors.pattern">Please provide a Valid Pincode</div>
+                        </div>
+                   
+                    <!-- Error -->
+                    <div class="help-block with-errors"></div>
+                </div>
+                <div class="form-group">
+                    <label>Phone Number 1</label>
+                    <input type="text" class="form-control" data-error="You must have a name." id="inputPhone" formControlName="phone_number"  placeholder=" Phone Number"  maxlength="10" [ngClass]="{ 'is-invalid': submitted && fval.phone_number.errors}">
+                    <div *ngIf="submitted && fval.phone_number.errors" class="invalid-feedback">
+                      <div *ngIf="fval.phone_number.errors.required">Phone is required  and must be at least 10 numbers</div>
+                      <!-- <div *ngIf="fval.phone_number.errors.pattern">Please Enter a valid Phone Number</div> -->
+                      </div>
+                      
+                       
+                       
+                   
+                   
+                    <div class="help-block with-errors"></div>
+                </div>
+
+                <div class="form-group">
+                    <label>Phone Number 2</label>
+                    <input type="number" class="form-control" data-error="You must have a name." id="inputNumber" formControlName="alternative_number" placeholder=" Phone Number"  >
+                  </div>  
+                   
+                    <div class="help-block with-errors"></div>
+               
+
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" class="form-control" id="inputEmail" placeholder="Email" formControlName="email" required [ngClass]="{ 'is-invalid': submitted && fval.email.errors}">
+                   
+                  <div  *ngIf="fval.email.errors" class="invalid-feedback">
+                  <div *ngIf="fval.email.errors.emailDomain">Email must be on the gmail.com domain</div> 
+              </div>
+              <div *ngIf="submitted && fval.email.errors"  class="invalid-feedback">
+                  <div *ngIf="fval.email.errors.pattern">Please provide a valid Email</div>
+                 
+              </div> 
+                    <!-- Error -->
+                    <div class="help-block with-errors"></div>
+                </div>
+                <div class="form-group">
+                  <label>Password</label>
+                  <input type="password" class="form-control" id="inputPassword" placeholder="Password" formControlName="password" minlength="6" [ngClass]="{ 'is-invalid': submitted && fval.password.errors}">
+                  <div *ngIf="submitted && fval.password.errors"class="invalid-feedback">
+                    <div ngClass="fval.password.errors.required">
+                      Password is required.
+                      </div>
+                      <div *ngIf="fval.password.errors.minlength">Password must be at least 6 characters</div>
+                      </div>
+                     
+                  <!-- Error -->
+                  <div class="help-block with-errors"></div>
+              </div>
+                <div class="custom-control custom-checkbox" style="margin-left: 30px;">
+                    <input type="checkbox" class="custom-control-input" id="defaultUnchecked" formControlName="terms" [ngClass]="{ 'is-invalid': submitted && fval.terms.errors }" >
+                    <label class="custom-control-label" for="defaultUnchecked">
+                      <span>&nbsp;&nbsp;I agree<a style="padding-left: 10px; color: #2f9bd8 !important;  cursor: pointer;" (click)="rouerter('/terms','supplierhome','home')">terms and conditions</a></span> 
+                    </label>
+                    <div *ngIf="submitted && fval.terms.errors" class="invalid-feedback" >
+                      <div *ngIf="fval.terms.errors.required">
+                        Agree terms and conditions is required 
+                      </div>
+                      </div>
+                </div>
+
+
+
+                <div class="form-group" style="padding-top: 20px;">
+                  <div class="text-center">
+                    <button type="submit" (click)="CustomerSave()" class="btn btn-primary">Continue</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div *ngIf="this.Loader" class="loading">Loading&#8230;</div>
+<br>
+<br>
+
+<footer class="page-footer font-small blue">
+  
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3" >© 2020 Copyright:All Right Reserved &nbsp;&nbsp;&nbsp;
+    <a style="padding-right: 5px; cursor: pointer;"(click)="rouerter('/terms','uniforms','supplier')" >Terms of Use - </a>
+    <a style="cursor: pointer;"(click)="rouerter('/privacy','uniforms','supplier')" >Privacy Policy - </a>
+    <a style="cursor: pointer;"(click)="rouerter('/contact','uniforms','supplier')" >Link to Us</a>
+  </div>
+
+ 
+  <!-- Copyright -->
+
+</footer>
+
+</div>

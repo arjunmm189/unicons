@@ -1,0 +1,164 @@
+<div class="topnav" id="myTopnav">
+    <label>
+    <img class ="ulogo" src="../assets/img/logo Curve.png" >
+  </label>
+  
+  
+   
+<!--    
+  <div  *ngIf="!this.User_id" class="dropdown">
+    <button class="dropbtn" (click)="rouerter('/login','uniforms','customer')"><i class="fa fa-sign-in"></i> Login</button>
+    </div>
+    <div  *ngIf="this.User_id" class="dropdown">
+      <button class="dropbtn" (click)="LogOut()"><i class="fa fa-sign-out"></i> LogOut</button>
+      </div>
+  
+  
+   -->
+  
+    
+   <!-- <div  class="dropdown">
+    <button class="dropbtn" (click)="rouerter('/login','uniforms','customer')"><i class="fa fa-sign-in"></i> Login</button>
+    </div>
+  
+    
+  
+    
+    <div class="dropdown">
+      <button class="dropbtn"><i class="fa fa-info-circle" aria-hidden="true"></i>About Us 
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <button class="drop" (click)="rouerter('/contact','uniforms','customer')" style="width: 100%;border: none;background: none;" routerLinkActive="active"> <i class="fa fa-fw fa-envelope" style="padding-right: 30px;"></i>Contact Us</button>
+        <button class="drop"  (click)="rouerter('/terms','uniforms','supplier')" style="width: 100%;border: none;background: none;"routerLinkActive="active" > <i class="fa fa-gavel" style="padding-right: 10px;"></i>Terms And Conditions</button>
+        <button class="drop"  (click)="rouerter('/privacy','uniforms','supplier')" style="width: 100%;border: none;background: none;"routerLinkActive="active" >  <i class="fa fa-user-secret" style="padding-right: 10px;"></i>Privacy And Policy</button>
+      </div>
+    </div> 
+    
+  
+  
+    <div   class="dropdown">
+      <button class="dropbtn" (click)="rouerter('/supplierhome','uniforms','customer')"><i class="fa fa-fw fa-home"></i> Home</button>
+      </div>
+     -->
+      
+  
+  
+  
+  <input type="text" value="Conform Your Uniform" hidden>
+    
+    <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+   
+    <input type="text" value="Conform Your Uniform" hidden>
+  </div>
+  <input type="text" value="Conform Your Uniform" hidden>
+  <input type="text" value="Conform Your Uniform" hidden>
+  
+   
+  
+<div class="container py-5" style="margin-top: 100px;">
+  
+    <div class="row mb-4">
+        <div class="col-lg-8 mx-auto text-center">
+            Please pay Rs.300/- for Registration Only, make sure the UPI id is <a   href="exact@upi" style="color: blue;">exact@upi</a>
+          
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6 mx-auto">
+            <div class="card ">
+                <div class="card-header">
+                    <div class="bg-white shadow-sm pt-4 pl-2 pr-2 pb-2">
+                        <!-- Credit card form tabs -->
+                        <ul role="tablist" class="nav bg-light nav-pills rounded nav-fill mb-3">
+                            <li class="nav-item"> <a data-toggle="pill" href="#upi-payment" class="nav-link active"> <i
+                                class="fa fa-credit-card mr-2"></i> Scan and Pay </a> </li>
+                            <li class="nav-item"> <a data-toggle="pill" href="#credit-card" class="nav-link  "> <i
+                                        class="fa fa-credit-card mr-2"></i> Credit Card </a> </li>
+                            <li class="nav-item"> <a data-toggle="pill" href="#paypal" class="nav-link"> <i
+                                        class="fa fa-paypal mr-2"></i> Paypal </a> </li>
+                          
+                        </ul>
+                    </div> <!-- End -->
+                   
+                    <div class="tab-content">
+                        <div id="upi-payment" class="tab-pane fade show active pt-3">
+                            <form role="form">
+                               <div >
+                                   <img class="center" src="../../assets/img/barcode.jpg" width="50%" height="50%" >
+                                   <div>
+                                       <br><br>
+                                       <div class="card-footer"> 
+                                        <button type="button"
+                                        (click)="Paynow()" class="subscribe btn btn-primary btn-block shadow-sm"> Done Payment </button>
+                                    </div>
+                                   </div>
+
+                               </div>
+                            </form>
+                        </div>
+                     
+                        <div id="credit-card" class="tab-pane fade show  pt-3">
+                            <form role="form">
+                                <div class="form-group"> <label for="username">
+                                        <h6>Card Owner</h6>
+                                    </label> <input type="text" name="username" placeholder="Card Owner Name" required
+                                        class="form-control ">
+                                </div>
+                                <div class="form-group"> <label for="cardNumber">
+                                        <h6>Card number</h6>
+                                    </label>
+                                    <div class="input-group">
+                                         <input type="text" name="cardNumber"
+                                            placeholder="Valid card number" class="form-control " required>
+                                        <div class="input-group-append"> <span class="input-group-text text-muted"> <i
+                                                    class="fa fa-cc-visa mx-1"></i> <i
+                                                    class="fa fa-cc-mastercard mx-1"></i> <i
+                                                    class="fa fa-cc-amex mx-1"></i> </span>
+                                         </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-8">
+                                        <div class="form-group"> <label><span class="hidden-xs">
+                                                    <h6>Expiration Date</h6>
+                                                </span></label>
+                                            <div class="input-group"> <input type="number" placeholder="MM" name=""
+                                                    class="form-control" required> <input type="number" placeholder="YY"
+                                                    name="" class="form-control" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group mb-4"> <label data-toggle="tooltip"
+                                                title="Three digit CV code on the back of your card">
+                                                <h6>CVV <i class="fa fa-question-circle d-inline"></i></h6>
+                                            </label> <input type="text" required class="form-control">
+                                         </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer"> 
+                                    <button type="button"
+                                        class="subscribe btn btn-primary btn-block shadow-sm"> Confirm Payment </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div> 
+                    <div id="paypal" class="tab-pane fade pt-3">
+                        <h6 class="pb-2">Select your paypal account type</h6>
+                        <div class="form-group "> <label class="radio-inline"> <input type="radio" name="optradio"
+                                    checked> Domestic </label> <label class="radio-inline"> <input type="radio"
+                                    name="optradio" class="ml-5">International </label></div>
+                        <p> <button type="button" class="btn btn-primary "><i class="fab fa-paypal mr-2"></i> Log into
+                                my Paypal</button> </p>
+                        <p class="text-muted"> Note: After clicking on the button, you will be directed to a secure
+                            gateway for payment. After completing the payment process, you will be redirected back to
+                            the website to view details of your order. </p>
+                    </div> 
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="this.Loader" class="loading">Loading&#8230;</div>

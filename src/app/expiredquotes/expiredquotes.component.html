@@ -1,0 +1,932 @@
+<div class="topnav" id="myTopnav">
+  <label>
+  <img class ="ulogo" src="../assets/img/logo Curve.png" >
+  </label>
+
+  <button class="drop" href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</button>
+</div>
+
+
+<div id="mySidenav" class="sidenav" style="margin-top: 90px;">
+  <button  href="javascript:void(0)" class="closebtn" style="border: none;float: right;padding-top: 5px;padding-right: 5px;padding-bottom: 5px;" onclick="closeNav()">&times;</button>
+  <button class="drop"(click)="rouerter('/adminhome','adminhome','home')" style ="cursor: pointer;width: 100%;">Home</button>
+  <button class="drop" (click)="rouerter('/supplier_list','adminhome','home')" style ="cursor: pointer; width: 100%;">Supplier List</button>
+  <button class="drop" (click)="rouerter('/buyers_list','adminhome','home')" style ="cursor: pointer; width: 100%;">Buyers List</button>
+  <button class="drop" (click)="rouerter('/supplier_details','adminhome','home')" style ="cursor: pointer; width: 100%;" >Supplier Details</button>
+  <button class="drop" (click)="rouerter('/order_details','adminhome','home')" style ="cursor: pointer; width: 100%;"  >Customer Orders</button>
+  <button class="drop"  (click)="rouerter('/quotations','adminhome','home')" style ="cursor: pointer; width: 100%;"> Quotations</button>
+  <button class="drop"  (click)="rouerter('/banner','adminhome','home')" style ="cursor: pointer; width: 100%;"> Banner list</button>
+  <button class="drop"  routerLinkActive="active"   style="cursor: initial; width: 100%;color: white;"> Labour list</button>
+  <button class="drop" (click)="rouerter('/adminproduct','adminhome','home')">  Machine And Spare List</button>
+  <button class="drop"  (click)="rouerter('/adminaccs','adminhome','home')"> ReadyMade And Accessories List</button>
+</div>
+
+<h2></h2>
+<p></p>
+<div class="ico">
+  <span class="icon" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span>
+  </div>
+ 
+
+  <div class="container" style="padding-top: 120px;" id="print-section">
+    <div class="row">
+        <div class="col-md-12">
+    		<div class="invoice-title">
+    			<h2>VENDOR AGREEMENT </h2><h3 class="pull-right">QUOTE #  {{this.QuoutesList[0].quatation_form_id}}</h3>
+    		</div>
+    		<hr>
+    		<div class="row">
+    			<div class="col-md-6">
+    				<address>
+            <strong>From:</strong><br>
+            {{ this.BuyerList[0].user_id}}<br>
+            {{ this.BuyerList[0].customer_name}}<br>
+            {{ this.BuyerList[0].organization_name}}<br>
+    				{{ this.BuyerList[0].place}}<br>
+    				{{ this.BuyerList[0].districtl}},	{{this.BuyerList[0].state}}<br>
+            {{ this.BuyerList[0].pincode}}<br>
+            +91{{ this.BuyerList[0].phone_number}}<br>
+            {{ this.BuyerList[0].email}}<br>
+            
+    				</address>
+    			</div>
+    			<div class="col-md-6 text-right">
+    				<address>
+        			<strong>Shipped To:</strong><br>
+              {{ this.SupplierList[0].user_id}}<br>
+              {{ this.SupplierList[0].supplier_name}}<br>
+              {{this.SupplierList[0].organization_name}}<br>
+              {{ this.SupplierList[0].place}}<br>
+              {{ this.SupplierList[0].district}},	{{this.SupplierList[0].state}}<br>
+              {{ this.SupplierList[0].pincode}}<br>
+              +91{{ this.SupplierList[0].phone_number}}<br>
+              {{ this.SupplierList[0].email}}<br>
+    				</address>
+    			</div>
+    		</div>
+    		<div class="row">
+    			<div class="col-md-6">
+    				<!-- <address>
+    					<strong>Payment Method:</strong><br>
+    					Visa ending **** 4242<br>
+    					jsmith@email.com
+    				</address> -->
+    			</div>
+    			<div class="col-md-6 text-right">
+    				<address>
+    					<strong>Expiry  Date:</strong><br>
+              {{this.QuoutesList[0].expiry_date | date:'dd MMM,yyyy'}}<br><br>
+    				</address>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+    
+    <div class="row">
+    	<div class="col-md-12">
+    		<div class="panel panel-default">
+    			<div class="panel-heading">
+    				<h3 class="panel-title"><strong>Order summary</strong></h3>
+    			</div>
+    			<div class="panel-body">
+    				<div class="table-responsive">
+    					<table class="table table-bordered">
+    						<thead>
+                                <tr>
+        							<td><strong>Item</strong></td>
+        							<td class="text-center"><strong>Price</strong></td>
+        							<td class="text-center"><strong>Quantity</strong></td>
+        							<td class="text-right"><strong>Totals(Rs.)</strong></td>
+                                </tr>
+    						</thead>
+    						<tbody>
+    							<!-- foreach ($order->lineItems as $line) or some such thing here -->
+    							<tr  *ngFor="let item of  this.QuoteList">
+    								<td>{{item['item_name']}}</td>
+    								<td class="text-center">{{item['rate_per_item']}}</td>
+    								<td class="text-center">{{item['count']}}</td>
+    								<td class="text-right">Rs.{{item['total__amt']}}.00</td>
+    							</tr>
+                  
+            
+    							<tr>
+    								<td class="thick-line"></td>
+    								<td class="thick-line"></td>
+    								<td class="thick-line text-center"><strong>Subtotal</strong></td>
+    								<td class="thick-line text-right">Rs.{{this.QuoutesList[0].grand_total}}.00</td>
+    							</tr>
+    							<!-- <tr>
+    								<td class="no-line"></td>
+    								<td class="no-line"></td>
+    								<td class="no-line text-center"><strong>Shipping</strong></td>
+    								<td class="no-line text-right">15</td>
+    							</tr> -->
+    							<tr>
+    								<td class="no-line"></td>
+    								<td class="no-line"></td>
+    								<td class="no-line text-center"><strong>Total</strong></td>
+    								<td class="no-line text-right">Rs.{{this.QuoutesList[0].grand_total}}.00</td>
+    							</tr>
+    						</tbody>
+    					</table>
+              <br>
+              <br>
+              <div class="form-group">
+                <label for="exampleFormControlTextarea2">Terms and Conditions</label>
+                
+                <textarea class="form-control rounded-0" id="exampleFormControlTextarea2" rows="auto"></textarea>
+              </div>
+              <br>
+              <br>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+</div>
+<div class="container">
+<div class="row col-12 form-group">
+  <div class="col-md-6" >
+
+      <a [href]="'tel:'+this.SupplierList[0].phone_number" target="_blank"><button
+        type="button" class="btn btn-success unicornButton" style="width: 200px;"><i class="fa fa-phone" aria-hidden="true" ></i>
+        Call Supplier</button></a>
+    
+
+  </div>
+ 
+  <div class="col-md-6">
+      
+      <button   [useExistingCss]="true"
+      printSectionId="print-section"
+    
+      ngxPrint  style="width:100%" class="unicornButton   btn btn-success"><i class="fa fa-print"></i>  &nbsp; Take Print Out</button>
+  </div>
+
+</div>  
+<div class="mt-2" >
+
+  <button  (click)="UpdateOrder()"  style="width:100%" class="unicornButton btn btn-success"> &nbsp; Conform Quotation</button>
+
+
+</div>
+
+</div>
+<div *ngIf="this.Loader" class="loading">Loading&#8230;</div>
+
+<br><br>
+<footer class="page-footer font-small blue">
+  
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3" >© 2020 Copyright:All Right Reserved &nbsp;&nbsp;&nbsp;
+    <a style="padding-right: 5px; cursor: pointer;"(click)="rouerter('/terms','uniforms','supplier')" >Terms of Use - </a>
+    <a style="cursor: pointer;"(click)="rouerter('/privacy','uniforms','supplier')" >Privacy Policy - </a>
+    <a style="cursor: pointer;"(click)="rouerter('/contact','uniforms','supplier')" >Link to Us</a>
+  </div>
+
+ 
+  <!-- Copyright -->
+
+</footer>
+
+<!-- 
+<div class="topnav" id="myTopnav">
+    <label>
+    <img class ="ulogo" src="../assets/img/logo Curve.png" >
+  </label>
+  
+    <a href="#about">About</a>
+  
+   
+    
+    <a routerLink="/adminhome" routerLinkActive="active" style="cursor: pointer;">Home</a>
+    <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+  </div>
+  
+  
+  
+  <ul class="breadcrumb">
+    <li><a routerLink="/adminhome" style="cursor: pointer;">Home</a></li>
+    <li><a  routerLinkActive="active">Quotation Form</a></li>
+  </ul>
+
+  <div class="container recentheading w-100">
+      <span>Quotation Form</span>
+
+  </div>
+  <div class="container mt-3" *ngIf="this.type=='Fabrics'">
+    
+        <div class="card">
+       <div id="print-section"> 
+            <img class="card-img-top" src="http://localhost:4200/assets/img/acc45.png" alt="connformYouruniform">
+            <div class="card-body">
+                <div class="row col-12 form-group">
+                    <div class="col-md-6">
+
+                        <label>Supplier ID :</label> 
+                        {{this.QuoutesList[0]?.supplier_id}}
+                     
+
+                    </div>
+                    <div class="col-md-6">
+                     
+                     
+                    </div>
+                  </div>
+                  <div class="row col-12 form-group">
+                    <div class="col-md-3">
+                      <label>Order ID :</label>  
+                    </div>
+                    <div class="col-md-9">
+                     <span>{{this.id}}</span>
+                    </div>
+              
+               
+                  </div>
+                  <div class="row col-12 form-group">
+                    <div class="col-md-3">
+                      <label>Category :</label>  
+                    </div>
+                    <div class="col-md-9">
+                     <span *ngIf="this.ProdList[0]?.category_type=='US'">School/Collage Uniforms</span>
+                     <span *ngIf="this.ProdList[0]?.category_type=='UH'">Hospital Uniforms</span>
+                     <span *ngIf="this.ProdList[0]?.category_type=='UC'">Catering Uniforms</span>
+                     <span *ngIf="this.ProdList[0]?.category_type=='UI'">Industrial  Uniforms</span>
+                     <span *ngIf="this.ProdList[0]?.category_type=='UR'">Corporate Uniforms</span>
+                   
+                    </div>
+              
+               
+                  </div>
+                  <div class="row col-12 form-group">
+                    <div class="col-md-3">
+                      <label>Brand Name :</label>  
+                    </div>
+                    <div class="col-md-9">
+                     <span>{{this.ProdList[0]?.brand_name}}</span>
+                    </div>
+              
+               
+                  </div>
+                  <div class="row col-12 form-group">
+                    <div class="col-md-3">
+                      <label>Catalog Number :</label>  
+                    </div>
+                    <div class="col-md-9">
+                     <span>{{this.ProdList[0]?.catalog_number}}</span>
+                    </div>
+              
+               
+                  </div>
+                  <div class="row col-12 form-group">
+                    <div class="col-md-3">
+                      <label>Design  Number :</label>  
+                    </div>
+                    <div class="col-md-9">
+                     <span>{{this.ProdList[0]?.design_no}}</span>
+                    </div>
+              
+               
+                  </div>
+                  <div class="row col-12 form-group">
+                    <div class="col-md-3">
+                      <label>Shade  Number :</label>  
+                    </div>
+                    <div class="col-md-9">
+                     <span>{{this.ProdList[0]?.sahde_no}}</span>
+                    </div>
+              
+               
+                  </div>
+                  <div class="row col-12 form-group">
+                    <div class="col-md-3">
+                      <label>Delivery Date :</label>  
+                    </div>
+                    <div class="col-md-9">
+                     <span>{{this.ProdList[0]?.delivery_date}}</span>
+                    </div>
+              
+               
+                  </div>
+                  <div class="recentheading w-100 " style="text-align: center;">
+                      <span>ORDERED ITEMS</span>
+                  </div>
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">ITEM NAME</th>
+                        <th scope="col">QUANTITY</th>
+                        <th scope="col">PRICE(per Item)</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let item of this.QuoteList">
+                        <th scope="row">{{item['quotationdetails_id']}}</th>
+                        <td>{{item['item_name']}}</td>
+                        <td>{{item['count']}}</td>
+                        <td>{{item['rate_per_item']}}</td>
+                      
+                      </tr>
+                     
+                     
+                    </tbody>
+                  </table>
+
+            </div>
+            <div class="container">
+            <div class="row col-12 form-group">
+                <div class="col-md-6">
+
+                    <label class="Amout">TOTAL AMOUNT:</label> 
+                    {{this.QuoutesList[0]?.total_amount | currency:'INR'}}
+                
+                  
+
+                </div>
+                <div class="col-md-6">
+                    <label class="Amout">GRAND TOTAL :</label> 
+                    {{this.QuoutesList[0]?.grand_total | currency:'INR'}}
+                 
+                </div>
+              </div>
+            </div>
+          </div>
+                <div class="row col-12 form-group">
+                    <div class="col-md-4" >
+    
+                        <button    style="width:100%" class="unicornButton btn btn-success"><i class="fa fa-phone"></i> &nbsp; Contact Supplier</button>
+                      
+    
+                    </div>
+                    <div class="col-md-4">
+                        
+                        <button   style="width:100%" class="unicornButton  btn btn-success"><i class="fa fa-envelope"></i>  &nbsp; Email  Supplier</button>
+                    </div>
+                    <div class="col-md-4">
+                        
+                        <button   [useExistingCss]="true"
+                        printSectionId="print-section"
+                       
+                        ngxPrint  style="width:100%" class="unicornButton   btn btn-success"><i class="fa fa-print"></i>  &nbsp; Take Print Out</button>
+                    </div>
+                  </div>
+                
+          
+        
+ 
+   
+  </div>
+ 
+    
+
+
+</div>
+
+<div class="container mt-3" *ngIf="this.type=='Stitching'">
+    
+  <div class="card">
+ 
+    <div id="print-section"> 
+      <img class="card-img-top" src="http://localhost:4200/assets/img/acc45.png" alt="connformYouruniform">
+      <div class="card-body">
+          <div class="row col-12 form-group">
+              <div class="col-md-6">
+
+                  <label>Supplier ID :</label> 
+                  {{this.QuoutesList[0]?.supplier_id}}
+               
+                
+
+              </div>
+              <div class="col-md-6">
+               
+               
+              </div>
+            </div>
+            <div class="row col-12 form-group">
+              <div class="col-md-3">
+                <label>Order ID :</label>  
+              </div>
+              <div class="col-md-9">
+               <span>{{this.id}}</span>
+              </div>
+        
+         
+            </div>
+            <div class="row col-12 form-group">
+              <div class="col-md-3">
+                <label>Category :</label>  
+              </div>
+              <div class="col-md-9">
+               <span *ngIf="this.ProdList[0]?.category_type=='US'">School/Collage Uniforms</span>
+               <span *ngIf="this.ProdList[0]?.category_type=='UH'">Hospital Uniforms</span>
+               <span *ngIf="this.ProdList[0]?.category_type=='UC'">Catering Uniforms</span>
+               <span *ngIf="this.ProdList[0]?.category_type=='UI'">Industrial  Uniforms</span>
+               <span *ngIf="this.ProdList[0]?.category_type=='UR'">Corporate Uniforms</span>
+             
+              </div>
+        
+         
+            </div>
+            <div class="row col-12 form-group">
+              <div class="col-md-3">
+                <label>No Of Persons :</label>  
+              </div>
+              <div class="col-md-9">
+               <span>{{this.ProdList[0]?.total_count}}</span>
+              </div>
+        
+         
+            </div>
+            <div class="row col-12 form-group">
+              <div class="col-md-3">
+                <label>Individually Stiched :</label>  
+              </div>
+              <div class="col-md-9">
+               <span>{{this.ProdList[0]?.is_invidulaystiched}}</span>
+              </div>
+        
+         
+            </div>
+        
+            <div class="row col-12 form-group">
+              <div class="col-md-3">
+                <label>Delivery Date :</label>  
+              </div>
+              <div class="col-md-9">
+               <span>{{this.ProdList[0]?.delivery_date}}</span>
+              </div>
+        
+         
+            </div>
+            <div class="recentheading w-100 " style="text-align: center;">
+                <span>ORDERED ITEMS</span>
+            </div>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">ITEM NAME</th>
+                  <th scope="col">QUANTITY</th>
+                  <th scope="col">PRICE(per Item)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of this.QuoteList">
+                  <th scope="row">{{item['quotationdetails_id']}}</th>
+                  <td>{{item['item_name']}}</td>
+                  <td>{{item['count']}}</td>
+                  <td>{{item['rate_per_item']}}</td>
+                
+                </tr>
+               
+               
+              </tbody>
+            </table>
+
+      </div>
+      <div class="container">
+      <div class="row col-12 form-group">
+          <div class="col-md-6">
+
+              <label class="Amout">TOTAL AMOUNT:</label> 
+              {{this.QuoutesList[0]?.total_amount | currency:'INR'}}
+          
+            
+
+          </div>
+          <div class="col-md-6">
+              <label class="Amout">GRAND TOTAL :</label> 
+              {{this.QuoutesList[0]?.grand_total | currency:'INR'}}
+           
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <div class="row col-12 form-group">
+    <div class="col-md-4" >
+
+        <button    style="width:100%" class="unicornButton btn btn-success"><i class="fa fa-phone"></i> &nbsp; Contact Supplier</button>
+      
+
+    </div>
+    <div class="col-md-4">
+        
+        <button   style="width:100%" class="unicornButton  btn btn-success"><i class="fa fa-envelope"></i>  &nbsp; Email  Supplier</button>
+    </div>
+    <div class="col-md-4">
+        
+        <button   [useExistingCss]="true"
+        printSectionId="print-section"
+       
+        ngxPrint  style="width:100%" class="unicornButton   btn btn-success"><i class="fa fa-print"></i>  &nbsp; Take Print Out</button>
+    </div>
+  </div>
+</div> 
+          
+    </div>
+<div class="container mt-3" *ngIf="this.type=='Fabric and Stitching'">
+    
+    <div class="card">
+   
+      <div id="print-section"> 
+        <img class="card-img-top" src="http://localhost:4200/assets/img/acc45.png" alt="connformYouruniform">
+        <div class="card-body">
+            <div class="row col-12 form-group">
+                <div class="col-md-6">
+
+                    <label>Supplier ID :</label> 
+                    {{this.QuoutesList[0]?.supplier_id}}
+                
+                  
+
+                </div>
+                <div class="col-md-6">
+                 
+                 
+                </div>
+              </div>
+              <div class="row col-12 form-group">
+                <div class="col-md-3">
+                  <label>Order ID :</label>  
+                </div>
+                <div class="col-md-9">
+                 <span>{{this.id}}</span>
+                </div>
+          
+           
+              </div>
+              <div class="row col-12 form-group">
+                <div class="col-md-3">
+                  <label>Category :</label>  
+                </div>
+                <div class="col-md-9">
+                 <span *ngIf="this.ProdList[0]?.category_type=='US'">School/Collage Uniforms</span>
+                 <span *ngIf="this.ProdList[0]?.category_type=='UH'">Hospital Uniforms</span>
+                 <span *ngIf="this.ProdList[0]?.category_type=='UC'">Catering Uniforms</span>
+                 <span *ngIf="this.ProdList[0]?.category_type=='UI'">Industrial  Uniforms</span>
+                 <span *ngIf="this.ProdList[0]?.category_type=='UR'">Corporate Uniforms</span>
+               
+                </div>
+          
+           
+              </div>
+              <div class="row col-12 form-group">
+                <div class="col-md-3">
+                  <label>No Of Persons :</label>  
+                </div>
+                <div class="col-md-9">
+                 <span>{{this.ProdList[0]?.total_count}}</span>
+                </div>
+          
+           
+              </div>
+              <div class="row col-12 form-group">
+                <div class="col-md-3">
+                  <label>Individually Stiched :</label>  
+                </div>
+                <div class="col-md-9">
+                 <span>{{this.ProdList[0]?.is_invidulaystiched}}</span>
+                </div>
+          
+           
+              </div>
+          
+              <div class="row col-12 form-group">
+                <div class="col-md-3">
+                  <label>Delivery Date :</label>  
+                </div>
+                <div class="col-md-9">
+                 <span>{{this.ProdList[0]?.delivery_date}}</span>
+                </div>
+          
+           
+              </div>
+              <div class="recentheading w-100 " style="text-align: center;">
+                  <span>ORDERED ITEMS</span>
+              </div>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">ITEM NAME</th>
+                    <th scope="col">QUANTITY</th>
+                    <th scope="col">PRICE(per Item)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of this.QuoteList">
+                    <th scope="row">{{item['quotationdetails_id']}}</th>
+                    <td>{{item['item_name']}}</td>
+                    <td>{{item['count']}}</td>
+                    <td>{{item['rate_per_item']}}</td>
+                  
+                  </tr>
+                 
+                 
+                </tbody>
+              </table>
+
+        </div>
+        <div class="container">
+        <div class="row col-12 form-group">
+            <div class="col-md-6">
+
+                <label class="Amout">TOTAL AMOUNT:</label> 
+                {{this.QuoutesList[0]?.total_amount | currency:'INR'}}
+            
+              
+
+            </div>
+            <div class="col-md-6">
+                <label class="Amout">GRAND TOTAL :</label> 
+                {{this.QuoutesList[0]?.grand_total | currency:'INR'}}
+             
+            </div>
+          </div>
+        </div>
+      </div>
+        <div class="row col-12 form-group">
+          <div class="col-md-4" >
+
+              <button    style="width:100%" class="unicornButton btn btn-success"><i class="fa fa-phone"></i> &nbsp; Contact Supplier</button>
+            
+
+          </div>
+          <div class="col-md-4">
+              
+              <button   style="width:100%" class="unicornButton  btn btn-success"><i class="fa fa-envelope"></i>  &nbsp; Email  Supplier</button>
+          </div>
+          <div class="col-md-4">
+              
+              <button   [useExistingCss]="true"
+              printSectionId="print-section"
+             
+              ngxPrint  style="width:100%" class="unicornButton   btn btn-success"><i class="fa fa-print"></i>  &nbsp; Take Print Out</button>
+          </div>
+        </div>
+            
+      </div>
+    
+
+
+</div>
+<div class="container mt-3" *ngIf="this.type=='none'">
+    
+    <div class="card">
+   
+      <div id="print-section"> 
+        <img class="card-img-top" src="http://localhost:4200/assets/img/acc45.png" alt="connformYouruniform">
+        <div class="card-body">
+            <div class="row col-12 form-group">
+                <div class="col-md-6">
+
+                    <label>Supplier ID :</label> 
+                    {{this.QuoutesList[0]?.supplier_id}}
+                 
+                  
+
+                </div>
+                <div class="col-md-6">
+                 
+                 
+                </div>
+              </div>
+              <div class="row col-12 form-group">
+                <div class="col-md-3">
+                  <label>Order ID :</label>  
+                </div>
+                <div class="col-md-9">
+                 <span>{{this.id}}</span>
+                </div>
+          
+           
+              </div>
+              <div class="row col-12 form-group">
+                <div class="col-md-3">
+                  <label>Category :</label>  
+                </div>
+                <div class="col-md-9">
+                 <span *ngIf="this.ProdList[0]?.category_type=='US'">School/Collage Uniforms</span>
+                 <span *ngIf="this.ProdList[0]?.category_type=='UH'">Hospital Uniforms</span>
+                 <span *ngIf="this.ProdList[0]?.category_type=='UC'">Catering Uniforms</span>
+                 <span *ngIf="this.ProdList[0]?.category_type=='UI'">Industrial  Uniforms</span>
+                 <span *ngIf="this.ProdList[0]?.category_type=='UR'">Corporate Uniforms</span>
+               
+                </div>
+          
+           
+              </div>
+          
+          
+              <div class="row col-12 form-group">
+                <div class="col-md-3">
+                  <label>Delivery Date :</label>  
+                </div>
+                <div class="col-md-9">
+                 <span>{{this.ProdList[0]?.delivery_date}}</span>
+                </div>
+          
+           
+              </div>
+              <div class="recentheading w-100 " style="text-align: center;">
+                  <span>ORDERED ITEMS</span>
+              </div>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">ITEM NAME</th>
+                    <th scope="col">QUANTITY</th>
+                    <th scope="col">PRICE(per Item)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of this.QuoteList">
+                    <th scope="row">{{item['quotationdetails_id']}}</th>
+                    <td>{{item['item_name']}}</td>
+                    <td>{{item['count']}}</td>
+                    <td>{{item['rate_per_item']}}</td>
+                  
+                  </tr>
+                 
+                 
+                </tbody>
+              </table>
+
+        </div>
+        <div class="container">
+        <div class="row col-12 form-group">
+            <div class="col-md-6">
+
+                <label class="Amout">TOTAL AMOUNT:</label> 
+                {{this.QuoutesList[0]?.total_amount | currency:'INR'}}
+           
+
+            </div>
+            <div class="col-md-6">
+                <label class="Amout">GRAND TOTAL :</label> 
+                {{this.QuoutesList[0]?.grand_total | currency:'INR'}}
+             
+            </div>
+          </div>
+        </div>
+      </div>
+        <div class="row col-12 form-group">
+          <div class="col-md-4" >
+
+              <button    style="width:100%" class="unicornButton btn btn-success"><i class="fa fa-phone"></i> &nbsp; Contact Supplier</button>
+            
+
+          </div>
+          <div class="col-md-4">
+              
+              <button   style="width:100%" class="unicornButton  btn btn-success"><i class="fa fa-envelope"></i>  &nbsp; Email  Supplier</button>
+          </div>
+          <div class="col-md-4">
+              
+              <button   [useExistingCss]="true"
+              printSectionId="print-section"
+             
+              ngxPrint  style="width:100%" class="unicornButton   btn btn-success"><i class="fa fa-print"></i>  &nbsp; Take Print Out</button>
+          </div>
+        </div>
+            
+      </div>
+    
+
+
+</div> -->
+  <!-- <div class="container mt-5" *ngIf="this.type=='Fabrics'">
+    <div class="card">
+  
+        <h5 class="card-header text-center"> Quotation form </h5>
+        <div class="card-body">
+            <form role="form" data-toggle="validator" [formGroup]="fabricForm">
+  
+           
+                <div class="row col-12 form-group">
+                  <div class="col-md-6">
+                    <label>Customer ID </label>  <input type="text" class="form-control" formControlName='user_id'>
+                  </div>
+                  <div class="col-md-6">
+                    <label>Supplier ID </label>  
+                    <input type="text" class="form-control" formControlName='customer_id'>
+                  </div>
+                </div>
+               
+                <div class="row col-12 form-group">
+                  <div class="col-md-3">
+                    <label style="margin-top: 8px;font-size: 11px;">Order ID </label>  
+                  </div>
+                  <div class="col-md-9">
+                    <input type="text" class="form-control" formControlName='order_id'>
+                  </div>
+            
+             
+                </div>
+                
+                <div class="row col-12 form-group">
+                  <div class="col-md-3">
+                    <label style="margin-top: 8px;font-size: 11px;">Category</label>  
+                  </div>
+                  <div class="col-md-9">
+                    <input type="text" class="form-control" formControlName="model_type">
+                  </div>
+                 
+                </div>
+                
+             
+                <div class="row col-12 form-group" >
+                  <div class="col-md-3">
+                    <label style="margin-top: 8px;font-size: 11px;">Brand Name </label>  
+                  </div>
+                  <div class="col-md-9">
+                    <input type="text" class="form-control" formControlName='brand_name'>
+                  </div>
+                
+                </div>
+               
+                
+                <div class="row col-12 form-group">
+                  <div class="col-md-3">
+                    <label style="margin-top: 8px;font-size: 11px;">Catalog Number </label>  
+                  </div>
+                  <div class="col-md-9">
+                    <input type="text" class="form-control" formControlName='catalog_number'>
+                  </div>
+                
+                </div>
+               
+               
+                <div class="row col-12 form-group">
+                  <div class="col-md-3">
+                    <label style="margin-top: 8px;font-size: 11px;">Design  Number </label>  
+                  </div>
+                  <div class="col-md-9">
+                    <input type="text" class="form-control" formControlName='design_no'>
+                  </div>
+                
+                </div>
+                <div class="row col-12 form-group">
+                  <div class="col-md-3">
+                    <label style="margin-top: 8px;font-size: 11px;">Shade  Number </label>  
+                  </div>
+                  <div class="col-md-9">
+                    <input type="text" class="form-control" formControlName='shade_no'>
+                  </div>
+                
+                </div>
+                <div  class="form-group" formArrayName="order_lines" style="padding-top: 20px;">
+                <div class=" row col-12" *ngFor="let line of  getControls();let i=index" [formGroupName]="i">
+                  <div class="col-md-6">
+                  <label style="font-size: 11px;">Item Name</label>
+                  <input type="text" class="form-control" id="exampleFormControlSelect1" formControlName="item">
+                  </div>
+                  <div class="col-md-3">
+                    <label style="font-size: 11px;">Quantity</label>
+                    <input type="text" class="form-control" id="exampleFormControlSelect1" formControlName="count">
+                    </div>
+                    <div class="col-md-3">
+                      <label style="font-size: 7px;">Rate Per Mtr.(Tax included)</label>
+                      <input type="text" class="form-control" id="exampleFormControlSelect1" formControlName="rate_per_meter"  [(ngModel)]="searchword" (input)="Calculate($event.target.value,i)" >
+                      </div>
+                      
+                </div>
+              </div>
+                <br>
+                <div class="row col-12 form-group">
+                  <div class="col-md-6">
+                    <label>Total Amount. Rs. </label>  <input  [ngModel]="Total_Amount" type="text" class="form-control" formControlName='total_amount'>
+                  </div>
+                  <div class="col-md-6">
+                    <label>Grand Total Rs.</label>  
+                    <input type="text" class="form-control" formControlName='grand_total'>
+                  </div>
+                </div>
+  
+             
+                <br>
+              
+        
+                <div class="custom-control custom-checkbox" style="padding-top: 10px;">
+                    <input type="checkbox" class="custom-control-input" id="defaultUnchecked" formControlName="terms" [ngClass]="{ 'is-invalid': submitted && fval.delivery_date.errors }">
+                    <label class="custom-control-label" for="defaultUnchecked"><a href='/terms'>I agree terms and conditions</a></label>
+                    <div *ngIf="submitted && fval.terms.errors" class="invalid-feedback">
+                      <div *ngIf="fval.terms.errors.required">
+                        Agree terms and conditions is required 
+                      </div>
+                       
+                      </div>
+                </div>
+                <div class="form-group" style="padding-top: 20px;">
+                    <button type="submit" (click)="FabricFormsave()" class="btn btn-primary btn-block">Send Quotation</button>
+                </div>
+  
+  
+            </form>
+        </div>
+    </div>
+  </div> -->

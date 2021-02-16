@@ -1,0 +1,134 @@
+<div class="topnav" id="myTopnav">
+    <label>
+    <img class ="ulogo" src="../assets/img/logo Curve.png" >
+    </label>
+  <!--   
+    <a href="#about">About</a>
+    <a routerLink="/home" routerLinkActive="active">Home</a> -->
+    <button class="drop" href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</button>
+  </div>
+  
+  
+  <div id="mySidenav" class="sidenav" style="margin-top: 90px;">
+    <button  href="javascript:void(0)" class="closebtn" style="border: none;float: right;padding-top: 5px;padding-right: 5px;padding-bottom: 5px;" onclick="closeNav()">&times;</button>
+    <button class="drop"(click)="rourter('/adminhome','adminhome','home')" style ="cursor: pointer;width: 100%;">Home</button>
+    <button class="drop" (click)="rourter('/supplier_list','adminhome','home')" style ="cursor: pointer; width: 100%;">Supplier List</button>
+    <button class="drop" (click)="rourter('/buyers_list','adminhome','home')" style ="cursor: pointer; width: 100%;">Buyers List</button>
+    <button class="drop" (click)="rourter('/supplier_details','adminhome','home')" style ="cursor: pointer; width: 100%;" >Supplier Details</button>
+    <button class="drop" (click)="rourter('/order_details','adminhome','home')" style ="cursor: pointer; width: 100%;"  >Customer Orders</button>
+    <button class="drop"  (click)="rourter('/quotations','adminhome','home')" style ="cursor: pointer; width: 100%;"> Quotations</button>
+    <button class="drop"  (click)="rourter('/banner','adminhome','home')" style ="cursor: pointer; width: 100%;"> Banner list</button>
+    <button class="drop"  routerLinkActive="active"   style="cursor: initial; width: 100%;color: white;"> Labour list</button>
+    <button class="drop" (click)="rourter('/adminmachinelist','adminhome','home')" style ="cursor: pointer; width: 100%;">  Machine Supplier Details</button>
+    <button class="drop" (click)="rourter('/adminproduct','adminhome','home')">  Machine And Spare List</button>
+    <button class="drop"  (click)="rourter('/adminaccs','adminhome','home')"> ReadyMade And Accessories List</button>
+  </div>
+  
+  <h2></h2>
+  <p></p>
+  <div class="ico">
+    <span class="icon" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span>
+    </div>
+   
+  
+  
+    
+  <!-- <div class="sidebar">
+      <a  href="/adminhome">Home</a>
+      <a   href="/supplier_list">Supplier List</a>
+      <a   href="/buyers_list">Buyers List</a>
+      <a  class="active" href="/supplier_details">Supplier Details</a>
+      <a href="/order_details">Customer Orders</a>
+      <a href="/quotations"> Quotations</a>
+    </div>
+    -->
+  
+    <div class="container" style="padding-top: 100px;">
+      <h2 style="padding-bottom: 50px;" class="recentheading">Labour Details </h2>
+   
+  
+      <div class="container">
+          <div class="row">
+            <label>Search: &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;</label>
+            <input  class="form-control" id="myInput" type="text" placeholder="Search by below items"  [(ngModel)]="searchword" (input)="searchThis()" style="width: 60% !important;border-radius: 20px;">
+              <!-- <span class="mt-2">Search:</span>
+            <div class="col-md-6" >
+                
+               
+                <input style="border-radius: 20px;"  class="form-control" id="myInput" type="text" placeholder="Search by below items" >
+            </div>
+          
+         -->
+            
+        
+          </div>
+        </div>
+     
+    
+  
+      
+       <table class="table table-bordered table-striped mt-3">
+        <thead>
+          <tr>
+            
+            <th>Labour Id</th>
+            <th>Name</th>
+            <th>Gender</th>
+            <th>Place</th>
+            <th>State</th>
+            <th>District</th>
+            <th>Pincode</th>
+            <th>Phone Number 1</th>
+            <th>Phone Number 2</th>
+            <th>Email</th>
+            <th>Labour Type</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="myTable">
+          <tr *ngFor="let item of this.ProdList;let i=index;">
+              
+            <td>{{item['user_id']}}</td>
+            <td>{{item['cutsomer_name']}}</td>
+            <td>{{item['gender']}}</td>
+            <td>{{item['place']}}</td>
+            <td>{{item['state']}}</td>
+            <td>{{item['district']}}</td>
+            <td>{{item['pincode']}}</td>
+            <td>{{item['phone']}}</td>
+            <td>{{item['alternate_number']}}</td>
+            <td>{{item['email']}}</td>
+            <td>{{item['work_type']}}</td>
+            <td>{{item['status']}}</td>
+            <td>
+            
+              <a  (click)="deleteID(item['lid'],i)"  style="cursor: pointer;text-decoration: underline;color: #007e56 ;"><i class="fa fa-trash" style="font-size: 25px;"></i> </a>
+             
+            </td>
+          </tr>
+      
+     
+        
+        </tbody>
+      </table> 
+       
+  
+  <div *ngIf="this.Loader" class="loading">Loading&#8230;</div>
+  
+  <br><br>
+  <footer class="page-footer font-small blue">
+    
+    <!-- Copyright -->
+   
+    <div class="footer-copyright text-center py-3" >© 2020 Copyright:All Right Reserved &nbsp;&nbsp;&nbsp;
+      <a style="padding-right: 5px; cursor: pointer;"(click)="rourter('/terms','uniforms','supplier')" >Terms of Use - </a>
+      <a style="cursor: pointer;"(click)="rourter('/privacy','uniforms','supplier')" >Privacy Policy - </a>
+      <a style="cursor: pointer;"(click)="rourter('/contact','uniforms','supplier')" >Link to Us</a>
+    </div>
+   
+    <!-- Copyright -->
+  
+  </footer>
+  
+  
