@@ -41,19 +41,24 @@
         </button>
         <div *ngIf="!this.User_id" class="dropdown-content">
           <!-- <span>sdasdsdsfsdfd</span> -->
-          <button class="drop" (click)="rouerter('/login')" style="width: 100%;border: none;background: none;" routerLinkActive="active"> <i class="fa fa-sign-in" style="padding-right: 10px;"></i>Login</button>
+          <button class="drop" (click)="rouerter('/login')" style="width: 100%;border: none;background: none;" 
+          routerLinkActive="active"> <i class="fa fa-sign-in" style="padding-right: 10px;"></i>Login</button>
         </div>
         <div *ngIf="this.User_id" class="dropdown-content">
-          <button class="drop"  style="width: 100%;border: none;background: none;" routerLinkActive="active"> <i class="fa fa-toggle-on" style="padding-right: 10px;color: green;"></i> {{this.ProfileId}}</button>
-          <button class="drop"  style="width: 100%;border: none;background: none;"routerLinkActive="active" > <i class="fa fa-check" style="padding-right: 10px;color: green;"></i>{{this.ProfilePhone}}
+          <button class="drop"  style="width: 100%;border: none;background: none;" routerLinkActive="active"> 
+            <i class="fa fa-toggle-on" style="padding-right: 10px;color: green;"></i> {{this.ProfileId}}</button>
+          <button class="drop"  style="width: 100%;border: none;background: none;"routerLinkActive="active" > 
+            <i class="fa fa-check" style="padding-right: 10px;color: green;"></i>{{this.ProfilePhone}}
           <br>  <span style="font-size: 10px; padding-left: 10px;">(Verified)</span>
         </button>
           <!-- <button class="drop"  (click)="Router('/profile')" style="width: 100%;border: none;background: none;"routerLinkActive="active" > <i class="fa fa-mobile" style="padding-right: 10px;"></i>Download App</button> -->
          
-          <button class="drop" (click)="rouerter('/profile')" style="width: 100%;border: none;background: none;" routerLinkActive="active"> <i class="fa fa-pencil" style="padding-right: 10px;"></i>Edit Profile</button>
+          <button class="drop" (click)="rouerter('/profile')" style="width: 100%;border: none;background: none;"
+           routerLinkActive="active"> <i class="fa fa-pencil" style="padding-right: 10px;"></i>Edit Profile</button>
           <!-- <button class="drop"  (click)="Router('/profile')" style="width: 100%;border: none;background: none;"routerLinkActive="active" > <i class="fa fa-cog" style="padding-right: 10px;"></i>Settings</button> -->
           <!-- <button class="drop"  (click)="Router('/profile')" style="width: 100%;border: none;background: none;"routerLinkActive="active" > <i class="fa fa-mobile" style="padding-right: 10px;"></i>Download App</button> -->
-          <button class="drop"  (click)="LogOut()" style="width: 100%;border: none;background: none;"routerLinkActive="active" > <i class="fa fa-sign-out" style="padding-right: 10px;"></i>Log Out</button>
+          <button class="drop"  (click)="LogOut()" style="width: 100%;border: none;background: none;"routerLinkActive="active" >
+             <i class="fa fa-sign-out" style="padding-right: 10px;"></i>Log Out</button>
         </div>
       </div> 
 
@@ -92,8 +97,8 @@
     <div class="hero-wrapper">
         <div class="caption">
   
-          <ngb-carousel [showNavigationArrows]="true" [showNavigationIndicators]="true" interval="4000"
-          [keyboard]="true" [pauseOnHover]="true" [wrap]="true" style="z-index: -18;">
+          <ngb-carousel [showNavigationArrows]="false" [showNavigationIndicators]="false" interval="4000"
+          [keyboard]="false" [pauseOnHover]="false" [wrap]="false" style="z-index: -18;">
 
           <ng-template ngbSlide  id={{i}}  *ngFor="let item of this.Banners;let i=index" >
             <img class="s1" style="width: 100%; height: 30rem;" src="{{'http://api.uniconform.in'+''+item['banner_path']}}"
@@ -127,13 +132,13 @@
   
 <br>
 
-<div class="container">
   <div class="row">
   <div class="col-sm-12">
   
-  <h1 class="text-center banner" style="font-size: 23px">Smart,efficient and easiest way for all uniform needs.Meet the challanges of online era-without travelling</h1>
-  
-  </div>
+    <h1 class="text-center banner" style="font-size: 32px; text-align: justify;
+    text-justify: inter-word;"> Smart,efficient and easiest way for all uniform needs.</h1>
+    <h2 class="text-center banner" style="font-size: 24px; text-align: justify;
+     text-justify: inter-word;">Join hands with the fast changing world.</h2>
   </div>
   </div>
         <div class="container-fluid  mt-4 ">

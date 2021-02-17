@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
+import Swal from 'sweetalert2/dist/sweetalert2.js';
 
 @Component({
   selector: 'app-supplierlist',
@@ -75,4 +76,42 @@ export class SupplierlistComponent implements OnInit {
       this.Loader=false;
  }, 3000);
 }
+
+
+
+deleteID(id,path){
+  Swal.fire({
+    title: 'Are you sure?',
+    text: "You won't be able to revert this!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Yes, delete it!'
+  }).then((result) => {
+    if (result.isConfirmed) {
+    this.deleteconform(id,path);
+    }
+    
+  })
+
+
+}
+deleteconform(id,path){
+  this.http.post(environment.apiUrl + '/DelteMachiner',{mid:id}).subscribe(response => {
+    if(response['response']=='success'){
+      this.ProdList.splice(path,1)
+      Swal.fire(
+        'Deleted!',
+        'Your file has been deleted.',
+        'success'
+      )
+     
+    }
+    
+   
+  })
+
+}
+
 }

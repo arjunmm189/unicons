@@ -106,7 +106,7 @@
           <th>Place </th>
           <th>District</th>
           <th>State</th>
-          <th>Phone Number</th>
+          <!-- <th>Phone Number</th> -->
           <th>Email</th>
           <th>Registred Time</th>
       
@@ -114,20 +114,21 @@
         </tr>
       </thead>
       <tbody id="myTable">
-        <tr *ngFor="let item of  this.ProdList">
+        <tr *ngFor="let item of  this.ProdList; let i=path">
            
           <td>{{item['user_id']}}</td>
           <td>{{item['supplier_name']}}</td>
           <td>{{item['place']}}</td>
           <td>{{item['district']}}</td>
           <td>{{item['state']}}</td>
-          <td>{{item['phone_number']}}</td>
+          <!-- <td>{{item['phone_number']}}</td> -->
           <td>{{item['email']}}</td>
           <td>{{item['otp_cre_time'] | date}}</td>
           
          
           <td>
             <a (click)="rouerter('/viewuser',item['user_id'])" routerLinkActive="active"  style="cursor: pointer;text-decoration: underline;color: #007e56 ;">More Details </a>
+            <a (click)="deleteID(item['mid'],i)" routerLinkActive="active"  style="cursor: pointer;text-decoration: underline;color: #e65643 ; font-size:20px;"><i class="fa fa-trash-o"></i></a>
           </td>
         </tr>
     

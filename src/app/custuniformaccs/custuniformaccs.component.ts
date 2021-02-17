@@ -29,6 +29,8 @@ export class CustuniformaccsComponent implements OnInit {
       delivery_date: ['', Validators.required],
       item:['' , ],
       count:['',],
+      message:[''],
+      photo:['',],
     
       product_type: [localStorage.getItem('product_type')],
       prod_sub_type: [localStorage.getItem('sub_type')],
@@ -45,9 +47,21 @@ export class CustuniformaccsComponent implements OnInit {
     
   }
   get fval() { return this.fabricForm.controls; }
+
   processFile(event){
- 
+    if(this.fabricForm.get('photo').value.split(".")[1].toUpperCase() == "JPG" || this.fabricForm.get('photo').value.split(".")[1].toUpperCase() == "JPEG" || this.fabricForm.get('photo').value.split(".")[1].toUpperCase() == "PNG"  ){
+      this.SelectedFile = event.target.files[0]
+    }
+    else{
+      Swal.fire({
+        icon: 'error',
+        title: 'Sorry...',
+        text: 'Please upload file in these format only (jpg, jpeg, png)!',
+      })
+     
+    }
   }
+  
   LogOut(){
     localStorage.removeItem('userid');
 
@@ -68,6 +82,8 @@ export class CustuniformaccsComponent implements OnInit {
     uploadData.append('product_type',this.fabricForm.controls['product_type'].value);
     uploadData.append('prod_sub_type',this.fabricForm.controls['prod_sub_type'].value);
     uploadData.append('delivery_date',this.fabricForm.controls['delivery_date'].value);
+    uploadData.append('message',this.fabricForm.controls['message'].value);
+    uploadData.append('photo',this.fabricForm.controls['photo'].value);
     uploadData.append('user_id',this.fabricForm.controls['user_id'].value);
     uploadData.append('order_lines',JSON.stringify(this.fabricForm.controls['order_lines'].value));
 
@@ -88,7 +104,7 @@ export class CustuniformaccsComponent implements OnInit {
       
      
     })
-    },3000);
+    },1500);
   }
 
   selectChange(value){

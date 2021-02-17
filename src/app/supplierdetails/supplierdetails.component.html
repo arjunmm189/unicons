@@ -103,7 +103,7 @@
           <th>Product Sub Type</th>
           <th>State </th>
           <th>District</th>
-          <th>Pincode</th>
+          <!-- <th>Pincode</th> -->
       
           <th>Action</th>
         </tr>
@@ -119,13 +119,13 @@
           <td>{{item['prod_sub_type']}}</td>
           <td>{{item['state']}}</td>
           <td>{{item['district']}}</td>
-          <td>{{item['pincode']}}</td>
+          <!-- <td>{{item['pincode']}}</td> -->
          
           <td>
-            <a (click)="rouerter1('/adminsupplierorder',item['sid'],item['prod_sub_type'])" routerLinkActive="active"  style="cursor: pointer;text-decoration: underline;color: #007e56 ;">More Details </a>
+            <a (click)="rouerter1('/adminsupplierorder',item['sid'],item['prod_sub_type'])" routerLinkActive="active"  style="cursor: pointer;text-decoration: underline;color: #007e56 ; ">More Details</a>
           </td>
         </tr>
-    
+        <!-- <i class="fa fa-info-circle" aria-hidden="true"></i> -->
    
       
       </tbody>

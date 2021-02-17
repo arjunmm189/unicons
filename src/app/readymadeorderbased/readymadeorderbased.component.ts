@@ -89,7 +89,7 @@ export class ReadymadeorderbasedComponent implements OnInit {
       if(response['response']=='Data saved success fully'){
         Swal.fire({
           icon: 'success',
-          title: 'Success...',
+          title: 'Successfull...',
           text: "Your Requirement's  has been submitted successfully , Your Order will expire at   "+        this.fabricForm.get('delivery_date').value,
         })
     

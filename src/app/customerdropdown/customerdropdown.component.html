@@ -62,7 +62,7 @@
   <div class="container mt-5">
       <div class="card">
   
-          <h3 class="card-header text-center">Select Order Form Category</h3>
+          <h3 class="card-header text-center">Select a Category</h3>
           <div class="card-body">
               <form role="form" data-toggle="validator">
                 <!-- <p class="recentheading" style="text-align: center;color: brown;">Select Uniform Category</p> -->
@@ -75,9 +75,9 @@
                   
                     <select class="form-control" id="exampleFormControlSelect1" (change)="selectChange($event.target.value)">
                       <option value="Select Customized Uniforms" selected disabled>Select Customized Uniforms</option>
-                      <option value="fabric">Fabric Service Only</option>
-                      <option value="stitching">Stiching Service Only</option>
-                      <option value="fabricandstitching">Fabric and Stiching Service</option>
+                      <option value="fabric">Order Form (Fabric)</option>
+                      <option value="stitching">Order Form (Stitching)</option>
+                      <option value="fabricandstitching">Order Form (Fabric & Stitching)</option>
                     </select>
                   </div>
                 </div>

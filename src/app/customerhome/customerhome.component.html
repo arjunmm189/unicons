@@ -157,7 +157,7 @@
     <div class="caption">
 
 
-      <ngb-carousel [showNavigationArrows]="true" [showNavigationIndicators]="true" interval="4000" [keyboard]="true"
+      <ngb-carousel [showNavigationArrows]="false" [showNavigationIndicators]="false" interval="4000" [keyboard]="true"
         [pauseOnHover]="true" [wrap]="true" style="z-index: -18;">
 
         <ng-template ngbSlide id={{i}} *ngFor="let item of this.Banners;let i=index">
@@ -184,8 +184,11 @@
   <div class="row">
   <div class="col-sm-12">
   
-  <h1 class="text-center banner"style="font-size: 23px" > Smart,efficient and easiest way for all uniform needs.Meet the challanges of online era-without travelling</h1>
-  
+    <h1 class="text-center banner" style="font-size: 32px; text-align: justify;
+  text-justify: inter-word;"> Smart,efficient and easiest way for all uniform needs.</h1>
+  <h2 class="text-center banner" style="font-size: 24px; text-align: justify;
+   text-justify: inter-word;">Deal with the online Era.</h2>
+   
   </div>
   </div>
   </div>
@@ -266,7 +269,7 @@
 
     <div class="card" style="width: 15rem;height: 14rem;">
       <a (click)="Router('/quotatio','Customized Uniforms','Stitching')">
-        <img class="imges" src="../../assets/img/stitc.jpg" style="width: 13rem;height: 13rem;padding-top: 10px">
+        <img class="imges" src="../../assets/img/expired.jpg" style="width: 13rem;height: 13rem;padding-top: 10px">
         <div class="card-body">
           <!-- Expired Quotations -->
         </div>

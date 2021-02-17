@@ -25,11 +25,10 @@ export class HomeComponent implements OnInit {
   Banners: any;
  
 
-  constructor(private formBuilder: FormBuilder,private route: ActivatedRoute,private http:HttpClient,private router:Router) {
-
-    
-
-      }
+  constructor(private formBuilder: FormBuilder,
+        private route: ActivatedRoute,
+        private http:HttpClient,
+        private router:Router) { }
 
   ngOnInit(): void {
     this.getbannerimages();
@@ -91,7 +90,7 @@ export class HomeComponent implements OnInit {
   }
   getbannerimages(){
     
-    this.http.post(environment.apiUrl + '/getbannerimages',{type:'User banner'}).subscribe(response => {
+    this.http.post(`${environment.apiUrl}/getbannerimages`,{type:'User banner'}).subscribe(response => {
 
       this.Banners=response['product_dtls_list'];
     

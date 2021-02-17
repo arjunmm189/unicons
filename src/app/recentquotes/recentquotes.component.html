@@ -111,7 +111,7 @@
         <td>{{item['supplier_id']}}</td>
         <td>{{item['order_form_id']}}</td>
         <!-- <td>{{item['quotatit_id']}}</td> -->
-        <td *ngIf="!item['is_order_accepted']">None</td>
+        <td *ngIf="!item['is_order_accepted']">Not Viewed</td>
         <td *ngIf="item['is_order_accepted']">{{item['is_order_accepted']}}</td>
         <td>{{item['grand_total']}}</td>
         <td> <button class="button4" (click)="rouerter('quoteform',item['order_form_id'],item['prod_sub_type'],item['quatation_form_id'])">View</button></td>

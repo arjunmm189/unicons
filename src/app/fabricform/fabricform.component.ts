@@ -6,6 +6,7 @@ import { environment } from 'src/environments/environment';
 import { ToastrService } from 'ngx-toastr';
 import { DatePipe } from '@angular/common';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
+import $ from "jquery";
 
 @Component({
   selector: 'app-fabricform',
@@ -61,7 +62,9 @@ export class FabricformComponent implements OnInit {
   }
   get fval() { return this.fabricForm.controls; }
   processFile(event){
-    if(this.fabricForm.get('prod_image').value.split(".")[1].toUpperCase() == "JPG" || this.fabricForm.get('prod_image').value.split(".")[1].toUpperCase() == "JPEG" || this.fabricForm.get('prod_image').value.split(".")[1].toUpperCase() == "PNG"  ){
+    if(this.fabricForm.get('prod_image').value.split(".")[1].toUpperCase() == "JPG" || 
+    this.fabricForm.get('prod_image').value.split(".")[1].toUpperCase() == "JPEG" || 
+    this.fabricForm.get('prod_image').value.split(".")[1].toUpperCase() == "PNG"  ){
       this.SelectedFile = event.target.files[0]
     }
     else{
@@ -80,6 +83,7 @@ export class FabricformComponent implements OnInit {
     this.ShowProductdetals=true;
 
   }
+  
   FabricFormsave(){  
    
     this.submitted = true;
@@ -123,15 +127,17 @@ export class FabricformComponent implements OnInit {
         Swal.fire({
           icon: 'success',
           title: 'Success...',
-          text: "Your Requirement's  has been submitted successfully , Your Order will expire at   "+        this.fabricForm.get('delivery_date').value,
+          text: "Your Requirement's  has been submitted successfully , Your Order will expire at   "+   this.fabricForm.get('delivery_date').value,
         })
+        console.log(this.fabricForm.value);
+        
     
         this.router.navigate(['/customerhome'])
       }
       
      
     })
-    },3000);
+    },1500);
   }
 
   ImageSet(control: FormControl) {

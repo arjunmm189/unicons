@@ -106,17 +106,16 @@
      <table class="table table-bordered table-striped">
       <thead>
         <tr>
-          <th style="width: 50px;">User Id</th>
-         
+          <th style="width: 50px;">User Id</th>         
           <th style="width: 50px;">Name</th>
           <th style="width: 50px;"> Organization Name</th>
-          <th style="width: 50px;">Position</th>
+          <!-- <th style="width: 50px;">Position</th> -->
           <th style="width: 50px;">Place</th>
           <th style="width: 50px;">State</th>
           <th style="width: 50px;"> District</th>
-          <th style="width: 50px;">Pincode</th>
+          <!-- <th style="width: 50px;">Pincode</th> -->
           <th style="width: 50px;" >Phone Number</th>
-          <th style="width: 50px;">Phone Number2</th>
+          <!-- <th style="width: 50px;">Phone Number2</th> -->
       
           <th style="width: 50px;" >Email</th>
           
@@ -124,25 +123,24 @@
         </tr>
       </thead>
       <tbody id="myTable">
-        <tr *ngFor="let item of  this.ProdList">
+        <tr *ngFor="let item of  this.ProdList; let i=path;">
             
-          <td>{{item['user_id']}}</td>
-          
+          <td>{{item['user_id']}}</td>          
           <td>{{item['customer_name']}}</td>
           <td>{{item['organization_name']}}</td>
-          <td>{{item['designation']}}</td>
+          <!-- <td>{{item['designation']}}</td> -->
           <td>{{item['place']}}</td>
           <td>{{item['state']}}</td>
           <td>{{item['districtl']}}</td>
-          <td>{{item['pincode']}}</td>
+          <!-- <td>{{item['pincode']}}</td> -->
           <td>{{item['phone_number']}}</td>
-          <td>{{item['alternative_number']}}</td>
-          <td>{{item['email']}}</td>
-          
+          <!-- <td>{{item['alternative_number']}}</td> -->
+          <td>{{item['email']}}</td>       
           
          
           <td>
             <a (click)="rouerter('/customer_details',item['user_id'])" routerLinkActive="active"  style="cursor: pointer;text-decoration: underline;color: #007e56 ;">More Details </a>
+            <a (click)="deleteID(item['mid'],i)" routerLinkActive="active"  style="cursor: pointer;text-decoration: underline;color: #df2821 ;"><i class="fa fa-trash" style="font-size: 25px;"></i>   </a>
           </td>
         </tr>
     
