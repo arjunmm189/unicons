@@ -109,7 +109,7 @@
         </div>
     </div>
     <div class="col-md-4" >
-      <span class="mt-2">Sort by Pincode:</span>
+      <span class="mt-2">Sort by Area:</span>
       <br>
       <select class="form-control" id="sel1"   (change)="SelectPincodechnge($event.target.value,this.OrdeList)" style="border-radius: 20px;">
         <option value="All">All</option>
@@ -146,10 +146,10 @@
         </tr>
       </thead>
       <tbody id="myTable">
-        <tr   *ngFor="let orders of  this.OrdeList |filter:searchword as result" style="height: 208px;">
+        <tr   *ngFor="let orders of  this.OrdeList |filter:searchword as result" style="height: 73px;">
             
-          <td> <h2 *ngIf="orders['prod_sub_type']=='none'" class="card-title">{{orders['product_type']}}</h2>
-            <h2 *ngIf="orders['prod_sub_type']!='none'" class="card-title">{{orders['product_type']}}</h2></td>
+          <td> <h3 *ngIf="orders['prod_sub_type']=='none'" class="card-title">{{orders['product_type']}}</h3>
+               <h3 *ngIf="orders['prod_sub_type']!='none'" class="card-title">{{orders['product_type']}}</h3></td>
           <td>{{orders['prod_sub_type']}}</td>
           <td>{{orders['order_id']}}</td>
           <td>  <p  *ngIf="orders['category_type']=='US'"class="card-text">  School/Collage Uniforms</p>
