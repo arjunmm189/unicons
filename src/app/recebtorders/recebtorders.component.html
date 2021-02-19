@@ -139,7 +139,7 @@
             <th scope="col">SUPPLIER ID</th>
             <th scope="col">BUYER ID</th>
             <th scope="col">ORDER ID</th>
-            <th scope="col"> DATE</th>
+            <th scope="col"> DELIVERY DATE</th>
             <th scope="col">STATUS</th>
             <th scope="col">TOTAL</th>
             <!-- <th scope="col">ACTIVITY</th> -->
@@ -158,10 +158,8 @@
             <td>{{item['user_id']}}</td>
             <td>{{item['order_form_id']}}</td>
             <td>{{item['expiry_date'] | date:'dd MMM ,yyyy'}}</td>
-            <td> 
-            
-            <span *ngIf="item['is_order_accepted']=='Accepted Proposal'">Accepted By the Customer</span>
-          
+            <td>            
+            <span *ngIf="item['is_order_accepted']=='Accepted Proposal'">Accepted</span>          
             <td>{{item['grand_total']}}</td>
           
          

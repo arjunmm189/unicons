@@ -100,15 +100,7 @@
                       </div>
                 </div>
               </div>
-                  <div class="form-row" style="padding-top: 20px;">
-                    <div class="form-group col-md-6">
-                      <label for="inputCity">Number Of Labours</label>
-                   </div>
-                  <div class="form-group col-md-6">
-                    <input type="text" class="form-control" disabled id="inputLabours"   [(ngModel)]="total_num" formControlName="no_labours">
-                  </div>
-                  
-                </div>
+
          
                 <div class="form-row" >
                     <div class="form-group col-md-6">
@@ -131,22 +123,31 @@
                         </div>
                   </div>
                 </div>
+                <div class="form-row" style="padding-top: 20px;">
+                  <div class="form-group col-md-6">
+                    <label for="inputCity">Number Of Labours</label>
+                 </div>
+                <div class="form-group col-md-6">
+                  <input type="text" class="form-control" disabled id="inputLabours"   [(ngModel)]="total_num" formControlName="no_labours">
+                </div>
+                
+              </div>
                   <div  class="form-group" formArrayName="order_lines" style="padding-top: 20px;">
                     <div class="row"  *ngFor="let line of  getControls();let i=index" [formGroupName]="i">
                 
                         <div class="form-group col-md-6" >
                           <label for="inputState">Production Details Per Day</label>
                           <select id="inputProductCategory" class="form-control" formControlName="item"  [ngClass]="{'is-invalid': submitted && line.get('item').hasError('required')}">
-                            <option selected disabled>Choose Product Category</option>
+                            <option selected disabled>Choose Item</option>
+                            <option>Blazer</option>                            
+                            <option> Churidar</option>
+                            <option>Coat</option>
+                            <option>Lawyer's Gown Cover All</option> 
+                            <option>Midi</option>
                             <option>Pants</option>
                             <option>Shirt</option>
-                            <option>Midi</option>
                             <option>Shorts</option>
-                            <option>Coat</option>
-                             <option>Lawyer's Gown Cover All</option> 
                              <option>Work Wear Petrol Pumb</option> 
-                             <option>Blazer</option>
-                             <option> Churidar</option>
                           </select>
                           <div *ngIf="submitted && line.get('item').hasError('required')" class="has-error">
                              
@@ -160,7 +161,7 @@
                           <div class="row">
                             <div>
                               <label for="inputCity">Quantity (In Pcs) </label><span class="required">*</span>
-                              <input type="number" style="width: 267px" class="form-control" id="inputCity" placeholder="Quantity (In Meter)" formControlName="count" [ngClass]="{'is-invalid': submitted && line.get('count').hasError('required')}">
+                              <input type="number" style="width: 267px" class="form-control" id="inputCity" placeholder="Quantity " formControlName="count" [ngClass]="{'is-invalid': submitted && line.get('count').hasError('required')}">
                             </div>
                    
                             <div class="col-md-2" style="padding-top: 41px;">
