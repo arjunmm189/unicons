@@ -98,7 +98,7 @@ deleteID(id,path){
 
 }
 deleteconform(id,path){
-  this.http.post(environment.apiUrl + '/DelteMachiner',{mid:id}).subscribe(response => {
+  this.http.post(environment.apiUrl + '/DeleteSupplier',{sid:id}).subscribe(response => {
     if(response['response']=='success'){
       this.ProdList.splice(path,1)
       Swal.fire(

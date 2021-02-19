@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
+import Swal from 'sweetalert2/dist/sweetalert2.js';
 
 @Component({
   selector: 'app-contact',
@@ -40,9 +41,14 @@ export class ContactComponent implements OnInit {
  
    this.http.post(environment.apiUrl + '/mail',(this.fabricForm.value)).subscribe(response => {
     if(response['response']=='success'){
+     return;
+     console.log(this.fabricForm.value);
      
     }
-    
+    Swal.fire({
+      text: "You have successfully submitted...!",
+      icon: 'success',
+    })
    
   })
 
